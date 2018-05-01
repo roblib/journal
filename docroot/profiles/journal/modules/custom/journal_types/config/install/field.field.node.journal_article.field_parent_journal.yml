@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parent_journal
+    - node.type.journal
+    - node.type.journal_article
+id: node.journal_article.field_parent_journal
+field_name: field_parent_journal
+entity_type: node
+bundle: journal_article
+label: 'Parent Journal'
+description: 'Journal to which this article belongs'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      journal: journal
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

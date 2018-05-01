@@ -1,0 +1,20 @@
+uuid: cf82cc75-652c-48df-9c29-f4da393eeafd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_journal_description
+field_name: field_journal_description
+entity_type: node
+type: text
+settings:
+  max_length: 1024
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

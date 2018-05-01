@@ -1,0 +1,19 @@
+uuid: 5a010204-eb31-4558-848c-416cfd3f8226
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_journal_for_authors
+field_name: field_journal_for_authors
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

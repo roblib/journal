@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_article_editor_comments
+    - node.type.journal_article
+  module:
+    - text
+id: node.journal_article.field_article_editor_comments
+field_name: field_article_editor_comments
+entity_type: node
+bundle: journal_article
+label: 'Comments for the Editor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

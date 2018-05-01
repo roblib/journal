@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies: {  }
+id: journal_article_creator
+label: 'Article creator'
+weight: 11
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access panels in-place editing'
+  - 'access toolbar'
+  - 'administer panelizer node journal_article content'
+  - 'administer panelizer node journal_article layout'
+  - 'change layouts in place editing'
+  - 'create journal_article content'
+  - 'create url aliases'
+  - 'edit own journal_article content'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition review'
+  - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view journal_article revisions'
+  - 'view latest version'
+  - 'view own unpublished content'

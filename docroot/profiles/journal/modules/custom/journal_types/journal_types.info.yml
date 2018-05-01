@@ -1,0 +1,11 @@
+name: 'Journal Types'
+type: module
+description: 'Content types for scholarly content'
+core: 8.x
+package: 'Journal'
+dependencies:
+  - media
+  - entity_browser
+  - lightning_media
+  - lightning_media_image
+

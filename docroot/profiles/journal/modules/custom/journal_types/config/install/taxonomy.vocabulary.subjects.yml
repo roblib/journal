@@ -1,0 +1,9 @@
+uuid: 37c9e522-8f73-4bfd-9edb-fd8526a30024
+langcode: en
+status: true
+dependencies: {  }
+name: Subjects
+vid: subjects
+description: 'Subjects for article submissions.'
+hierarchy: 0
+weight: 0

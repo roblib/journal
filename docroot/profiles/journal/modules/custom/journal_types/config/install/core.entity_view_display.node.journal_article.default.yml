@@ -1,0 +1,122 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.journal_article.body
+    - field.field.node.journal_article.field_article_dc_rights
+    - field.field.node.journal_article.field_article_dc_source
+    - field.field.node.journal_article.field_article_dc_type
+    - field.field.node.journal_article.field_article_disciplines
+    - field.field.node.journal_article.field_article_editor_comments
+    - field.field.node.journal_article.field_article_issue
+    - field.field.node.journal_article.field_article_subjects
+    - field.field.node.journal_article.field_article_subtitle
+    - field.field.node.journal_article.field_journal_article_abstract
+    - field.field.node.journal_article.field_journal_article_keywords
+    - field.field.node.journal_article.field_parent_journal
+    - node.type.journal_article
+  module:
+    - text
+    - user
+id: node.journal_article.default
+targetEntityType: node
+bundle: journal_article
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_article_dc_rights:
+    weight: 108
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_article_dc_source:
+    weight: 107
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_article_dc_type:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_article_disciplines:
+    weight: 110
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_article_editor_comments:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_article_issue:
+    weight: 112
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_article_subjects:
+    weight: 109
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_article_subtitle:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_journal_article_abstract:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_journal_article_keywords:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_parent_journal:
+    weight: 111
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  scheduled_publication: true

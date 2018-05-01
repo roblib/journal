@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies: {  }
+id: journal_reviewer
+label: 'Journal reviewer'
+weight: 8
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'create field_article_issue'
+  - 'delete any journal content'
+  - 'edit any journal content'
+  - 'edit field_article_issue'
+  - 'edit own field_article_issue'
+  - 'use editorial transition archive'
+  - 'use editorial transition publish'
+  - 'use editorial transition review'
+  - 'use journal_article_submission transition create_new_draft'
+  - 'use journal_article_submission transition pass_peer_review'
+  - 'use journal_article_submission transition send_to_review'
+  - 'view any unpublished content'
+  - 'view latest version'

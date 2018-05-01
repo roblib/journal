@@ -1,0 +1,223 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.journal_article.body
+    - field.field.node.journal_article.field_article_dc_rights
+    - field.field.node.journal_article.field_article_dc_source
+    - field.field.node.journal_article.field_article_dc_type
+    - field.field.node.journal_article.field_article_disciplines
+    - field.field.node.journal_article.field_article_editor_comments
+    - field.field.node.journal_article.field_article_issue
+    - field.field.node.journal_article.field_article_subjects
+    - field.field.node.journal_article.field_article_subtitle
+    - field.field.node.journal_article.field_journal_article_abstract
+    - field.field.node.journal_article.field_journal_article_keywords
+    - field.field.node.journal_article.field_parent_journal
+    - node.type.journal_article
+  module:
+    - content_moderation
+    - datetime
+    - field_group
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_submission_metadata:
+      children:
+        - field_article_dc_type
+        - field_article_dc_source
+        - field_article_dc_rights
+      parent_name: ''
+      weight: 20
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: article-submission-metadata-fieldset
+        description: 'These specifications are based on the Dublin Core metadata set, an international standard used to describe journal content.'
+        required_fields: true
+      label: 'Submission Metadata'
+    group_additional_refinements:
+      children:
+        - field_article_subjects
+        - field_article_disciplines
+        - field_journal_article_keywords
+      parent_name: ''
+      weight: 20
+      format_type: fieldset
+      format_settings:
+        id: article-submission-additional-refinements-fieldset
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Additional Refinements'
+id: node.journal_article.default
+targetEntityType: node
+bundle: journal_article
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 121
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_article_dc_rights:
+    weight: 128
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_article_dc_source:
+    weight: 127
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_article_dc_type:
+    weight: 126
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_article_disciplines:
+    weight: 130
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_article_editor_comments:
+    weight: 124
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_article_issue:
+    weight: 133
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_article_subjects:
+    weight: 129
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_article_subtitle:
+    weight: 125
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_journal_article_abstract:
+    weight: 122
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_journal_article_keywords:
+    weight: 131
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_parent_journal:
+    weight: 132
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  scheduled_publication:
+    type: datetime_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 120
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

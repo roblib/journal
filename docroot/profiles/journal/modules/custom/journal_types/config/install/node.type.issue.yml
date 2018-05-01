@@ -1,0 +1,17 @@
+uuid: 6a064dd5-e6cd-46c2-a649-04d929387e86
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Issue
+type: issue
+description: 'Issue containing articles and supplementary content.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains journal_types.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function journal_types_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the journal_types module.
+    case 'help.page.journal_types':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Content types for scholarly content') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function journal_types_theme() {
+  return [
+    'journal_types' => [
+      'render element' => 'children',
+    ],
+  ];
+}
