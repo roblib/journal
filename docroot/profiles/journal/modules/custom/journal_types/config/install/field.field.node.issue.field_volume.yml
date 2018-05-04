@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_volume
+    - node.type.issue
+id: node.issue.field_volume
+field_name: field_volume
+entity_type: node
+bundle: issue
+label: Volume
+description: 'Usually a number but can be any text value to represent special publications.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
