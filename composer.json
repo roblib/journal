@@ -17,7 +17,8 @@
         "acquia/lightning": "~3.1.0",
         "drupal/address": "*",
         "drupal/field_group": "*",
-        "drupal/field_permissions": "*"
+        "drupal/field_permissions": "*",
+        "drupal/magazine_lite": "^1.1"
     },
     "repositories": {
         "drupal": {

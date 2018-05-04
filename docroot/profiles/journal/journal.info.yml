@@ -17,7 +17,7 @@ dependencies:
   - journal_editorial
 
 themes:
-  - bartik
+  - magazine_lite
   - seven
 
 base profile:
