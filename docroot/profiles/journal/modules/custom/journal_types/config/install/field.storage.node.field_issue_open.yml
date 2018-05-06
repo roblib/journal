@@ -3,8 +3,8 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_open
-field_name: field_open
+id: node.field_issue_open
+field_name: field_issue_open
 entity_type: node
 type: boolean
 settings: {  }

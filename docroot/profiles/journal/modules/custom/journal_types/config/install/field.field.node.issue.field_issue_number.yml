@@ -2,21 +2,21 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_year
+    - field.storage.node.field_issue_number
     - node.type.issue
-id: node.issue.field_year
-field_name: field_year
+id: node.issue.field_issue_number
+field_name: field_issue_number
 entity_type: node
 bundle: issue
-label: Year
-description: 'Publication year.'
-required: true
+label: Number
+description: 'Journal number. Must be an integer.'
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  min: 1900
-  max: 9999
+  min: null
+  max: null
   prefix: ''
   suffix: ''
 field_type: integer

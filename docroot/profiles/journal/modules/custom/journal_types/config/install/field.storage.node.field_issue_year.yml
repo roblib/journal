@@ -3,8 +3,8 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_number
-field_name: field_number
+id: node.field_issue_year
+field_name: field_issue_year
 entity_type: node
 type: integer
 settings:

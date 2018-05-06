@@ -2,10 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_volume
+    - field.storage.node.field_issue_volume
     - node.type.issue
-id: node.issue.field_volume
-field_name: field_volume
+id: node.issue.field_issue_volume
+field_name: field_issue_volume
 entity_type: node
 bundle: issue
 label: Volume

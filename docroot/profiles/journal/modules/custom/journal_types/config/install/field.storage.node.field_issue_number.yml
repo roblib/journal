@@ -3,14 +3,13 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_volume
-field_name: field_volume
+id: node.field_issue_number
+field_name: field_issue_number
 entity_type: node
-type: string
+type: integer
 settings:
-  max_length: 100
-  is_ascii: false
-  case_sensitive: false
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

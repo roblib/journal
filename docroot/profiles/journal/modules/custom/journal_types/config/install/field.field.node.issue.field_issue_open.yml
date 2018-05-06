@@ -2,10 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_open
+    - field.storage.node.field_issue_open
     - node.type.issue
-id: node.issue.field_open
-field_name: field_open
+id: node.issue.field_issue_open
+field_name: field_issue_open
 entity_type: node
 bundle: issue
 label: Open

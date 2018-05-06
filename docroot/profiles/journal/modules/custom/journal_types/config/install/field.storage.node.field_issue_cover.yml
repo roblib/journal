@@ -5,8 +5,8 @@ dependencies:
     - file
     - image
     - node
-id: node.field_cover
-field_name: field_cover
+id: node.field_issue_cover
+field_name: field_issue_cover
 entity_type: node
 type: image
 settings:

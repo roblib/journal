@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_cover
+    - field.storage.node.field_issue_cover
     - node.type.issue
   module:
     - image
-id: node.issue.field_cover
-field_name: field_cover
+id: node.issue.field_issue_cover
+field_name: field_issue_cover
 entity_type: node
 bundle: issue
 label: Cover
