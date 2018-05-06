@@ -9,5 +9,20 @@
 /docroot/themes/contrib
 /docroot/sites/default/files
 
+# Ignore Drupal webroot files pulled down by composer.  
+docroot/.csslintrc
+docroot/.editorconfig
+docroot/.eslintignore
+docroot/.eslintrc.json
+docroot/.gitattributes
+docroot/.ht.router.php
+docroot/.htaccess
+docroot/autoload.php
+docroot/index.php
+docroot/robots.txt
+docroot/sites/
+docroot/update.php
+docroot/web.config
+
 # Ignore Composer-managed dependencies.
 vendor/
