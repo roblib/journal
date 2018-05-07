@@ -18,7 +18,9 @@
         "drupal/address": "*",
         "drupal/field_group": "*",
         "drupal/field_permissions": "*",
-        "drupal/magazine_lite": "^1.1"
+        "drupal/magazine_lite": "^1.1",
+        "drupal/bibcite": "^1.0@alpha",
+        "drupal/entity_embed": "^1.0@beta"
     },
     "repositories": {
         "drupal": {

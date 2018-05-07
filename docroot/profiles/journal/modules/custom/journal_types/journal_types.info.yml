@@ -8,4 +8,5 @@ dependencies:
   - entity_browser
   - lightning_media
   - lightning_media_image
+  - journal_references
 

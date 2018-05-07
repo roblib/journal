@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - bibcite_entity
+    - entity_embed
+label: Reference
+id: article_inline_reference
+type_id: entity
+type_settings:
+  entity_type: bibcite_reference
+  bundles: {  }
+  display_plugins:
+    - 'entity_reference:entity_reference_label'
+  entity_browser: ''
+  entity_browser_settings:
+    display_review: false
+icon_uuid: ffe3314e-d1f6-48ce-8f5b-380566a574b8

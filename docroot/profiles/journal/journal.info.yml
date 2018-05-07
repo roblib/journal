@@ -13,12 +13,19 @@ dependencies:
   - entity_browser
   - menu_ui
   - lightning_media
+  - embed
+  - bibcite
+  - bibcite_bibtex
+  - bibcite_ris
+  - bibcite_import
+  - bibcite_endnote
+  - bibcite_marc
+  - bibcite_entity
   - journal_types
   - journal_editorial
-
+  - journal_references
 themes:
   - magazine_lite
   - seven
-
 base profile:
   name: lightning
