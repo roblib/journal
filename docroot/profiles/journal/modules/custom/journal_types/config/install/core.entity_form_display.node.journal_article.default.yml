@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_issue
-    - field.field.node.journal_article.field_article_references
     - field.field.node.journal_article.field_article_subjects
     - field.field.node.journal_article.field_article_subtitle
     - field.field.node.journal_article.field_journal_article_abstract
@@ -124,12 +123,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_article_references:
-    type: options_select
-    weight: 13
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_article_subjects:
     weight: 129
     settings:
