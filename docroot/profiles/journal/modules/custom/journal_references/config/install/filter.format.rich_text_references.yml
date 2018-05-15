@@ -7,7 +7,7 @@ dependencies:
     - footnotes
     - bibcite_footnotes
 name: 'Rich Text with References'
-format: rich_text
+format: rich_text_references
 weight: 1
 filters:
   filter_align:
