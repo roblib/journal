@@ -11,6 +11,13 @@ function journal_references_modules_installed(array $modules)
     \Drupal::service('lightning.content_roles')
       ->grantPermissions('creator', [
         'use text format rich_text_references',
+        'create bibcite_reference',
+        'create bibcite_contributor',
+        'create bibcite_keyword',
+        'delete own bibcite_keyword',
+        'edit own bibcite_keyword',
+        'delete own bibcite_reference',
+        'edit own bibcite_reference',
       ]);
   }
 }
