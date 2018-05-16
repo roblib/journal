@@ -1,0 +1,16 @@
+<?php
+
+function journal_references_modules_installed(array $modules)
+{
+  // Don't do anything during config sync.
+  if (\Drupal::isConfigSyncing()) {
+    return;
+  }
+
+  if (in_array('lightning_roles', $modules)) {
+    \Drupal::service('lightning.content_roles')
+      ->grantPermissions('creator', [
+        'use text format rich_text_references',
+      ]);
+  }
+}

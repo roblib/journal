@@ -9,7 +9,7 @@ _core:
   default_config_hash: 9NsZMidiaKu1nFkARTIZvwXrrguIh7oy8F0ejK5ZrnI
 name: 'Rich Text with References'
 format: rich_text_references
-weight: 1
+weight: -11
 filters:
   filter_align:
     id: filter_align

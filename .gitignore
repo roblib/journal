@@ -26,3 +26,10 @@ docroot/web.config
 
 # Ignore Composer-managed dependencies.
 vendor/
+
+# Ignore Emacs backup files
+*~
+\#*
+
+# Ignore PHPStorm project files
+.idea
