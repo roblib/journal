@@ -16,8 +16,8 @@ class RouteSubscriber extends RouteSubscriberBase {
   protected function alterRoutes(RouteCollection $collection)
   {
     // Change path '/user/login' to '/login'.
-    foreach (['bibcite_import.import', 'bibcite_import.populate'] as $route) {
-      if ($route = $collection->get($route)) {
+    foreach (['bibcite_import.populate', 'bibcite_import.import'] as $routename) {
+      if ($route = $collection->get($routename)) {
         $route->setRequirement('_permission', 'create bibcite_reference');
       }
     }
