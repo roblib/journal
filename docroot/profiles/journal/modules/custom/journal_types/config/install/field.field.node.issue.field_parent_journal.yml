@@ -4,17 +4,26 @@ dependencies:
   config:
     - field.storage.node.field_parent_journal
     - node.type.issue
+    - node.type.journal
+_core:
+  default_config_hash: Oif3jM0A5W_FliGMxYrHhX7625fzLnuGrPG-lLIZ2T4
 id: node.issue.field_parent_journal
 field_name: field_parent_journal
 entity_type: node
 bundle: issue
 label: 'Parent Journal'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:node'
-  handler_settings: {  }
+  handler_settings:
+    target_bundles:
+      journal: journal
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference
