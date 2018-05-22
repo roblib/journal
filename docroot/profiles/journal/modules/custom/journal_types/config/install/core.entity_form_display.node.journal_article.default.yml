@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.journal_article.body
+    - field.field.node.journal_article.field_article_contributors
     - field.field.node.journal_article.field_article_dc_rights
     - field.field.node.journal_article.field_article_dc_source
     - field.field.node.journal_article.field_article_dc_type
@@ -13,11 +14,9 @@ dependencies:
     - field.field.node.journal_article.field_article_subtitle
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
-    - field.field.node.journal_article.field_parent_journal
     - node.type.journal_article
   module:
     - content_moderation
-    - datetime
     - field_group
     - path
     - text
@@ -28,8 +27,8 @@ third_party_settings:
         - field_article_dc_type
         - field_article_dc_source
         - field_article_dc_rights
-      parent_name: ''
-      weight: 6
+      parent_name: group_technical_metadata
+      weight: 3
       format_type: fieldset
       format_settings:
         id: ''
@@ -42,8 +41,8 @@ third_party_settings:
         - field_article_subjects
         - field_article_disciplines
         - field_journal_article_keywords
-      parent_name: ''
-      weight: 5
+      parent_name: group_technical_metadata
+      weight: 4
       format_type: fieldset
       format_settings:
         id: article-submission-additional-refinements-fieldset
@@ -51,8 +50,83 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Additional Refinements'
+    group_article_info:
+      children:
+        - group_article_content
+        - group_article_contributors
+        - group_technical_metadata
+        - group_publication_state
+      parent_name: ''
+      weight: 3
+      format_type: tabs
+      format_settings:
+        id: journal-article-info-form-tabs
+        classes: ''
+        direction: vertical
+      label: 'Article Info'
+    group_article_content:
+      children:
+        - title
+        - field_article_subtitle
+        - field_journal_article_abstract
+        - body
+      parent_name: group_article_info
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: journal-article-content-form-tab
+        classes: ''
+        formatter: open
+        description: 'Abstract and article main body content'
+        required_fields: true
+      label: 'Article Content'
+    group_publication_state:
+      children:
+        - moderation_state
+        - field_article_issue
+        - status
+        - uid
+        - path
+      parent_name: group_article_info
+      weight: 23
+      format_type: tab
+      format_settings:
+        id: journal-article-publication-state-form
+        classes: ''
+        formatter: closed
+        description: 'Article publication info and state'
+        required_fields: true
+      label: 'Publication State'
+    group_technical_metadata:
+      children:
+        - field_article_editor_comments
+        - group_submission_metadata
+        - group_additional_refinements
+      parent_name: group_article_info
+      weight: 22
+      format_type: tab
+      format_settings:
+        id: journal-article-technical-metadata-tab-form
+        classes: ''
+        formatter: closed
+        description: 'Additional data to help categorize the article and make it indexable by search engines and aggregators.'
+        required_fields: true
+      label: 'Technical Metadata'
+    group_article_contributors:
+      children:
+        - field_article_contributors
+      parent_name: group_article_info
+      weight: 21
+      format_type: tab
+      format_settings:
+        id: journal-article-contributors-form-tab
+        classes: ''
+        formatter: closed
+        description: 'Add all of the article''s contributors'
+        required_fields: true
+      label: 'Article Contributors'
 _core:
-  default_config_hash: ZOFbtvY7lIIdI8erJYdbG7CZ3BY-BbalHcbCi_ByAAk
+  default_config_hash: 8v8Gk4MGTjwEJ_wCJnR9OPr8ueo9kDsicERTwJ4IygE
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -60,19 +134,22 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 12
+    weight: 3
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
     region: content
-  created:
-    type: datetime_timestamp
-    weight: 2
-    region: content
-    settings: {  }
+  field_article_contributors:
+    weight: 132
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_article_dc_rights:
     weight: 128
     settings:
@@ -107,7 +184,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_article_editor_comments:
-    weight: 14
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -115,7 +192,7 @@ content:
     type: text_textarea
     region: content
   field_article_issue:
-    weight: 17
+    weight: 11
     settings:
       match_operator: CONTAINS
       size: 60
@@ -133,7 +210,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_article_subtitle:
-    weight: 15
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -141,7 +218,7 @@ content:
     type: text_textfield
     region: content
   field_journal_article_abstract:
-    weight: 11
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -157,15 +234,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_parent_journal:
-    weight: 16
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   moderation_state:
     type: moderation_state_default
     weight: 9
@@ -174,20 +242,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
-  scheduled_publication:
-    type: datetime_default
-    weight: 7
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -195,14 +250,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 10
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
+    weight: 12
     region: content
     third_party_settings: {  }
   title:
@@ -215,11 +263,14 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  created: true
+  promote: true
+  sticky: true
