@@ -24,6 +24,7 @@ dependencies:
   - journal_types
   - journal_editorial
   - journal_references
+  - journal_site
 themes:
   - magazine_lite
   - seven
