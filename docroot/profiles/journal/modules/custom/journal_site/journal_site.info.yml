@@ -6,5 +6,7 @@ package: 'Journal'
 dependencies:
   - journal_references
   - journal_types
+  - bibcite_import
+
 
 
