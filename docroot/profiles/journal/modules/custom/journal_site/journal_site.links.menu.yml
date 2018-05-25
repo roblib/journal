@@ -12,10 +12,7 @@ journal_site.create_citation:
   title: 'Add a new citaiton'
   description: 'Create a citaiton directly.'
   menu_name: author-tasks
-  route_name: entity.bibcite_reference.add_form
-  #route_parameters:
-    # Hack to go to the list of types
-  #  bibcite_reference_type: 'book'
+  route_name: entity.bibcite_reference.add_page
 journal_site.add_contributor:
   title: 'Add contributor'
   description: 'Add authors and other contributors to include in your article heading.'
