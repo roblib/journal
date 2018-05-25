@@ -6,8 +6,8 @@ dependencies:
   module:
     - system
     - user
-#  theme:
-#    - magazine_lite
+  theme:
+    - magazine_lite
 id: authortasks
 theme: magazine_lite
 region: content
