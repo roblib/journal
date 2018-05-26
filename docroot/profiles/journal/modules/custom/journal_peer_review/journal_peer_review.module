@@ -7,23 +7,68 @@
  * @param array $modules
  */
 function journal_peer_review_modules_installed(array $modules) {
+  journal_peer_review_grant_field_permissions(
+    [
+      'create field_peer_reviewer' => [
+        'journal_reviewer',
+        'issue_reviewer',
+      ],
+      'edit field_peer_reviewer' => [
+        'journal_reviewer',
+        'issue_reviewer',
+      ],
+      'view field_peer_reviewer' => [
+        'journal_reviewer',
+        'issue_reviewer',
+      ],
+    ]);
+
+  $field = \Drupal\field\Entity\FieldConfig::loadByName('node', 'journal_article', 'field_article_contributors');
+  $storage = $field->getFieldStorageDefinition();
+  $storage->setThirdPartySetting('field_permissions', 'permission_type', 'custom');
+  $storage->save();
+
+  journal_peer_review_grant_field_permissions(
+    [
+      'create field_article_contributors' => [
+        'journal_creator',
+        'issue_creator',
+        'journal_article_creator',
+      ],
+      'edit own field_article_contributors' => [
+        'journal_creator',
+        'issue_creator',
+        'journal_article_creator',
+      ],
+      'edit field_article_contributors' => [
+        'issue_creator',
+        'issue_reviewer',
+        'journal_creator',
+        'journal_reviewer',
+      ],
+      'view own field_article_contributors' => [
+        'journal_article_creator',
+      ],
+      'view field_article_contributors' => [
+        'issue_creator',
+        'issue_reviewer',
+        'journal_creator',
+        'journal_reviewer',
+      ],
+    ]
+  );
+}
+
+/**
+ * Loop through the array and grant permissions for the specified roels on each field.
+ *
+ * @param $permissions
+ */
+function journal_peer_review_grant_field_permissions($permissions) {
   $role_storage = \Drupal::service('entity_type.manager')->getStorage('user_role');
-  $perms = [
-    'create field_peer_reviewer' => [
-      'journal_reviewer',
-      'issue_reviewer',
-    ],
-    'edit field_peer_reviewer' => [
-      'journal_reviewer',
-      'issue_reviewer',
-    ],
-    'view field_peer_reviewer' => [
-      'journal_reviewer',
-      'issue_reviewer',
-    ],
-  ];
   $roles = [];
-  foreach ($perms as $permission_name => $role_names) {
+
+  foreach ($permissions as $permission_name => $role_names) {
     foreach ($role_names as $role_name) {
       $roles[$role_name] = $role_storage->load($role_name);
       $roles[$role_name]->grantPermission($permission_name);
