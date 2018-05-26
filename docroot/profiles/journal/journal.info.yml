@@ -23,6 +23,7 @@ dependencies:
   - bibcite_entity
   - journal_types
   - journal_editorial
+  - journal_peer_review
   - journal_references
   - journal_site
 themes:
