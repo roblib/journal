@@ -13,16 +13,13 @@ class RouteSubscriber extends RouteSubscriberBase {
   /**
    * {@inheritdoc}
    */
-  protected function alterRoutes(RouteCollection $collection)
-  {
+  protected function alterRoutes(RouteCollection $collection) {
     foreach (['bibcite_import.populate', 'bibcite_import.import'] as $routename) {
       if ($route = $collection->get($routename)) {
         $route->setRequirement('_permission', 'create bibcite_reference');
       }
-    }
-    if ($route = $collection->get('entity.bibcite_reference.add_form')) {
-      //$route->setRequirement('_reference_add_access', TRUE);
-      $route->setRequirements([]);
+
+
     }
   }
 }
