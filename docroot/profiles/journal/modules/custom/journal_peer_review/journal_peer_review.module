@@ -1,5 +1,13 @@
 <?php
 
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Session\AccountProxy;
+use Drupal\Core\Field\EntityReferenceFieldItemList;
+use Drupal\user\Entity\User;
+
 /**
  * Workaround because custom field permissions are not exporting properly.
  * Limit who can view the 'assigned reviewer' field to only Journal and Issue reviewwers.
@@ -79,4 +87,39 @@ function journal_peer_review_grant_field_permissions($permissions) {
   foreach ($roles as $role) {
     $role->trustData()->save();
   }
+}
+
+/**
+ * Implements hook_node_access().
+ *
+ * @inheritdoc
+ */
+function journal_peer_review_node_access(NodeInterface $node, $op, AccountProxy $account) {
+
+  if ($node->bundle() != 'journal_article') {
+    return AccessResult::neutral();
+  }
+  // Pass-through if node is published as we are through the peer review process.
+  if ($node->isPublished()) {
+    return AccessResult::neutral();
+  }
+
+  // If user doesnot have article reviewer role, just pass through
+  // and let the standard Drupal access rules handle it.
+  if (!in_array('journal_article_reviewer', $account->getRoles())) {
+    return AccessResult::neutral();
+  }
+
+  $reviewers = $node->get('field_peer_reviewer');
+
+  if (!empty($reviewers) && is_a($reviewers, 'Drupal\Core\Field\EntityReferenceFieldItemList')) {
+    foreach($reviewers->referencedEntities() as $reviewer) {
+      if ($reviewer->getEntityTypeId() == 'user' && $reviewer->id() == $account->id()) {
+        // User is in the assigned reviewers list, so they can see the article.
+        return AccessResult::allowed();
+      }
+    }
+  }
+
+  return AccessResult::forbidden();
 }

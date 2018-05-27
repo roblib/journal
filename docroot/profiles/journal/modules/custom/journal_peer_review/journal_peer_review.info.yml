@@ -6,4 +6,5 @@ package: 'Journal'
 dependencies:
   - journal_types
   - journal_editorial
+  - field_permissions
 
