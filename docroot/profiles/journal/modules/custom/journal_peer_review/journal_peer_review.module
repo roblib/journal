@@ -8,6 +8,8 @@ use Drupal\Core\Session\AccountProxy;
 use Drupal\Core\Field\EntityReferenceFieldItemList;
 use Drupal\user\Entity\User;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\Core\Entity\Entity\EntityViewDisplay;
+
 /**
  * Implementation of hook_modules_installed().
  *
@@ -77,6 +79,15 @@ function journal_peer_review_modules_installed(array $modules) {
   ->setThirdPartySetting('field_group', 'group_publication_state', $pubstate_group)
   ->save();
 
+  // Add 'Peer Reviewers' field to the Entity View Display
+  $view_entity = EntityViewDisplay::load('node.journal_article.default');
+  $view_entity->setComponent('field_peer_reviewer', [
+    'type' => 'entity_reference_label',
+    'weight' => 5,
+    'region' => 'content',
+    'label' => 'above',
+    'settings' => ['link' => '1']])
+    ->save();
 }
 
 /**
