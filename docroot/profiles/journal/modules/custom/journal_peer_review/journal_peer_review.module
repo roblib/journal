@@ -9,6 +9,7 @@ use Drupal\Core\Field\EntityReferenceFieldItemList;
 use Drupal\user\Entity\User;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
+use Drupal\Core\Session\AccountInterface;
 
 /**
  * Implementation of hook_modules_installed().
@@ -117,7 +118,7 @@ function journal_peer_review_grant_field_permissions($permissions) {
  *
  * @inheritdoc
  */
-function journal_peer_review_node_access(NodeInterface $node, $op, AccountProxy $account) {
+function journal_peer_review_node_access(NodeInterface $node, $op, AccountInterface $account) {
 
   if ($node->bundle() != 'journal_article') {
     return AccessResult::neutral();

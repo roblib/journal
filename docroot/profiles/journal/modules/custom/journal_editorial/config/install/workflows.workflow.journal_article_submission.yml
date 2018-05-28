@@ -4,7 +4,9 @@ dependencies:
   config:
     - node.type.journal_article
   module:
-    - journal_editorial
+    - content_moderation
+_core:
+  default_config_hash: 5zWu6QfJNTG6xmoOYF8lZsrXBpK5vFGIqITwb3XaiXk
 id: journal_article_submission
 label: 'Article Submission'
 type: content_moderation
@@ -19,7 +21,7 @@ type_settings:
       published: false
       default_revision: false
       label: 'In editorial review'
-      weight: -8
+      weight: -7
     peer_review:
       published: false
       default_revision: false
@@ -29,7 +31,12 @@ type_settings:
       label: Published
       published: true
       default_revision: true
-      weight: -7
+      weight: -6
+    with_submitter:
+      published: false
+      default_revision: false
+      label: 'With submitter'
+      weight: -8
   transitions:
     create_new_draft:
       label: Submission
@@ -45,15 +52,27 @@ type_settings:
       from:
         - peer_review
       to: editorial_review
-      weight: -8
+      weight: -6
     publish:
       label: Publish
       to: published
-      weight: -7
+      weight: -5
       from:
         - draft
         - editorial_review
         - peer_review
+    respond_to_feedback:
+      label: 'Respond to feedback'
+      from:
+        - with_submitter
+      to: peer_review
+      weight: -7
+    reviewer_feedback:
+      label: 'Reviewer feedback'
+      from:
+        - peer_review
+      to: with_submitter
+      weight: -8
     send_to_review:
       label: 'Send to Review'
       from:
