@@ -8,6 +8,7 @@
 /docroot/profiles/contrib
 /docroot/themes/contrib
 /docroot/sites/default/files
+/docroot/modules
 
 # Ignore Drupal webroot files pulled down by composer.  
 docroot/.csslintrc
