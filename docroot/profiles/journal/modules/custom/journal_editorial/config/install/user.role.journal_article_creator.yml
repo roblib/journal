@@ -1,6 +1,8 @@
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: L-4iyIVMCJFEF02rovOHyogHk8d_3vmSwsfVoMFFPzo
 id: journal_article_creator
 label: 'Article creator'
 weight: 11
@@ -15,13 +17,29 @@ permissions:
   - 'administer panelizer node journal_article content'
   - 'administer panelizer node journal_article layout'
   - 'change layouts in place editing'
+  - 'create bibcite_contributor'
+  - 'create bibcite_keyword'
+  - 'create bibcite_reference'
+  - 'create field_article_contributors'
   - 'create journal_article content'
   - 'create url aliases'
+  - 'delete own bibcite_keyword'
+  - 'delete own bibcite_reference'
+  - 'edit own bibcite_keyword'
+  - 'edit own bibcite_reference'
+  - 'edit own field_article_contributors'
   - 'edit own journal_article content'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition review'
+  - 'use journal_article_submission transition create_new_draft'
+  - 'use journal_article_submission transition respond_to_feedback'
   - 'use text format rich_text'
+  - 'use text format rich_text_references'
   - 'view any unpublished content'
+  - 'view bibcite_contributor'
+  - 'view bibcite_keyword'
+  - 'view bibcite_reference'
   - 'view journal_article revisions'
   - 'view latest version'
+  - 'view own field_article_contributors'
   - 'view own unpublished content'

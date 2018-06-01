@@ -1,22 +1,42 @@
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 7yF5s2zvPnZrEI2azy2XGAAMyOP1TWDXrusgsWTgj-M
 id: issue_reviewer
 label: 'Issue reviewer'
 weight: 10
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'create bibcite_contributor'
+  - 'create bibcite_keyword'
+  - 'create bibcite_reference'
   - 'create field_article_issue'
+  - 'create field_peer_reviewer'
   - 'delete any issue content'
+  - 'delete own bibcite_keyword'
+  - 'delete own bibcite_reference'
   - 'edit any issue content'
+  - 'edit field_article_contributors'
   - 'edit field_article_issue'
+  - 'edit field_peer_reviewer'
+  - 'edit own bibcite_keyword'
+  - 'edit own bibcite_reference'
   - 'edit own field_article_issue'
   - 'use editorial transition archive'
   - 'use editorial transition publish'
   - 'use editorial transition review'
   - 'use journal_article_submission transition create_new_draft'
   - 'use journal_article_submission transition pass_peer_review'
+  - 'use journal_article_submission transition respond_to_feedback'
+  - 'use journal_article_submission transition reviewer_feedback'
   - 'use journal_article_submission transition send_to_review'
+  - 'use text format rich_text_references'
   - 'view any unpublished content'
+  - 'view bibcite_contributor'
+  - 'view bibcite_keyword'
+  - 'view bibcite_reference'
+  - 'view field_article_contributors'
+  - 'view field_peer_reviewer'
   - 'view latest version'

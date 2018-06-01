@@ -1,21 +1,35 @@
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: EmBmFZYh1ogVTFBHFiGnjzqYMmYwn7ecxNyIWCS2zBU
 id: journal_article_reviewer
 label: 'Article reviewer'
 weight: 12
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'create bibcite_contributor'
+  - 'create bibcite_keyword'
+  - 'create bibcite_reference'
   - 'create field_article_issue'
   - 'delete any journal_article content'
+  - 'delete own bibcite_keyword'
+  - 'delete own bibcite_reference'
   - 'edit any journal_article content'
   - 'edit field_article_issue'
+  - 'edit own bibcite_keyword'
+  - 'edit own bibcite_reference'
   - 'edit own field_article_issue'
   - 'use editorial transition archive'
   - 'use editorial transition publish'
   - 'use editorial transition review'
   - 'use journal_article_submission transition create_new_draft'
   - 'use journal_article_submission transition pass_peer_review'
+  - 'use journal_article_submission transition reviewer_feedback'
+  - 'use text format rich_text_references'
   - 'view any unpublished content'
+  - 'view bibcite_contributor'
+  - 'view bibcite_keyword'
+  - 'view bibcite_reference'
   - 'view latest version'

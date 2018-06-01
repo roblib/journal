@@ -1,6 +1,8 @@
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: WKxIr8aQ0FWUN8jomhSdGyRR04Bo_j7ZDX2UJYKB0es
 id: issue_creator
 label: 'Issue creator'
 weight: 9
@@ -15,10 +17,20 @@ permissions:
   - 'administer panelizer node issue content'
   - 'administer panelizer node issue layout'
   - 'change layouts in place editing'
+  - 'create bibcite_contributor'
+  - 'create bibcite_keyword'
+  - 'create bibcite_reference'
+  - 'create field_article_contributors'
   - 'create field_article_issue'
   - 'create issue content'
   - 'create url aliases'
+  - 'delete own bibcite_keyword'
+  - 'delete own bibcite_reference'
+  - 'edit field_article_contributors'
   - 'edit field_article_issue'
+  - 'edit own bibcite_keyword'
+  - 'edit own bibcite_reference'
+  - 'edit own field_article_contributors'
   - 'edit own field_article_issue'
   - 'edit own issue content'
   - 'use editorial transition create_new_draft'
@@ -27,7 +39,12 @@ permissions:
   - 'use journal_article_submission transition pass_peer_review'
   - 'use journal_article_submission transition send_to_review'
   - 'use text format rich_text'
+  - 'use text format rich_text_references'
   - 'view any unpublished content'
+  - 'view bibcite_contributor'
+  - 'view bibcite_keyword'
+  - 'view bibcite_reference'
+  - 'view field_article_contributors'
   - 'view issue revisions'
   - 'view latest version'
   - 'view own unpublished content'
