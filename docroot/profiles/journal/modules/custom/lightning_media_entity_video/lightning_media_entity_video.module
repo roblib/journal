@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Support for videos as media entities in Lightning.
+ */
+
+use Drupal\lightning_core\OverrideHelper as Override;
+use Drupal\lightning_media_entity_video\Plugin\media\Source\EntityVideo;
+
+/**
+ * Implements hook_media_source_info_alter().
+ */
+function lightning_media_entity_video_media_source_info_alter(array &$sources) {
+
+  Override::pluginClass($sources['video_file'], EntityVideo::class);
+}
