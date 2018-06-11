@@ -5,6 +5,8 @@ dependencies:
     - filter.format.rich_text_references
   module:
     - ckeditor
+_core:
+  default_config_hash: KqTCchugrVqIaMOHxRQ1WI9sdRXKR3DPmJM1J0X-MnQ
 format: rich_text_references
 editor: ckeditor
 settings:
@@ -38,6 +40,7 @@ settings:
         -
           name: Media
           items:
+            - media_browser
             - Blockquote
             - DrupalImage
         -
