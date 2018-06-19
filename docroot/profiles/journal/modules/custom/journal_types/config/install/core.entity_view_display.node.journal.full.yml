@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.journal.field_journal_abbrev
     - field.field.node.journal.field_journal_about_this
     - field.field.node.journal.field_journal_author_guidelines
@@ -28,10 +29,10 @@ dependencies:
     - user
 third_party_settings:
   panelizer:
-    enable: false
+    enable: true
     custom: false
     allow: false
-    default: journal_default_display
+    default: journal_view_with_issue_list
     displays:
       default:
         blocks:
@@ -327,43 +328,43 @@ third_party_settings:
         layout: layout_onecol
         layout_settings: {  }
         page_title: '[node:title]'
-        storage_type: ''
-        storage_id: ''
+        storage_type: panelizer_default
+        storage_id: 'node:journal:full:default'
         builder: ipe
         pattern: panelizer
-      journal_default_display:
+      journal_view_with_issue_list:
         blocks:
-          02602901-b5da-4f68-8aad-786421e86014:
+          f685a9ce-6414-4264-ba73-622e2871a7ad:
             id: 'entity_view:node'
             label: 'Entity view (Content)'
             provider: ctools
             label_display: visible
-            view_mode: teaser
+            view_mode: default
             region: top
             weight: 0
-            uuid: 02602901-b5da-4f68-8aad-786421e86014
+            uuid: f685a9ce-6414-4264-ba73-622e2871a7ad
             context_mapping:
               entity: '@panelizer.entity_context:entity'
-          97f2d8df-c2ef-4d5d-8133-16a703c8dbf1:
+          3e6ea56e-79ca-4053-a15b-3d391af5a8d7:
             id: 'views_block:journal_issue_list-journal_issue_list'
             label: ''
             provider: views
-            label_display: visible
+            label_display: '0'
             views_label: ''
             items_per_page: none
             region: bottom
             weight: 0
-            uuid: 97f2d8df-c2ef-4d5d-8133-16a703c8dbf1
+            uuid: 3e6ea56e-79ca-4053-a15b-3d391af5a8d7
             context_mapping: {  }
         id: panels_variant
-        uuid: 7b133c42-b593-4ed7-b467-86aef168c418
-        label: 'Journal Default Display'
+        uuid: d83ac352-2f2b-4dd5-b5ec-fc0b1e936a68
+        label: 'Journal View with Issue List'
         weight: 0
         layout: layout_twocol
         layout_settings: {  }
         page_title: ''
         storage_type: panelizer_default
-        storage_id: 'node:journal:default:journal_default_display'
+        storage_id: 'node:journal:full:journal_view_with_issue_list'
         pattern: panelizer
         builder: standard
         static_context: {  }
@@ -455,10 +456,10 @@ third_party_settings:
       label: 'For Librarians'
 _core:
   default_config_hash: WW8eJqBkQ8h2l_enz0Gfo1xAmFks7KejlmMr9hQn86s
-id: node.journal.default
+id: node.journal.full
 targetEntityType: node
 bundle: journal
-mode: default
+mode: full
 content:
   field_journal_abbrev:
     weight: 24

@@ -80,6 +80,8 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Identification
+_core:
+  default_config_hash: zP5ue526BFGXrK9UC6Db_1gRfk2LsFUsg7dVlfkafcE
 id: node.issue.default
 targetEntityType: node
 bundle: issue
@@ -138,13 +140,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_parent_journal:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 6
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
