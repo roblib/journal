@@ -338,7 +338,7 @@ third_party_settings:
             id: 'entity_view:node'
             label: 'Entity view (Content)'
             provider: ctools
-            label_display: visible
+            label_display: '0'
             view_mode: default
             region: top
             weight: 0
@@ -349,7 +349,7 @@ third_party_settings:
             id: 'views_block:journal_issue_list-journal_issue_list'
             label: ''
             provider: views
-            label_display: '0'
+            label_display: visible
             views_label: ''
             items_per_page: none
             region: bottom
@@ -455,7 +455,7 @@ third_party_settings:
         description: ''
       label: 'For Librarians'
 _core:
-  default_config_hash: WW8eJqBkQ8h2l_enz0Gfo1xAmFks7KejlmMr9hQn86s
+  default_config_hash: o9GPphm-0JRWma3hX75134CvGVfFxUh3rg4kEN2pYN8
 id: node.journal.full
 targetEntityType: node
 bundle: journal

@@ -20,9 +20,10 @@
         "drupal/entity": "~1.0beta3",
         "drupal/field_permissions": "*",
         "drupal/magazine_lite": "^1.1",
-        "drupal/bibcite": "^1.0@alpha", 
+        "drupal/bibcite": "^1.0@alpha",
+	"drupal/bibcite_footnotes": "^1.0@alpha",
         "drupal/footnotes": "^2.1",
-        "drupal/media_entity_video": "^2.0@alpha" 
+	"drupal/lightning_media_video_file": "^1.0@alpha"
     },
     "repositories": {
         "drupal": {
