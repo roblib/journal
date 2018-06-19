@@ -27,6 +27,7 @@ dependencies:
   - journal_peer_review
   - journal_references
   - journal_site
+  - journal_display
 themes:
   - magazine_lite
   - seven

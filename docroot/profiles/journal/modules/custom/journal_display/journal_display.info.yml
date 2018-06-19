@@ -1,0 +1,8 @@
+name: 'Journal Display'
+type: module
+description: 'Display configuration for scholarly content'
+core: 8.x
+package: 'Journal'
+dependencies:
+  - journal_types
+  
