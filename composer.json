@@ -23,7 +23,8 @@
         "drupal/bibcite": "^1.0@alpha",
 	"drupal/bibcite_footnotes": "^1.0@alpha",
         "drupal/footnotes": "^2.1",
-	"drupal/lightning_media_video_file": "^1.0@alpha"
+	"drupal/lightning_media_video_file": "^1.0@alpha",
+        "drupal/draggableviews": "^1.0"
     },
     "repositories": {
         "drupal": {

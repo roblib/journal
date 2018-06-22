@@ -10,10 +10,12 @@ dependencies:
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_issue
+    - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
     - field.field.node.journal_article.field_article_subtitle
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
+    - field.field.node.journal_article.field_parent_journal
     - node.type.journal_article
   module:
     - content_moderation
@@ -84,6 +86,7 @@ third_party_settings:
       children:
         - moderation_state
         - field_article_issue
+        - field_article_section
         - status
         - uid
         - path
@@ -126,7 +129,7 @@ third_party_settings:
         required_fields: true
       label: 'Article Contributors'
 _core:
-  default_config_hash: 8v8Gk4MGTjwEJ_wCJnR9OPr8ueo9kDsicERTwJ4IygE
+  default_config_hash: p3q_Q5I30Ug1gGQxS4aZScU1AMMEqg31b-G3BANRdtw
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -192,6 +195,15 @@ content:
     type: text_textarea
     region: content
   field_article_issue:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_article_section:
     weight: 11
     settings:
       match_operator: CONTAINS
@@ -272,5 +284,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_parent_journal: true
   promote: true
   sticky: true

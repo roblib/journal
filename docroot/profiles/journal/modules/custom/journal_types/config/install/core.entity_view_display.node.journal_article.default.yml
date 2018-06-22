@@ -10,10 +10,12 @@ dependencies:
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_issue
+    - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
     - field.field.node.journal_article.field_article_subtitle
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
+    - field.field.node.journal_article.field_parent_journal
     - node.type.journal_article
   module:
     - field_group
@@ -62,7 +64,7 @@ third_party_settings:
         - group_article_text
         - group_article_info
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: tabs
       format_settings:
         id: journal-article-tabs
@@ -70,7 +72,7 @@ third_party_settings:
         direction: horizontal
       label: Article
 _core:
-  default_config_hash: W4SiJVgoicPpzIXK18TkAGgsd_ohM-OLxJQCgZTLr8M
+  default_config_hash: nuoXqnPNP26DKnRT3heznHTyiizLO0VVjud60Us9-Cc
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -84,12 +86,12 @@ content:
     third_party_settings: {  }
     region: content
   content_moderation_control:
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_article_contributors:
-    weight: 2
+    weight: 3
     label: above
     settings:
       link: true
@@ -136,6 +138,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_article_section:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_article_subjects:
     weight: 12
     label: above
@@ -145,7 +155,7 @@ content:
     type: entity_reference_label
     region: content
   field_article_subtitle:
-    weight: 1
+    weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -167,9 +177,10 @@ content:
     type: entity_reference_label
     region: content
   links:
-    weight: 5
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_article_editor_comments: true
+  field_parent_journal: true
