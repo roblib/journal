@@ -13,6 +13,4 @@ function journal_display_theme() {
 
 function journal_display_preprocess_node__journal_article__toc_item(&$variables = []) {
   template_preprocess_node($variables);
-  print_r('got here');
-
 }
