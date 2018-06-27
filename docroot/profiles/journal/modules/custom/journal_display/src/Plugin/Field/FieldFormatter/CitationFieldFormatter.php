@@ -7,7 +7,12 @@ use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
-
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\bibcite_entity\Entity\Reference;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\bibcite\CitationStylerInterface;
 /**
  * Plugin implementation of the 'citation_field_formatter' formatter.
  *
@@ -19,7 +24,22 @@ use Drupal\Core\Form\FormStateInterface;
  *   }
  * )
  */
-class CitationFieldFormatter extends FormatterBase {
+class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPluginInterface {
+
+
+  /**
+   * The styler service.
+   *
+   * @var \Drupal\bibcite\CitationStylerInterface
+   */
+  protected $styler;
+
+  /**
+   * The configuration manager service.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface;
+   */
+  protected $config_factory;
 
   /**
    * {@inheritdoc}
@@ -34,6 +54,7 @@ class CitationFieldFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
+
     return [
       // Implement settings form.
     ] + parent::settingsForm($form, $form_state);
@@ -74,8 +95,43 @@ class CitationFieldFormatter extends FormatterBase {
   protected function viewValue(FieldItemInterface $item) {
     // The text value has no text format assigned to it, so the user input
     // should equal the output, including newlines.
+    //$reference = new Reference();
+ksm($this);
     return "This is the citation.";
     return nl2br(Html::escape($item->value));
   }
 
+
+  /**
+   * Constructs a FormatterBase object.
+   *
+   * @param string $plugin_id
+   *   The plugin_id for the formatter.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Field\FieldDefinitionInterface $field_definition
+   *   The definition of the field to which the formatter is associated.
+   * @param array $settings
+   *   The formatter settings.
+   * @param string $label
+   *   The formatter label display setting.
+   * @param string $view_mode
+   *   The view mode.
+   * @param array $third_party_settings
+   *   Any third party settings.
+   * @param ConfigFactoryInterface $config_factory
+   *   The configuration management service.
+   * @param CitationStylerInterface $styler
+   *   Citation styler.
+   */
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, ConfigFactoryInterface $config_factory, CitationStylerInterface $styler) {
+    $this->styler = $styler;
+    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
+  }
+
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static($plugin_id, $plugin_definition, $configuration['field_definition'], $configuration['settings'], $configuration['label'], $configuration['view_mode'], $configuration['third_party_settings'],
+      $container->get('config.factory'),
+      $container->get('bibcite.citation_styler'));
+  }
 }
