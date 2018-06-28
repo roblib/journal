@@ -18,7 +18,7 @@ use Drupal\bibcite\CitationStylerInterface;
  *
  * @FieldFormatter(
  *   id = "citation_field_formatter",
- *   label = @Translation("Citation field formatter"),
+ *   label = @Translation("Citation"),
  *   field_types = {
  *     "text_long"
  *   }
@@ -41,12 +41,19 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
    */
   protected $config_factory;
 
+
   /**
-   * {@inheritdoc}
+   * Defines the default settings for this plugin.
+   * Grabs the default citaiton style from the global Bibcite settings.
+   *
+   * @return array
+   *   A list of default settings, keyed by the setting name.
    */
   public static function defaultSettings() {
+    $config = \Drupal::config('bibcite.settings');
     return [
-      // Implement default settings.
+      'style' => $config->get('default_style'),
+      'omit_title' => FALSE,
     ] + parent::defaultSettings();
   }
 
@@ -54,9 +61,23 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
+    $csl_styles = $this->styler->getAvailableStyles();
+    $styles_options = array_map(function ($entity) {
+      /** @var \Drupal\bibcite\Entity\CslStyleInterface $entity */
+      return $entity->label();
+    }, $csl_styles);
 
     return [
       // Implement settings form.
+        'style' => [
+        '#type' => 'select',
+        '#title' => $this->t('Citation style'),
+        '#options' => $styles_options,
+        '#default_value' => $this->getSetting('style'),
+      ],
+        'omit_title' => [
+
+        ],
     ] + parent::settingsForm($form, $form_state);
   }
 
@@ -65,7 +86,14 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
    */
   public function settingsSummary() {
     $summary = [];
-    // Implement settings summary.
+    $csl_styles = $this->styler->getAvailableStyles();
+    $current_style = $this->getSetting('style');
+    $style_label = 'N/A';
+    if (!empty($csl_styles[$current_style])) {
+      $style_label = $csl_styles[$current_style]->get('label');
+    }
+
+    $summary[] = $this->t('Display the article citation using @style style', ['@style' => $style_label]);
 
     return $summary;
   }
@@ -97,6 +125,7 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
     // should equal the output, including newlines.
     //$reference = new Reference();
 ksm($this);
+
     return "This is the citation.";
     return nl2br(Html::escape($item->value));
   }
@@ -125,6 +154,7 @@ ksm($this);
    *   Citation styler.
    */
   public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, ConfigFactoryInterface $config_factory, CitationStylerInterface $styler) {
+    $this->config_factory = $config_factory;
     $this->styler = $styler;
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
   }
