@@ -13,6 +13,8 @@ use Drupal\bibcite_entity\Entity\Reference;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\bibcite\CitationStylerInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+
 /**
  * Plugin implementation of the 'citation_field_formatter' formatter.
  *
@@ -39,8 +41,12 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
    *
    * @var \Drupal\Core\Config\ConfigFactoryInterface;
    */
-  protected $config_factory;
+  protected $configFactory;
 
+  /**
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
 
   /**
    * Defines the default settings for this plugin.
@@ -124,9 +130,32 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
     // The text value has no text format assigned to it, so the user input
     // should equal the output, including newlines.
     //$reference = new Reference();
-ksm($this);
 
-    return "This is the citation.";
+   // $r = Reference::create(['type' => 'book', 'author' => $item->getEntity()->get('field_article_contributors')]);
+    //$r = entity_create('bibcite_reference', ['type' => 'book']);
+    $field_map = \Drupal::entityManager()->getFieldMap();
+    $node_field_map = $field_map['node'];
+    $article_entity = $item->getEntity();
+    $issue_entity_id = $article_entity->get('field_article_issue')->first()->getValue()['target_id'];
+
+    $issue_entity = $this->entityTypeManager->getStorage('node')->load($issue_entity_id);
+
+    $journal_entity_id = $article_entity->get('field_parent_journal')->first()->getValue()['target_id'];
+
+    $journal_entity = $this->entityTypeManager->getStorage('node')->load($journal_entity_id);
+
+    $r = Reference::create([
+      'type' => 'journal_article',
+      'author' => $article_entity->get('field_article_contributors')->getValue(),
+      'title' => $article_entity->get('title')->getValue(),
+      'bibcite_year' => $issue_entity->get('field_issue_year')->getValue(),
+      'bibcite_secondaary_title' => $journal_entity->get('title')->getValue(),
+      'bibcite_volume' => $issue_entity->get('field_issue_volume')->getValue(),
+
+    ]);
+    $output = $r->cite($this->getSetting('style'));
+    return $output;
+
     return nl2br(Html::escape($item->value));
   }
 
@@ -153,15 +182,17 @@ ksm($this);
    * @param CitationStylerInterface $styler
    *   Citation styler.
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, ConfigFactoryInterface $config_factory, CitationStylerInterface $styler) {
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, ConfigFactoryInterface $config_factory, CitationStylerInterface $styler, EntityTypeManagerInterface $entity_type_manager) {
     $this->config_factory = $config_factory;
     $this->styler = $styler;
+    $this->entityTypeManager = $entity_type_manager;
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
   }
 
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static($plugin_id, $plugin_definition, $configuration['field_definition'], $configuration['settings'], $configuration['label'], $configuration['view_mode'], $configuration['third_party_settings'],
       $container->get('config.factory'),
-      $container->get('bibcite.citation_styler'));
+      $container->get('bibcite.citation_styler'),
+      $container->get('entity_type.manager'));
   }
 }

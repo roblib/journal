@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.toc_item
+    - field.field.node.journal_article.body
+    - field.field.node.journal_article.field_article_contributors
+    - field.field.node.journal_article.field_article_dc_rights
+    - field.field.node.journal_article.field_article_dc_source
+    - field.field.node.journal_article.field_article_dc_type
+    - field.field.node.journal_article.field_article_disciplines
+    - field.field.node.journal_article.field_article_editor_comments
+    - field.field.node.journal_article.field_article_issue
+    - field.field.node.journal_article.field_article_section
+    - field.field.node.journal_article.field_article_subjects
+    - field.field.node.journal_article.field_article_subtitle
+    - field.field.node.journal_article.field_journal_article_abstract
+    - field.field.node.journal_article.field_journal_article_keywords
+    - field.field.node.journal_article.field_parent_journal
+    - field.field.node.journal_article.field_peer_reviewer
+    - node.type.journal_article
+  module:
+    - journal_display
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+_core:
+  default_config_hash: xFghkdLOAvJDUoshanvFtxyV9xucaPdZjWA7nwef1iY
+id: node.journal_article.toc_item
+targetEntityType: node
+bundle: journal_article
+mode: toc_item
+content:
+  field_journal_article_abstract:
+    type: citation_field_formatter
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      style: modern_language_association
+    third_party_settings: {  }
+hidden:
+  body: true
+  content_moderation_control: true
+  field_article_contributors: true
+  field_article_dc_rights: true
+  field_article_dc_source: true
+  field_article_dc_type: true
+  field_article_disciplines: true
+  field_article_editor_comments: true
+  field_article_issue: true
+  field_article_section: true
+  field_article_subjects: true
+  field_article_subtitle: true
+  field_journal_article_keywords: true
+  field_parent_journal: true
+  field_peer_reviewer: true
+  links: true

@@ -37,7 +37,7 @@ third_party_settings:
         description: ''
       label: Identification
 _core:
-  default_config_hash: qvX3YuRHun51jhB9YYZUHG32-tzwSQLhGZxZPJkWuY4
+  default_config_hash: enpwVAwbgMkzmbyNfr1y2MlqzmOXGtsyAUlaZWDVDfI
 id: node.issue.default
 targetEntityType: node
 bundle: issue
