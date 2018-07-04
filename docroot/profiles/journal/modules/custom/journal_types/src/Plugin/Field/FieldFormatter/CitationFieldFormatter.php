@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\journal_display\Plugin\Field\FieldFormatter;
+namespace Drupal\journal_types\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Field\FieldItemInterface;

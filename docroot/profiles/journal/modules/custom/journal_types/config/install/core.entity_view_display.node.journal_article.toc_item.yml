@@ -17,10 +17,8 @@ dependencies:
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
     - field.field.node.journal_article.field_parent_journal
-    - field.field.node.journal_article.field_peer_reviewer
     - node.type.journal_article
   module:
-    - journal_display
     - panelizer
     - user
 third_party_settings:
@@ -59,5 +57,4 @@ hidden:
   field_article_subtitle: true
   field_journal_article_keywords: true
   field_parent_journal: true
-  field_peer_reviewer: true
   links: true
