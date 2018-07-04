@@ -59,7 +59,7 @@ third_party_settings:
         - group_technical_metadata
         - group_publication_state
       parent_name: ''
-      weight: 3
+      weight: 0
       format_type: tabs
       format_settings:
         id: journal-article-info-form-tabs
@@ -88,7 +88,6 @@ third_party_settings:
         - field_article_issue
         - field_article_section
         - status
-        - uid
         - path
       parent_name: group_article_info
       weight: 23
@@ -129,7 +128,7 @@ third_party_settings:
         required_fields: true
       label: 'Article Contributors'
 _core:
-  default_config_hash: p3q_Q5I30Ug1gGQxS4aZScU1AMMEqg31b-G3BANRdtw
+  default_config_hash: iPzKCDzSrMpRmMYG5mz3DJpHujGl1iEp2jWn-wjCOx4
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -196,12 +195,9 @@ content:
     region: content
   field_article_issue:
     weight: 10
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_article_section:
     weight: 11
@@ -273,17 +269,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 13
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
 hidden:
   created: true
   field_parent_journal: true
   promote: true
   sticky: true
+  uid: true
