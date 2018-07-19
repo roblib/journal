@@ -20,9 +20,6 @@ settings:
   handler_settings:
     target_bundles:
       issue: issue
-    sort:
-      field: field_year
-      direction: DESC
     auto_create: true
     auto_create_bundle: ''
 field_type: entity_reference
