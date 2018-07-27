@@ -128,7 +128,7 @@ third_party_settings:
         required_fields: true
       label: 'Article Contributors'
 _core:
-  default_config_hash: iPzKCDzSrMpRmMYG5mz3DJpHujGl1iEp2jWn-wjCOx4
+  default_config_hash: z-YtyVjZM1VRxttInAtPT0TGf6WWiCF7o83RZ7hJ-Q4
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -201,12 +201,9 @@ content:
     region: content
   field_article_section:
     weight: 11
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_article_subjects:
     weight: 129

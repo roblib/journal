@@ -4,7 +4,9 @@ dependencies:
   config:
     - field.storage.node.field_article_section
     - node.type.journal_article
-    - taxonomy.vocabulary.subjects
+    - taxonomy.vocabulary.article_section
+_core:
+  default_config_hash: 0sIUcRFw83kW86YilCJ0wn5Zm5HcN5CcDKrYqDQYsGk
 id: node.journal_article.field_article_section
 field_name: field_article_section
 entity_type: node
@@ -19,10 +21,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      subjects: subjects
+      article_section: article_section
     sort:
       field: name
       direction: asc
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: article_section
 field_type: entity_reference
