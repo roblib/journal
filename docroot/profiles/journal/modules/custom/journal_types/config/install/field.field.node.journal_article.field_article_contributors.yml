@@ -4,12 +4,14 @@ dependencies:
   config:
     - field.storage.node.field_article_contributors
     - node.type.journal_article
+_core:
+  default_config_hash: 2t6wOpgXm8lQPtGPOzDiuqNCfoCdpAEwPwGkNFXeQIQ
 id: node.journal_article.field_article_contributors
 field_name: field_article_contributors
 entity_type: node
 bundle: journal_article
 label: 'Article Contributors'
-description: 'List of article contributors'
+description: 'List of article contributors. <a href="/bibcite/contributor/add">Add New Contributor</a>.'
 required: false
 translatable: false
 default_value: {  }
