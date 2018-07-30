@@ -140,7 +140,7 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
 
     $issue_entity = $this->entityTypeManager->getStorage('node')->load($issue_entity_id);
 
-    $journal_entity_id = $article_entity->get('field_parent_journal')->first()->getValue()['target_id'];
+    $journal_entity_id = $issue_entity->get('field_parent_journal')->first()->getValue()['target_id'];
 
     $journal_entity = $this->entityTypeManager->getStorage('node')->load($journal_entity_id);
 
