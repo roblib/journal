@@ -1,33 +1,64 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'The editor user with greatest permissions to create and delete all types of content and users.'
+_core:
+  default_config_hash: VtgV2uF_5MIt2tWKWLTmM7L7Pga4VL8XLDc9_qmMh3c
 id: journal_creator
-label: 'Journal creator'
+label: 'Journal editor'
 weight: 7
 is_admin: null
 permissions:
+  - 'access content overview'
   - 'access contextual links'
   - 'access image_browser entity browser pages'
   - 'access in-place editing'
+  - 'access media overview'
   - 'access media_browser entity browser pages'
   - 'access panels in-place editing'
   - 'access toolbar'
+  - 'administer media'
   - 'administer panelizer node journal content'
   - 'administer panelizer node journal layout'
+  - 'administer users'
   - 'change layouts in place editing'
+  - 'create bibcite_contributor'
+  - 'create bibcite_keyword'
+  - 'create bibcite_reference'
+  - 'create field_article_contributors'
   - 'create field_article_issue'
+  - 'create field_peer_reviewer'
   - 'create journal content'
   - 'create url aliases'
+  - 'delete any journal content'
+  - 'delete own bibcite_keyword'
+  - 'delete own bibcite_reference'
+  - 'edit field_article_contributors'
   - 'edit field_article_issue'
+  - 'edit field_peer_reviewer'
+  - 'edit own bibcite_keyword'
+  - 'edit own bibcite_reference'
+  - 'edit own field_article_contributors'
   - 'edit own field_article_issue'
   - 'edit own journal content'
+  - 'use editorial transition archive'
   - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
   - 'use editorial transition review'
   - 'use journal_article_submission transition create_new_draft'
   - 'use journal_article_submission transition pass_peer_review'
   - 'use journal_article_submission transition send_to_review'
   - 'use text format rich_text'
+  - 'use text format rich_text_references'
   - 'view any unpublished content'
+  - 'view bibcite_contributor'
+  - 'view bibcite_keyword'
+  - 'view bibcite_reference'
+  - 'view field_article_contributors'
   - 'view journal revisions'
   - 'view latest version'
   - 'view own unpublished content'
