@@ -23,16 +23,16 @@ function journal_peer_review_modules_installed(array $modules) {
   journal_peer_review_grant_field_permissions(
     [
       'create field_peer_reviewer' => [
-        'journal_reviewer',
-        'issue_reviewer',
+        'journal_editor',
+        'issue_editor',
       ],
       'edit field_peer_reviewer' => [
-        'journal_reviewer',
-        'issue_reviewer',
+        'journal_editor',
+        'issue_editor',
       ],
       'view field_peer_reviewer' => [
-        'journal_reviewer',
-        'issue_reviewer',
+        'journal_editor',
+        'issue_editor',
       ],
     ]);
 
@@ -44,29 +44,25 @@ function journal_peer_review_modules_installed(array $modules) {
   journal_peer_review_grant_field_permissions(
     [
       'create field_article_contributors' => [
-        'journal_creator',
-        'issue_creator',
+        'journal_editor',
+        'issue_editor',
         'journal_article_creator',
       ],
       'edit own field_article_contributors' => [
-        'journal_creator',
-        'issue_creator',
+        'journal_editor',
+        'issue_editor',
         'journal_article_creator',
       ],
       'edit field_article_contributors' => [
-        'issue_creator',
-        'issue_reviewer',
-        'journal_creator',
-        'journal_reviewer',
-      ],
+        'issue_editor',
+        'journal_editor',
+              ],
       'view own field_article_contributors' => [
         'journal_article_creator',
       ],
       'view field_article_contributors' => [
-        'issue_creator',
-        'issue_reviewer',
-        'journal_creator',
-        'journal_reviewer',
+        'issue_editor',
+        'journal_editor',
       ],
     ]
   );

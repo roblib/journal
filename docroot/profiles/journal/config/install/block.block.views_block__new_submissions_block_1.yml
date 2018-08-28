@@ -32,8 +32,8 @@ visibility:
     id: user_role
     roles:
       administrator: administrator
-      journal_reviewer: journal_reviewer
-      issue_reviewer: issue_reviewer
+      journal_editor: journal_editor
+      issue_editor: issue_editor
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
