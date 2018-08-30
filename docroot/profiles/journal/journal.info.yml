@@ -13,7 +13,6 @@ dependencies:
   - entity_browser
   - menu_ui
   - lightning_media
-  - lightning_media_video_file
   - embed
   - bibcite
   - bibcite_bibtex

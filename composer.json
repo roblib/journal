@@ -22,8 +22,7 @@
         "drupal/magazine_lite": "^1.1",
         "drupal/bibcite": "^1.0@alpha",
 	"drupal/bibcite_footnotes": "^1.0@alpha",
-        "drupal/footnotes": "^2.1",
-	"drupal/lightning_media_video_file": "^1.0@alpha",
+        "drupal/footnotes": "^2.1", 
         "drupal/draggableviews": "^1.0"
     },
     "repositories": {
