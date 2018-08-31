@@ -151,6 +151,9 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
       'bibcite_year' => $issue_entity->get('field_issue_year')->getValue(),
       'bibcite_secondaary_title' => $journal_entity->get('title')->getValue(),
       'bibcite_volume' => $issue_entity->get('field_issue_volume')->getValue(),
+      'bibcite_number' => $issue_entity->get('field_issue_number')->getValue(),
+      'bibcite_type_of_work' => 'Journal article',
+
 
     ]);
     $output = $r->cite($this->getSetting('style'));
