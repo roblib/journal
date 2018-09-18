@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_affiliation_contributor
+    - paragraphs.paragraphs_type.author_with_affiliation
+id: paragraph.author_with_affiliation.field_affiliation_contributor
+field_name: field_affiliation_contributor
+entity_type: paragraph
+bundle: author_with_affiliation
+label: Contributor
+description: 'The contributor(s) to link to this affiliation.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:bibcite_contributor'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: last_name
+      direction: ASC
+    auto_create: false
+field_type: entity_reference
