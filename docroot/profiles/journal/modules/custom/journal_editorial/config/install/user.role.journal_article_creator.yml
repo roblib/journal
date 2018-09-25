@@ -7,7 +7,7 @@ third_party_settings:
   lightning_core:
     description: 'Article submitters, able to submit content for review and edit their own submitted content. They can also add contributors and references for use in their own articles.'
 _core:
-  default_config_hash: C6Em4IYsr3k9BnH-AFc2RJlUQNu90H472Y9lCx7dYVo
+  default_config_hash: iXSH2eBnGNMEL950VCey9jsoHIvj9fxYkpgO0t2kcZ0
 id: journal_article_creator
 label: Author
 weight: 11
@@ -25,19 +25,27 @@ permissions:
   - 'create bibcite_contributor'
   - 'create bibcite_keyword'
   - 'create bibcite_reference'
+  - 'create field_affiliation_contributor'
+  - 'create field_affiliation_string'
   - 'create field_article_contributors'
+  - 'create field_authors_and_affiliations'
   - 'create journal_article content'
   - 'create url aliases'
   - 'delete own bibcite_keyword'
   - 'delete own bibcite_reference'
   - 'edit own bibcite_keyword'
   - 'edit own bibcite_reference'
+  - 'edit own field_affiliation_contributor'
+  - 'edit own field_affiliation_string'
   - 'edit own field_article_contributors'
+  - 'edit own field_authors_and_affiliations'
   - 'edit own journal_article content'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition review'
   - 'use journal_article_submission transition create_new_draft'
   - 'use journal_article_submission transition respond_to_feedback'
+  - 'use moderation sidebar'
+  - 'use text format links_only'
   - 'use text format rich_text'
   - 'use text format rich_text_references'
   - 'view any unpublished content'
@@ -46,5 +54,8 @@ permissions:
   - 'view bibcite_reference'
   - 'view journal_article revisions'
   - 'view latest version'
+  - 'view own field_affiliation_contributor'
+  - 'view own field_affiliation_string'
   - 'view own field_article_contributors'
+  - 'view own field_authors_and_affiliations'
   - 'view own unpublished content'
