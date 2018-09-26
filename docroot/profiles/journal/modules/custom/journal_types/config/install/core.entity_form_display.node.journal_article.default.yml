@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.journal_article.field_authors_and_affiliations
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
-    - field.field.node.journal_article.field_parent_journal
     - node.type.journal_article
   module:
     - content_moderation
