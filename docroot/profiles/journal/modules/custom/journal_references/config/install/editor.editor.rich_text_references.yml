@@ -6,7 +6,7 @@ dependencies:
   module:
     - ckeditor
 _core:
-  default_config_hash: KqTCchugrVqIaMOHxRQ1WI9sdRXKR3DPmJM1J0X-MnQ
+  default_config_hash: _bQj34qI6JE7CSYRCWsD1GYIlmbipaqGyzY9MHJHRP0
 format: rich_text_references
 editor: ckeditor
 settings:
@@ -42,7 +42,6 @@ settings:
           items:
             - media_browser
             - Blockquote
-            - DrupalImage
         -
           name: Tools
           items:
@@ -52,10 +51,10 @@ settings:
             - Language
             - Maximize
   plugins:
-    stylescombo:
-      styles: ''
     language:
       language_list: un
+    stylescombo:
+      styles: ''
 image_upload:
   status: false
   scheme: public
