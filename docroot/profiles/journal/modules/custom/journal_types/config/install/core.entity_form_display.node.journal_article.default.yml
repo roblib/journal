@@ -3,34 +3,33 @@ status: true
 dependencies:
   config:
     - field.field.node.journal_article.body
-    - field.field.node.journal_article.field_article_contributors
     - field.field.node.journal_article.field_article_dc_rights
     - field.field.node.journal_article.field_article_dc_source
-    - field.field.node.journal_article.field_article_dc_type
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_issue
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
     - field.field.node.journal_article.field_article_subtitle
+    - field.field.node.journal_article.field_article_type
+    - field.field.node.journal_article.field_authors_and_affiliations
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
-    - field.field.node.journal_article.field_parent_journal
     - node.type.journal_article
   module:
     - content_moderation
     - field_group
+    - paragraphs
     - path
     - text
 third_party_settings:
   field_group:
     group_submission_metadata:
       children:
-        - field_article_dc_type
         - field_article_dc_source
         - field_article_dc_rights
       parent_name: group_technical_metadata
-      weight: 3
+      weight: 169
       format_type: fieldset
       format_settings:
         id: ''
@@ -44,7 +43,7 @@ third_party_settings:
         - field_article_disciplines
         - field_journal_article_keywords
       parent_name: group_technical_metadata
-      weight: 4
+      weight: 170
       format_type: fieldset
       format_settings:
         id: article-submission-additional-refinements-fieldset
@@ -101,6 +100,7 @@ third_party_settings:
       label: 'Publication State'
     group_technical_metadata:
       children:
+        - field_article_type
         - field_article_editor_comments
         - group_submission_metadata
         - group_additional_refinements
@@ -116,7 +116,7 @@ third_party_settings:
       label: 'Technical Metadata'
     group_article_contributors:
       children:
-        - field_article_contributors
+        - field_authors_and_affiliations
       parent_name: group_article_info
       weight: 21
       format_type: tab
@@ -128,7 +128,7 @@ third_party_settings:
         required_fields: true
       label: 'Article Contributors'
 _core:
-  default_config_hash: z-YtyVjZM1VRxttInAtPT0TGf6WWiCF7o83RZ7hJ-Q4
+  default_config_hash: QY-9bWjs2v2MVxQtbL3zdPvKGToGouSYQpmkJtLyVMc
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -142,15 +142,6 @@ content:
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
-    region: content
-  field_article_contributors:
-    weight: 132
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_article_dc_rights:
     weight: 128
@@ -168,14 +159,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_article_dc_type:
-    weight: 126
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_article_disciplines:
     weight: 130
     settings:
@@ -186,7 +169,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_article_editor_comments:
-    weight: 2
+    weight: 168
     settings:
       rows: 5
       placeholder: ''
@@ -221,6 +204,24 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textfield
+    region: content
+  field_article_type:
+    weight: 167
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_authors_and_affiliations:
+    type: entity_reference_paragraphs
+    weight: 173
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   field_journal_article_abstract:
     weight: 2

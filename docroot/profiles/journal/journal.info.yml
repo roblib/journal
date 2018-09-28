@@ -13,7 +13,6 @@ dependencies:
   - entity_browser
   - menu_ui
   - lightning_media
-  - lightning_media_video_file
   - embed
   - bibcite
   - bibcite_bibtex
@@ -23,6 +22,7 @@ dependencies:
   - bibcite_marc
   - bibcite_entity
   - journal_types
+  - journal_news
   - journal_editorial
   - journal_peer_review
   - journal_references

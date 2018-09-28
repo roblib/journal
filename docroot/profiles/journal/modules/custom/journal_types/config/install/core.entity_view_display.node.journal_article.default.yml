@@ -3,23 +3,24 @@ status: true
 dependencies:
   config:
     - field.field.node.journal_article.body
-    - field.field.node.journal_article.field_article_contributors
     - field.field.node.journal_article.field_article_dc_rights
     - field.field.node.journal_article.field_article_dc_source
-    - field.field.node.journal_article.field_article_dc_type
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_issue
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
     - field.field.node.journal_article.field_article_subtitle
+    - field.field.node.journal_article.field_article_type
+    - field.field.node.journal_article.field_authors_and_affiliations
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
-    - field.field.node.journal_article.field_parent_journal
     - node.type.journal_article
   module:
     - field_group
+    - options
     - panelizer
+    - paragraphs
     - text
     - user
 third_party_settings:
@@ -35,7 +36,6 @@ third_party_settings:
         - field_article_subjects
         - field_article_dc_rights
         - field_article_dc_source
-        - field_article_dc_type
         - field_journal_article_keywords
       parent_name: group_article
       weight: 15
@@ -72,7 +72,7 @@ third_party_settings:
         direction: horizontal
       label: Article
 _core:
-  default_config_hash: nuoXqnPNP26DKnRT3heznHTyiizLO0VVjud60Us9-Cc
+  default_config_hash: xFghkdLOAvJDUoshanvFtxyV9xucaPdZjWA7nwef1iY
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -86,18 +86,10 @@ content:
     third_party_settings: {  }
     region: content
   content_moderation_control:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_article_contributors:
-    weight: 3
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_article_dc_rights:
     weight: 13
     label: above
@@ -108,14 +100,6 @@ content:
     region: content
   field_article_dc_source:
     weight: 14
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_article_dc_type:
-    weight: 15
     label: above
     settings:
       link_to_entity: false
@@ -160,6 +144,20 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_article_type:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_authors_and_affiliations:
+    type: paragraph_summary
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
     region: content
   field_journal_article_abstract:
     weight: 1

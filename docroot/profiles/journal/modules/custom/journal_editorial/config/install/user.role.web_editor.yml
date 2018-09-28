@@ -1,11 +1,16 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'Able to create and edit non-scholarly site content.'
 _core:
-  default_config_hash: WKxIr8aQ0FWUN8jomhSdGyRR04Bo_j7ZDX2UJYKB0es
-id: issue_creator
-label: 'Issue creator'
-weight: 9
+  default_config_hash: 61vMqlNzVtnQsgHXvIukUBupDNKEDjXMKA1fs59xnLU
+id: web_editor
+label: 'Web content editor'
+weight: 13
 is_admin: null
 permissions:
   - 'access contextual links'
@@ -14,37 +19,32 @@ permissions:
   - 'access media_browser entity browser pages'
   - 'access panels in-place editing'
   - 'access toolbar'
-  - 'administer panelizer node issue content'
-  - 'administer panelizer node issue layout'
+  - 'administer panelizer node page content'
+  - 'administer panelizer node page layout'
   - 'change layouts in place editing'
   - 'create bibcite_contributor'
   - 'create bibcite_keyword'
   - 'create bibcite_reference'
-  - 'create field_article_contributors'
-  - 'create field_article_issue'
-  - 'create issue content'
+  - 'create page content'
   - 'create url aliases'
+  - 'delete any page content'
   - 'delete own bibcite_keyword'
   - 'delete own bibcite_reference'
-  - 'edit field_article_contributors'
-  - 'edit field_article_issue'
+  - 'edit any page content'
   - 'edit own bibcite_keyword'
   - 'edit own bibcite_reference'
-  - 'edit own field_article_contributors'
-  - 'edit own field_article_issue'
-  - 'edit own issue content'
+  - 'edit own page content'
+  - 'use editorial transition archive'
   - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
   - 'use editorial transition review'
-  - 'use journal_article_submission transition create_new_draft'
-  - 'use journal_article_submission transition pass_peer_review'
-  - 'use journal_article_submission transition send_to_review'
+  - 'use text format links_only'
   - 'use text format rich_text'
   - 'use text format rich_text_references'
   - 'view any unpublished content'
   - 'view bibcite_contributor'
   - 'view bibcite_keyword'
   - 'view bibcite_reference'
-  - 'view field_article_contributors'
-  - 'view issue revisions'
   - 'view latest version'
   - 'view own unpublished content'
+  - 'view page revisions'

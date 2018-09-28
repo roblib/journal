@@ -25,18 +25,9 @@ settings:
       role:
         journal_article_reviewer: journal_article_reviewer
         administrator: '0'
-        layout_manager: '0'
-        media_creator: '0'
-        media_manager: '0'
-        journal_creator: '0'
-        journal_reviewer: '0'
-        issue_creator: '0'
-        issue_reviewer: '0'
+        journal_editor: '0'
+        issue_editor: '0'
         journal_article_creator: '0'
-        page_creator: '0'
-        page_reviewer: '0'
-        landing_page_creator: '0'
-        landing_page_reviewer: '0'
     target_bundles: null
     sort:
       field: _none
