@@ -7,12 +7,13 @@ third_party_settings:
   lightning_core:
     description: 'Responsible for guiding submissions through the peer review process, assigning categories and editing article and issue metadata.'
 _core:
-  default_config_hash: NWfr-ujQl__1mIsIgWJxRszpEItuVVLZ_B4C4TGlP30
+  default_config_hash: cFBdyY9zEH1E0W1AQMqmISw_Znn9dUpP6OgrTAvvszk
 id: issue_editor
 label: 'Issue editor'
 weight: 9
 is_admin: null
 permissions:
+  - 'access comments'
   - 'access content overview'
   - 'access contextual links'
   - 'access image_browser entity browser pages'
@@ -49,12 +50,14 @@ permissions:
   - 'edit field_peer_reviewer'
   - 'edit own bibcite_keyword'
   - 'edit own bibcite_reference'
+  - 'edit own comments'
   - 'edit own field_affiliation_contributor'
   - 'edit own field_affiliation_string'
   - 'edit own field_article_contributors'
   - 'edit own field_article_issue'
   - 'edit own field_authors_and_affiliations'
   - 'edit own issue content'
+  - 'post comments'
   - 'use editorial transition archive'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition publish'

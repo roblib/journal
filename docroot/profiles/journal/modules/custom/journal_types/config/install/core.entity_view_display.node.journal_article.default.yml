@@ -1,3 +1,4 @@
+uuid: 598c39bf-f608-4115-9e0b-20603c4b1c48
 langcode: en
 status: true
 dependencies:
@@ -7,6 +8,7 @@ dependencies:
     - field.field.node.journal_article.field_article_dc_source
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
+    - field.field.node.journal_article.field_article_highlight_image
     - field.field.node.journal_article.field_article_issue
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
@@ -17,10 +19,10 @@ dependencies:
     - field.field.node.journal_article.field_journal_article_keywords
     - node.type.journal_article
   module:
+    - entity_reference_revisions
     - field_group
     - options
     - panelizer
-    - paragraphs
     - text
     - user
 third_party_settings:
@@ -72,7 +74,7 @@ third_party_settings:
         direction: horizontal
       label: Article
 _core:
-  default_config_hash: xFghkdLOAvJDUoshanvFtxyV9xucaPdZjWA7nwef1iY
+  default_config_hash: ZF9jCFBNBFPqneXDxpWjNk6kQhgDqwgYljabRyjs60Q
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -153,10 +155,12 @@ content:
     type: list_default
     region: content
   field_authors_and_affiliations:
-    type: paragraph_summary
+    type: entity_reference_revisions_entity_view
     weight: 3
     label: above
-    settings: {  }
+    settings:
+      view_mode: preview
+      link: ''
     third_party_settings: {  }
     region: content
   field_journal_article_abstract:
@@ -181,4 +185,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_article_editor_comments: true
+  field_article_highlight_image: true
   field_parent_journal: true

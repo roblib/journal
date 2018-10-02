@@ -7,16 +7,19 @@ dependencies:
     - field.field.node.journal_article.field_article_dc_source
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
+    - field.field.node.journal_article.field_article_highlight_image
     - field.field.node.journal_article.field_article_issue
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
     - field.field.node.journal_article.field_article_subtitle
     - field.field.node.journal_article.field_article_type
     - field.field.node.journal_article.field_authors_and_affiliations
+    - field.field.node.journal_article.field_editorial_comments
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
     - node.type.journal_article
   module:
+    - comment
     - content_moderation
     - field_group
     - paragraphs
@@ -88,6 +91,7 @@ third_party_settings:
         - field_article_section
         - status
         - path
+        - field_editorial_comments
       parent_name: group_article_info
       weight: 23
       format_type: tab
@@ -128,7 +132,7 @@ third_party_settings:
         required_fields: true
       label: 'Article Contributors'
 _core:
-  default_config_hash: QY-9bWjs2v2MVxQtbL3zdPvKGToGouSYQpmkJtLyVMc
+  default_config_hash: ixX05Rju-_18Gc2Ss6lxLKwyX1_TgL1yxo-UUmgruno
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -223,6 +227,12 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
+  field_editorial_comments:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_journal_article_abstract:
     weight: 2
     settings:
@@ -248,7 +258,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 14
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -269,6 +279,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_article_highlight_image: true
   field_parent_journal: true
   promote: true
   sticky: true
