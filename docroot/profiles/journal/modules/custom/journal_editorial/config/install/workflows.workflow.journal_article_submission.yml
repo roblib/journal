@@ -6,7 +6,7 @@ dependencies:
   module:
     - content_moderation
 _core:
-  default_config_hash: 5zWu6QfJNTG6xmoOYF8lZsrXBpK5vFGIqITwb3XaiXk
+  default_config_hash: IbXIWOwlHmS68a9yudO8nYqJSjUYdUCJOo2Ujw83ytI
 id: journal_article_submission
 label: 'Article Submission'
 type: content_moderation
@@ -44,9 +44,6 @@ type_settings:
       weight: -10
       from:
         - draft
-        - editorial_review
-        - peer_review
-        - published
     pass_peer_review:
       label: 'Pass Peer Review'
       from:
