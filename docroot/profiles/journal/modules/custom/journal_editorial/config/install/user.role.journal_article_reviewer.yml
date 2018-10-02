@@ -17,7 +17,6 @@ permissions:
   - 'delete any journal_article content'
   - 'delete own bibcite_keyword'
   - 'delete own bibcite_reference'
-  - 'edit any journal_article content'
   - 'edit field_article_issue'
   - 'edit own bibcite_keyword'
   - 'edit own bibcite_reference'
