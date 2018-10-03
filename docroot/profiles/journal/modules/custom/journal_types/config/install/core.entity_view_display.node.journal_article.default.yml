@@ -1,8 +1,8 @@
-uuid: 598c39bf-f608-4115-9e0b-20603c4b1c48
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.editorial_comments.default
     - field.field.node.journal_article.body
     - field.field.node.journal_article.field_article_dc_rights
     - field.field.node.journal_article.field_article_dc_source
@@ -15,10 +15,12 @@ dependencies:
     - field.field.node.journal_article.field_article_subtitle
     - field.field.node.journal_article.field_article_type
     - field.field.node.journal_article.field_authors_and_affiliations
+    - field.field.node.journal_article.field_editorial_comments
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
     - node.type.journal_article
   module:
+    - comment
     - entity_reference_revisions
     - field_group
     - options
@@ -39,6 +41,7 @@ third_party_settings:
         - field_article_dc_rights
         - field_article_dc_source
         - field_journal_article_keywords
+        - field_editorial_comments
       parent_name: group_article
       weight: 15
       format_type: tab
@@ -74,7 +77,7 @@ third_party_settings:
         direction: horizontal
       label: Article
 _core:
-  default_config_hash: ZF9jCFBNBFPqneXDxpWjNk6kQhgDqwgYljabRyjs60Q
+  default_config_hash: AC4v7Edvot07fuBva8pLAZPodU-6UsZnDwI5BBZ8mdg
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -163,6 +166,15 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
+  field_editorial_comments:
+    type: comment_default
+    weight: 16
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
   field_journal_article_abstract:
     weight: 1
     label: above
@@ -171,7 +183,7 @@ content:
     type: text_default
     region: content
   field_journal_article_keywords:
-    weight: 16
+    weight: 15
     label: above
     settings:
       link: true
