@@ -2,25 +2,29 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.editorial_comments.default
     - field.field.node.journal_article.body
     - field.field.node.journal_article.field_article_dc_rights
     - field.field.node.journal_article.field_article_dc_source
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
+    - field.field.node.journal_article.field_article_highlight_image
     - field.field.node.journal_article.field_article_issue
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
     - field.field.node.journal_article.field_article_subtitle
     - field.field.node.journal_article.field_article_type
     - field.field.node.journal_article.field_authors_and_affiliations
+    - field.field.node.journal_article.field_editorial_comments
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
     - node.type.journal_article
   module:
+    - comment
+    - entity_reference_revisions
     - field_group
     - options
     - panelizer
-    - paragraphs
     - text
     - user
 third_party_settings:
@@ -37,6 +41,7 @@ third_party_settings:
         - field_article_dc_rights
         - field_article_dc_source
         - field_journal_article_keywords
+        - field_editorial_comments
       parent_name: group_article
       weight: 15
       format_type: tab
@@ -72,7 +77,7 @@ third_party_settings:
         direction: horizontal
       label: Article
 _core:
-  default_config_hash: xFghkdLOAvJDUoshanvFtxyV9xucaPdZjWA7nwef1iY
+  default_config_hash: AC4v7Edvot07fuBva8pLAZPodU-6UsZnDwI5BBZ8mdg
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -153,12 +158,23 @@ content:
     type: list_default
     region: content
   field_authors_and_affiliations:
-    type: paragraph_summary
+    type: entity_reference_revisions_entity_view
     weight: 3
     label: above
-    settings: {  }
+    settings:
+      view_mode: preview
+      link: ''
     third_party_settings: {  }
     region: content
+  field_editorial_comments:
+    type: comment_default
+    weight: 16
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
   field_journal_article_abstract:
     weight: 1
     label: above
@@ -167,7 +183,7 @@ content:
     type: text_default
     region: content
   field_journal_article_keywords:
-    weight: 16
+    weight: 15
     label: above
     settings:
       link: true
@@ -181,4 +197,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_article_editor_comments: true
+  field_article_highlight_image: true
   field_parent_journal: true

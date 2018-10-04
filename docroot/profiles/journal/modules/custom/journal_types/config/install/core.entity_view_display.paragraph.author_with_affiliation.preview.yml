@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.author_with_affiliation.field_affiliation_contributor
+    - field.field.paragraph.author_with_affiliation.field_affiliation_string
+    - paragraphs.paragraphs_type.author_with_affiliation
+  module:
+    - text
+_core:
+  default_config_hash: sDVkdqLGcRMFiQRf_hxovh1Bs3NtL6hVI4FsUJeqSEk
+id: paragraph.author_with_affiliation.preview
+targetEntityType: paragraph
+bundle: author_with_affiliation
+mode: preview
+content:
+  field_affiliation_contributor:
+    weight: 0
+    label: visually_hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_affiliation_string:
+    weight: 2
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }
