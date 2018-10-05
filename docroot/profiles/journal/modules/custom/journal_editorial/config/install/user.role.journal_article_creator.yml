@@ -7,7 +7,7 @@ third_party_settings:
   lightning_core:
     description: 'Article submitters, able to submit content for review and edit their own submitted content. They can also add contributors and references for use in their own articles.'
 _core:
-  default_config_hash: 8snK4QLIGEawu_h2ZBMmmHmiaZ0Db3qfGlntARtkIow
+  default_config_hash: 6HEzpx9Ro6W4foJqJWagr7v2zoTWh1LctRh7FW88Dqk
 id: journal_article_creator
 label: Author
 weight: 11
@@ -43,6 +43,7 @@ permissions:
   - 'edit own field_authors_and_affiliations'
   - 'edit own journal_article content'
   - 'post comments'
+  - 'skip comment approval'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition review'
   - 'use journal_article_submission transition create_new_draft'

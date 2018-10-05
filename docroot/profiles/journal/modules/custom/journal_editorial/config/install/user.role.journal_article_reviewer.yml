@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: ebg7nmxtDJ4EzlYNIjuWU_PoiHpxTl8Lx-HK8F2WlK0
+  default_config_hash: 2LfZHxZMSJE9UkUQSA4HUhDHAvtcAoDPQpjkvImCM7g
 id: journal_article_reviewer
 label: 'Article reviewer'
 weight: 12
@@ -24,6 +24,7 @@ permissions:
   - 'edit own comments'
   - 'edit own field_article_issue'
   - 'post comments'
+  - 'skip comment approval'
   - 'use editorial transition archive'
   - 'use editorial transition publish'
   - 'use editorial transition review'

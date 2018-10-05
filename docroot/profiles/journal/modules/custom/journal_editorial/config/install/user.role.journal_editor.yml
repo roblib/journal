@@ -7,7 +7,7 @@ third_party_settings:
   lightning_core:
     description: 'The editor user with greatest permissions to create and delete all types of content and users.'
 _core:
-  default_config_hash: yAnPEA24jQxD70uERkPkzomDecSV1FepMMhfEeWFpqY
+  default_config_hash: UX72IKCGcP7PA3DGRfAflz_v5FFey3x4S2HE4bIdCpQ
 id: journal_editor
 label: 'Journal editor'
 weight: 7
@@ -58,6 +58,7 @@ permissions:
   - 'edit own field_authors_and_affiliations'
   - 'edit own journal content'
   - 'post comments'
+  - 'skip comment approval'
   - 'use editorial transition archive'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition publish'

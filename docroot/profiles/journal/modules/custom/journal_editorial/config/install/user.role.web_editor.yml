@@ -7,7 +7,7 @@ third_party_settings:
   lightning_core:
     description: 'Able to create and edit non-scholarly site content.'
 _core:
-  default_config_hash: 61vMqlNzVtnQsgHXvIukUBupDNKEDjXMKA1fs59xnLU
+  default_config_hash: 1JdyjxutPRtXva0SXswqZcvpRirbJSSFLgMlJQXpilg
 id: web_editor
 label: 'Web content editor'
 weight: 13
