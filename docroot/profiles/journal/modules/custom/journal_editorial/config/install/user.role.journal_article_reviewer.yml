@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 2LfZHxZMSJE9UkUQSA4HUhDHAvtcAoDPQpjkvImCM7g
+  default_config_hash: mdm0cJ9IaSUWu0DKYWMbwWNOUF7OLFVUIP9pJe3K8kg
 id: journal_article_reviewer
 label: 'Article reviewer'
 weight: 12

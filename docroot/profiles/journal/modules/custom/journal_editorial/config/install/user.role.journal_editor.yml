@@ -7,7 +7,7 @@ third_party_settings:
   lightning_core:
     description: 'The editor user with greatest permissions to create and delete all types of content and users.'
 _core:
-  default_config_hash: UX72IKCGcP7PA3DGRfAflz_v5FFey3x4S2HE4bIdCpQ
+  default_config_hash: 0jmzD147-2vdgQnzB7Gzms6Tg63PbHvyOodgqVf5yvo
 id: journal_editor
 label: 'Journal editor'
 weight: 7
@@ -23,6 +23,7 @@ permissions:
   - 'access panels in-place editing'
   - 'access toolbar'
   - 'administer media'
+  - 'administer nodes'
   - 'administer panelizer node journal content'
   - 'administer panelizer node journal layout'
   - 'administer users'

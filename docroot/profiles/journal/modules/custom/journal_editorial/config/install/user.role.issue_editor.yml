@@ -7,7 +7,7 @@ third_party_settings:
   lightning_core:
     description: 'Responsible for guiding submissions through the peer review process, assigning categories and editing article and issue metadata.'
 _core:
-  default_config_hash: r463g6Jf4h0QqQ5Q57lbfYlAywDFllfhLQAu5QsieeQ
+  default_config_hash: hnlzkOwZwde6a2HRUtIWEwv8M002U2QsFmTbXyl0NXg
 id: issue_editor
 label: 'Issue editor'
 weight: 9
@@ -23,6 +23,7 @@ permissions:
   - 'access panels in-place editing'
   - 'access toolbar'
   - 'administer media'
+  - 'administer nodes'
   - 'administer panelizer node issue content'
   - 'administer panelizer node issue layout'
   - 'change layouts in place editing'
