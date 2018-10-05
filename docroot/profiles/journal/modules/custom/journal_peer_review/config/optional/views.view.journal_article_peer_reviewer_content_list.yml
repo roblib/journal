@@ -3,12 +3,14 @@ status: true
 dependencies:
   config:
     - field.field.node.journal_article.field_peer_reviewer
+    - workflows.workflow.journal_article_submission
   module:
+    - content_moderation
     - node
     - user
     - views_entity_form_field
 _core:
-  default_config_hash: 8qq-y0s6UBePTN8xq6ax_90i-mINKPLErURsz4ndzrs
+  default_config_hash: 39syK3Mtp9mt_NgHxo2vvXbTh3MvVMGZIV8behuREuc
 id: journal_article_peer_reviewer_content_list
 label: 'Content for Review'
 module: views
@@ -71,7 +73,40 @@ display:
             last: 'Last »'
           quantity: 9
       style:
-        type: grid
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            form_field_field_peer_reviewer: form_field_field_peer_reviewer
+            form_field_moderation_state: form_field_moderation_state
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            form_field_field_peer_reviewer:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            form_field_moderation_state:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
       fields:
@@ -289,6 +324,47 @@ display:
           plugin_id: boolean
           entity_type: node
           entity_field: status
+        moderation_state:
+          id: moderation_state
+          table: node_field_data
+          field: moderation_state
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            journal_article_submission-peer_review: journal_article_submission-peer_review
+            journal_article_submission-with_submitter: journal_article_submission-with_submitter
+            journal_article_submission-editorial_review: journal_article_submission-editorial_review
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          plugin_id: moderation_state_filter
       sorts:
         created:
           id: created
@@ -324,6 +400,7 @@ display:
       tags:
         - 'config:field.field.node.journal_article.field_peer_reviewer'
         - 'config:field.storage.node.field_peer_reviewer'
+        - 'config:workflow_list'
   block_1:
     display_plugin: block
     id: block_1
@@ -343,6 +420,7 @@ display:
       tags:
         - 'config:field.field.node.journal_article.field_peer_reviewer'
         - 'config:field.storage.node.field_peer_reviewer'
+        - 'config:workflow_list'
   editor_content_in_review:
     display_plugin: block
     id: editor_content_in_review
@@ -366,3 +444,4 @@ display:
       tags:
         - 'config:field.field.node.journal_article.field_peer_reviewer'
         - 'config:field.storage.node.field_peer_reviewer'
+        - 'config:workflow_list'
