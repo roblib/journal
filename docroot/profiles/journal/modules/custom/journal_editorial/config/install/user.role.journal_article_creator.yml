@@ -7,7 +7,7 @@ third_party_settings:
   lightning_core:
     description: 'Article submitters, able to submit content for review and edit their own submitted content. They can also add contributors and references for use in their own articles.'
 _core:
-  default_config_hash: 6HEzpx9Ro6W4foJqJWagr7v2zoTWh1LctRh7FW88Dqk
+  default_config_hash: 4lL3evqlOtvYBrXZ1uwZ0xYRFJ5iJEPpvAusFNhr_E8
 id: journal_article_creator
 label: Author
 weight: 11
@@ -52,7 +52,6 @@ permissions:
   - 'use text format links_only'
   - 'use text format rich_text'
   - 'use text format rich_text_references'
-  - 'view any unpublished content'
   - 'view bibcite_contributor'
   - 'view bibcite_keyword'
   - 'view bibcite_reference'

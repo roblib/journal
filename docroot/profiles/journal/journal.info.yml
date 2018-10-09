@@ -33,3 +33,8 @@ themes:
   - seven
 base profile:
   name: lightning
+  excluded_dependencies:
+    - lightning_roles
+    - lightning_dev
+    - lightning_workflow
+    - lightning_scheduler
