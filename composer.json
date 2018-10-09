@@ -30,7 +30,8 @@
         "drupal/devel": "^1.2",
         "drupal/twig_vardumper": "^1.1",
         "drupal/superfish": "^1.2", 
-        "drupal/views_entity_form_field": "^1.0@beta" 
+        "drupal/views_entity_form_field": "^1.0@beta",
+        "drupal/allowed_formats": "^1.1" 
     },
     "repositories": {
         "drupal": {

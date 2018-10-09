@@ -1,3 +1,4 @@
+uuid: 326c4588-5965-48c2-b43a-13f2dc60d303
 langcode: en
 status: true
 dependencies:
@@ -5,7 +6,16 @@ dependencies:
     - field.storage.node.body
     - node.type.journal_article
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    rich_text_references: rich_text_references
+    links_only: '0'
+    rich_text: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: s9pW8H9F4CAsr7-hwDkic1gFxC7ZFwxM3tqeR94SomE
 id: node.journal_article.body
 field_name: body
 entity_type: node
