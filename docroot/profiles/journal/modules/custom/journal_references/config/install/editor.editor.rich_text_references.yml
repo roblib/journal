@@ -6,7 +6,7 @@ dependencies:
   module:
     - ckeditor
 _core:
-  default_config_hash: _bQj34qI6JE7CSYRCWsD1GYIlmbipaqGyzY9MHJHRP0
+  default_config_hash: A0aQ3vA9k_7zIbWZSN_YOLxw-t6fN-099td92MJXPoA
 format: rich_text_references
 editor: ckeditor
 settings:
@@ -32,6 +32,7 @@ settings:
             - DrupalLink
             - DrupalUnlink
             - reference_footnotes
+            - footnotes
         -
           name: Lists
           items:
@@ -51,10 +52,10 @@ settings:
             - Language
             - Maximize
   plugins:
-    language:
-      language_list: un
     stylescombo:
       styles: ''
+    language:
+      language_list: un
 image_upload:
   status: false
   scheme: public
