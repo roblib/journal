@@ -35,7 +35,9 @@
         "drupal/toc_api": "^1.0@beta",
         "drupal/toc_filter": "^2.0@beta",
         "drupal/simple_styleguide": "^1.4",
-        "drupal/twig_tweak": "^2.1" 
+        "drupal/twig_tweak": "^2.1",
+        "previousnext/nested-set": "^0.1.1",
+        "drupal/entity_hierarchy": "^2.0@alpha" 
     },
     "repositories": {
         "drupal": {
