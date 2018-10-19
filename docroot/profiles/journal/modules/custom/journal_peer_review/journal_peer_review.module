@@ -139,12 +139,14 @@ function journal_peer_review_grant_field_permissions($permissions) {
   foreach ($permissions as $permission_name => $role_names) {
     foreach ($role_names as $role_name) {
       $roles[$role_name] = $role_storage->load($role_name);
-      $roles[$role_name]->grantPermission($permission_name);
+      if (!empty($roles[$role_name])) {
+        $roles[$role_name]->grantPermission($permission_name);
+      }
     }
   }
 
   // Save all roles.
-  foreach ($roles as $role) {
-    $role->trustData()->save();
-  }
+//  foreach ($roles as $role) {
+//    $role->trustData()->save();
+//  }
 }

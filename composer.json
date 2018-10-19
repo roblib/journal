@@ -14,7 +14,7 @@
     "require": {
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.6.0",
-        "acquia/lightning": "~3.1.0",
+        "acquia/lightning": "~3.2.0",
         "drupal/address": "*",
         "drupal/field_group": "*",
         "drupal/entity": "~1.0beta3",
@@ -34,10 +34,13 @@
         "drupal/toc_api": "^1.0@beta",
         "drupal/toc_filter": "^2.0@beta",
         "drupal/simple_styleguide": "^1.4",
-        "drupal/twig_tweak": "^2.1",
+        "drupal/twig_tweak": "^2.1", 
         "previousnext/nested-set": "^0.1.1",
         "drupal/entity_hierarchy": "^2.0@alpha",
-        "drupal/name": "^1.0@RC" 
+        "drupal/name": "^1.0@RC", 
+        "drupal/bamboo_twig": "^4.1",
+        "twig/extensions": "^1.5",
+        "drupal/twig_field_value": "^1.1" 
     },
     "repositories": {
         "drupal": {
