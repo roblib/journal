@@ -8,9 +8,9 @@ dependencies:
     - user
     - views
   theme:
-    - magazine_lite
+    - bartik
 id: views_block__editor_content_in_review
-theme: magazine_lite
+theme: bartik
 region: content
 weight: 0
 provider: null

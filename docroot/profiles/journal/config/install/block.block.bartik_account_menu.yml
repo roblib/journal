@@ -6,11 +6,11 @@ dependencies:
   module:
     - system
   theme:
-    - magazine_lite
+    - bartik
 _core:
   default_config_hash: itSHPYmGXnBVuW6FDLy148URrBNXTe0TRtnb-yeSDHI
-id: magazine_lite_account_menu
-theme: magazine_lite
+id: bartik_account_menu
+theme: bartik
 region: hidden_blocks_collection
 weight: -7
 provider: null

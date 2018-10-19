@@ -19,7 +19,6 @@
         "drupal/field_group": "*",
         "drupal/entity": "~1.0beta3",
         "drupal/field_permissions": "*",
-        "drupal/magazine_lite": "^1.1",
         "drupal/bibcite": "^1.0@dev",
 	"drupal/bibcite_footnotes": "^1.0@alpha",
 

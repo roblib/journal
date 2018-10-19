@@ -7,9 +7,9 @@ dependencies:
     - system
     - user
   theme:
-    - magazine_lite
+    - bartik
 id: authortasks
-theme: magazine_lite
+theme: bartik
 region: content
 weight: -6
 provider: null

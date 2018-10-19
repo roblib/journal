@@ -11,8 +11,4 @@
 function journal_install() {
   // Add code here perform additional site information tasks, generate sample
   // content, etc.
-  \Drupal::configFactory()
-    ->getEditable('system.theme')
-    ->set('default', 'magazine_lite')
-    ->save();
 }

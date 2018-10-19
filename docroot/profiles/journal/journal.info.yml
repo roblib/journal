@@ -29,7 +29,7 @@ dependencies:
   - journal_references
   - journal_site 
 themes:
-  - magazine_lite
+  - bartik
   - seven
 base profile:
   name: lightning
