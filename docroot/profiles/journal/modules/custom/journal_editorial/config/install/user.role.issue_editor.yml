@@ -75,7 +75,6 @@ permissions:
   - 'view bibcite_reference'
   - 'view field_affiliation_contributor'
   - 'view field_affiliation_string'
-  - 'view field_article_contributors'
   - 'view field_authors_and_affiliations'
   - 'view field_peer_reviewer'
   - 'view issue revisions'
