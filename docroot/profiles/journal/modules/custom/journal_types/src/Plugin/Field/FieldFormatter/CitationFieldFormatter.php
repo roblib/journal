@@ -146,7 +146,7 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
 
     $r = Reference::create([
       'type' => 'journal_article',
-      'author' => $article_entity->get('field_article_contributors')->getValue(),
+      //'author' => $article_entity->get('field_article_contributors')->getValue(),
       'title' => $article_entity->get('title')->getValue(),
       'bibcite_year' => $issue_entity->get('field_issue_year')->getValue(),
       'bibcite_secondaary_title' => $journal_entity->get('title')->getValue(),
