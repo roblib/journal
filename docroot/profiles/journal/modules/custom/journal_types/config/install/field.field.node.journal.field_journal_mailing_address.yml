@@ -6,6 +6,8 @@ dependencies:
     - node.type.journal
   module:
     - address
+_core:
+  default_config_hash: DUPONlGcKF9rm1tpcPERN0VuMb0_sb1RxmNBqyx6ISQ
 id: node.journal.field_journal_mailing_address
 field_name: field_journal_mailing_address
 entity_type: node
@@ -31,4 +33,5 @@ settings:
     additionalName: additionalName
     familyName: familyName
   langcode_override: ''
+  field_overrides: {  }
 field_type: address

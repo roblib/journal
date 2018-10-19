@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.media_browser
     - field.field.node.journal_article.body
     - field.field.node.journal_article.field_article_dc_rights
     - field.field.node.journal_article.field_article_dc_source
@@ -9,19 +10,22 @@ dependencies:
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_highlight_image
     - field.field.node.journal_article.field_article_issue
+    - field.field.node.journal_article.field_article_peer_reviewed
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
+    - field.field.node.journal_article.field_article_submission_files
     - field.field.node.journal_article.field_article_subtitle
-    - field.field.node.journal_article.field_article_type
     - field.field.node.journal_article.field_authors_and_affiliations
-    - field.field.node.journal_article.field_editorial_comments
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
+    - field.field.node.journal_article.field_publication_date_electroni
     - node.type.journal_article
   module:
-    - comment
     - content_moderation
+    - datetime
+    - entity_browser
     - field_group
+    - file
     - paragraphs
     - path
     - text
@@ -29,10 +33,11 @@ third_party_settings:
   field_group:
     group_submission_metadata:
       children:
+        - field_article_dc_type
         - field_article_dc_source
         - field_article_dc_rights
       parent_name: group_technical_metadata
-      weight: 169
+      weight: 3
       format_type: fieldset
       format_settings:
         id: ''
@@ -46,7 +51,7 @@ third_party_settings:
         - field_article_disciplines
         - field_journal_article_keywords
       parent_name: group_technical_metadata
-      weight: 170
+      weight: 4
       format_type: fieldset
       format_settings:
         id: article-submission-additional-refinements-fieldset
@@ -74,6 +79,8 @@ third_party_settings:
         - field_article_subtitle
         - field_journal_article_abstract
         - body
+        - field_article_highlight_image
+        - field_article_submission_files
       parent_name: group_article_info
       weight: 20
       format_type: tab
@@ -86,12 +93,13 @@ third_party_settings:
       label: 'Article Content'
     group_publication_state:
       children:
-        - moderation_state
         - field_article_issue
+        - moderation_state
         - field_article_section
         - status
+        - field_publication_date_electroni
         - path
-        - field_editorial_comments
+        - field_article_peer_reviewed
       parent_name: group_article_info
       weight: 23
       format_type: tab
@@ -104,7 +112,6 @@ third_party_settings:
       label: 'Publication State'
     group_technical_metadata:
       children:
-        - field_article_type
         - field_article_editor_comments
         - group_submission_metadata
         - group_additional_refinements
@@ -132,7 +139,7 @@ third_party_settings:
         required_fields: true
       label: 'Article Contributors'
 _core:
-  default_config_hash: ixX05Rju-_18Gc2Ss6lxLKwyX1_TgL1yxo-UUmgruno
+  default_config_hash: z-YtyVjZM1VRxttInAtPT0TGf6WWiCF7o83RZ7hJ-Q4
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -173,24 +180,48 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_article_editor_comments:
-    weight: 168
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_article_highlight_image:
+    type: entity_browser_entity_reference
+    weight: 4
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: true
+    region: content
+    third_party_settings: {  }
   field_article_issue:
-    weight: 10
+    type: options_select
+    weight: 9
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+  field_article_peer_reviewed:
+    weight: 16
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_article_section:
     weight: 11
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_select
+    type: entity_reference_autocomplete
     region: content
   field_article_subjects:
     weight: 129
@@ -201,6 +232,13 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_article_submission_files:
+    weight: 5
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
   field_article_subtitle:
     weight: 1
     settings:
@@ -209,15 +247,10 @@ content:
     third_party_settings: {  }
     type: text_textfield
     region: content
-  field_article_type:
-    weight: 167
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   field_authors_and_affiliations:
     type: entity_reference_paragraphs
-    weight: 173
+    weight: 0
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -226,13 +259,6 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    region: content
-  field_editorial_comments:
-    weight: 15
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
-    region: content
   field_journal_article_abstract:
     weight: 2
     settings:
@@ -250,15 +276,21 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_publication_date_electroni:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   moderation_state:
     type: moderation_state_default
-    weight: 9
+    weight: 10
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -279,8 +311,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_article_highlight_image: true
-  field_parent_journal: true
   promote: true
   sticky: true
   uid: true

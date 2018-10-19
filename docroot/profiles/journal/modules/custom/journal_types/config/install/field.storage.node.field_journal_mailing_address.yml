@@ -5,6 +5,8 @@ dependencies:
   module:
     - address
     - node
+_core:
+  default_config_hash: XPWvQ7cLuHg5bNfKDQs0iWts54f-RdqM8D4tWo72gaI
 id: node.field_journal_mailing_address
 field_name: field_journal_mailing_address
 entity_type: node

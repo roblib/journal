@@ -122,6 +122,8 @@ third_party_settings:
         description: 'Brief descriptions of the journal for librarians and prospective authors and readers. These are made available in the site''s sidebar when the Information block has been added.'
         required_fields: true
       label: 'Website Info'
+_core:
+  default_config_hash: fQ1EHDlv5pb_PGRfzhK1pj40Jgazt90oyg8Y95Moi3s
 id: node.journal.default
 targetEntityType: node
 bundle: journal

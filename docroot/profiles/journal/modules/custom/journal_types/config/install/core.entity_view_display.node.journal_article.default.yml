@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.editorial_comments.default
     - field.field.node.journal_article.body
     - field.field.node.journal_article.field_article_dc_rights
     - field.field.node.journal_article.field_article_dc_source
@@ -10,20 +9,21 @@ dependencies:
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_highlight_image
     - field.field.node.journal_article.field_article_issue
+    - field.field.node.journal_article.field_article_peer_reviewed
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
+    - field.field.node.journal_article.field_article_submission_files
     - field.field.node.journal_article.field_article_subtitle
-    - field.field.node.journal_article.field_article_type
     - field.field.node.journal_article.field_authors_and_affiliations
-    - field.field.node.journal_article.field_editorial_comments
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
+    - field.field.node.journal_article.field_publication_date_electroni
     - node.type.journal_article
   module:
-    - comment
+    - datetime
     - entity_reference_revisions
     - field_group
-    - options
+    - file
     - panelizer
     - text
     - user
@@ -40,16 +40,17 @@ third_party_settings:
         - field_article_subjects
         - field_article_dc_rights
         - field_article_dc_source
+        - field_article_dc_type
         - field_journal_article_keywords
-        - field_editorial_comments
+        - content_moderation_control
       parent_name: group_article
       weight: 15
-      format_type: tab
+      format_type: accordion_item
       format_settings:
-        id: journal-article-info-tab
-        classes: ''
         formatter: closed
-        description: 'Article metadata and publication info'
+        description: ''
+        classes: ''
+        id: ''
       label: 'Article Info'
     group_article_text:
       children:
@@ -57,27 +58,27 @@ third_party_settings:
         - body
       parent_name: group_article
       weight: 14
-      format_type: tab
+      format_type: accordion_item
       format_settings:
-        id: journal-article-text-tab
-        classes: ''
+        label: ''
         formatter: open
-        description: ''
-      label: 'Article Text'
+        id: ''
+        classes: ''
+      label: ''
     group_article:
       children:
         - group_article_text
         - group_article_info
       parent_name: ''
-      weight: 4
-      format_type: tabs
+      weight: 2
+      format_type: accordion
       format_settings:
-        id: journal-article-tabs
+        effect: none
         classes: ''
-        direction: horizontal
+        id: ''
       label: Article
 _core:
-  default_config_hash: AC4v7Edvot07fuBva8pLAZPodU-6UsZnDwI5BBZ8mdg
+  default_config_hash: xFghkdLOAvJDUoshanvFtxyV9xucaPdZjWA7nwef1iY
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -91,7 +92,7 @@ content:
     third_party_settings: {  }
     region: content
   content_moderation_control:
-    weight: 6
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -119,16 +120,27 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_article_issue:
-    weight: 0
+  field_article_highlight_image:
+    type: entity_reference_entity_view
+    weight: 8
+    region: content
+    label: hidden
+    settings:
+      view_mode: hero
+      link: false
+    third_party_settings: {  }
+  field_article_peer_reviewed:
+    weight: 4
     label: above
     settings:
-      link: true
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    type: entity_reference_label
+    type: boolean
     region: content
   field_article_section:
-    weight: 1
+    weight: 0
     label: above
     settings:
       link: true
@@ -143,59 +155,59 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_article_submission_files:
+    weight: 7
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
   field_article_subtitle:
-    weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_article_type:
-    weight: 8
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_authors_and_affiliations:
-    type: entity_reference_revisions_entity_view
-    weight: 3
-    label: above
-    settings:
-      view_mode: preview
-      link: ''
-    third_party_settings: {  }
-    region: content
-  field_editorial_comments:
-    type: comment_default
-    weight: 16
-    region: content
-    label: above
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-  field_journal_article_abstract:
     weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
+  field_authors_and_affiliations:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_journal_article_abstract:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_journal_article_keywords:
-    weight: 15
+    weight: 16
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_publication_date_electroni:
+    weight: 3
+    label: inline
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   links:
-    weight: 7
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_article_editor_comments: true
-  field_article_highlight_image: true
-  field_parent_journal: true
+  field_article_issue: true

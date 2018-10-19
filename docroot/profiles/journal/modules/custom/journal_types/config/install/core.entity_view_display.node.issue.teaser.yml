@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.issue.field_issue_open
     - field.field.node.issue.field_issue_volume
     - field.field.node.issue.field_issue_year
-    - field.field.node.issue.field_parent_journal
     - image.style.medium
     - node.type.issue
   module:
@@ -284,7 +283,7 @@ third_party_settings:
         description: ''
       label: Identification
 _core:
-  default_config_hash: qvX3YuRHun51jhB9YYZUHG32-tzwSQLhGZxZPJkWuY4
+  default_config_hash: iRZaEmGIOt3kLD01e6z_gHb9R67TIQu0ai1Xl6myr1o
 id: node.issue.teaser
 targetEntityType: node
 bundle: issue
@@ -339,4 +338,3 @@ content:
     third_party_settings: {  }
 hidden:
   field_issue_open: true
-  field_parent_journal: true

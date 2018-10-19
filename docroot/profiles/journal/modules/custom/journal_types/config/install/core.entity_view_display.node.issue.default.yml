@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.issue.field_issue_open
     - field.field.node.issue.field_issue_volume
     - field.field.node.issue.field_issue_year
-    - field.field.node.issue.field_parent_journal
     - node.type.issue
   module:
     - field_group
@@ -37,7 +36,7 @@ third_party_settings:
         description: ''
       label: Identification
 _core:
-  default_config_hash: enpwVAwbgMkzmbyNfr1y2MlqzmOXGtsyAUlaZWDVDfI
+  default_config_hash: hdV6m5TfXarfLCfNrSlLjZVhJ1p3K2raHn2Bbu4dea4
 id: node.issue.default
 targetEntityType: node
 bundle: issue
@@ -84,14 +83,6 @@ content:
     settings:
       thousand_separator: ''
       prefix_suffix: true
-    third_party_settings: {  }
-  field_parent_journal:
-    type: entity_reference_label
-    weight: 0
-    region: content
-    label: above
-    settings:
-      link: true
     third_party_settings: {  }
   links:
     weight: 4
