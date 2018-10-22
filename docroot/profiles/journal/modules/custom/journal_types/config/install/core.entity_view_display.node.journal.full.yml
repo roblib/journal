@@ -341,7 +341,7 @@ third_party_settings:
             label_display: '0'
             view_mode: default
             region: top
-            weight: 0
+            weight: -10
             uuid: f685a9ce-6414-4264-ba73-622e2871a7ad
             context_mapping:
               entity: '@panelizer.entity_context:entity'
@@ -353,8 +353,19 @@ third_party_settings:
             views_label: ''
             items_per_page: none
             region: bottom
-            weight: 0
+            weight: -1
             uuid: 3e6ea56e-79ca-4053-a15b-3d391af5a8d7
+            context_mapping: {  }
+          b6e6971a-283e-4065-b761-d25184c0bfda:
+            id: 'views_block:journal_recent_articles-block_1'
+            label: ''
+            provider: views
+            label_display: visible
+            views_label: ''
+            items_per_page: '20'
+            region: bottom
+            weight: 0
+            uuid: b6e6971a-283e-4065-b761-d25184c0bfda
             context_mapping: {  }
         id: panels_variant
         uuid: d83ac352-2f2b-4dd5-b5ec-fc0b1e936a68
@@ -455,7 +466,7 @@ third_party_settings:
         description: ''
       label: 'For Librarians'
 _core:
-  default_config_hash: o9GPphm-0JRWma3hX75134CvGVfFxUh3rg4kEN2pYN8
+  default_config_hash: iGEGD0SCsSLWELeJZWuvpKzp93PKZoCte1igtFh9OIs
 id: node.journal.full
 targetEntityType: node
 bundle: journal

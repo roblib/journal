@@ -6,29 +6,29 @@ dependencies:
     - field.field.paragraph.author_with_affiliation.field_affiliation_string
     - paragraphs.paragraphs_type.author_with_affiliation
   module:
-    - name
     - text
-_core:
-  default_config_hash: 1zrH0-rXtCUrvIjoImdZHI1icz-sXZyU2EzTOHCjNxA
 id: paragraph.author_with_affiliation.default
 targetEntityType: paragraph
 bundle: author_with_affiliation
 mode: default
 content:
   field_affiliation_contributor:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    type: name_default
+    type: entity_reference_autocomplete
+    weight: 0
     region: content
-  field_affiliation_string:
-    weight: 1
     settings:
-      size: 1024
+      match_operator: CONTAINS
+      size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_affiliation_string:
     type: text_textfield
+    weight: 1
     region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   created: true
   moderation_state: true

@@ -22,6 +22,8 @@ dependencies:
     - node.type.journal
   module:
     - user
+_core:
+  default_config_hash: Dr_2E8xMsfoQ1rC0JsB1IpT5s8FvYIO6lFBbDGfV2Wg
 id: node.journal.teaser
 targetEntityType: node
 bundle: journal
@@ -30,6 +32,8 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_journal_abbrev: true
   field_journal_about_this: true
