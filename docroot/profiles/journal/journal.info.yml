@@ -28,12 +28,12 @@ install:
   - journal_peer_review
   - journal_references
   - journal_site 
-themes:
-  - bartik
-  - seven
 base profile: lightning
 exclude:
   - lightning_roles
   - lightning_dev
   - lightning_workflow
   - lightning_scheduler
+themes:
+  - bartik
+  - seven
