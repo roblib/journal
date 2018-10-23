@@ -143,10 +143,15 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
     $citation_metadata['type'] = 'journal_article';
 
     $r = Reference::create($citation_metadata);
-    $output = $r->cite($this->getSetting('style'));
-    return $output;
+    $styler = \Drupal::service('bibcite.citation_styler');
 
-    return nl2br(Html::escape($item->value));
+    $styler->setStyleById($this->getSetting('style'));
+
+    $serializer = \Drupal::service('serializer');
+    $data = $serializer->normalize($r, 'csl');
+
+    $output = $styler->render($data);
+    return $output;
   }
 
 

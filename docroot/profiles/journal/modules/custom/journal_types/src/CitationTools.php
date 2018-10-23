@@ -2,6 +2,8 @@
 
 namespace Drupal\journal_types;
 
+use Drupal\bibcite_entity\Entity\Contributor;
+
 class CitationTools {
   /**
    * Get citation metadata from an Article eneity type.
@@ -12,6 +14,24 @@ class CitationTools {
     $data['bibcite_type_of_work'] = 'Journal article';
     $data['title'] = $article_entity->get('title')->getValue();
     $issue_entity_item = $article_entity->get('field_article_issue')->first();
+
+    $affiliations = $article_entity->get('field_authors_and_affiliations')->referencedEntities();
+    $contributors = [];
+    foreach($affiliations as $affiliation) {
+      $contributors += $affiliation->get('field_affiliation_contributor')->getValue();
+    }
+    $bibcite_contributors = [];
+    foreach($contributors as $contributor) {
+      $data['author'][] = Contributor::create([
+        'first_name' => $contributor['given'],
+        'last_name' => $contributor['family'],
+        'middle_name' => $contributor['middle'],
+
+      ]);
+
+    }
+
+
     if (!empty($issue_entity_item)) {
       $data['issue_entity_id'] = $issue_entity_item->get('target_id')->getValue();
     }
@@ -53,10 +73,10 @@ class CitationTools {
    */
   public function getCitationMetadataForVolume($volume_entity) {
     $data = [];
-    $data['bibcite_volume'] = $data['volume_entity']->get('title')->getValue();
-    $journal_item = $data['volume_entity']->get('field_parent_journal')->first();
+    $data['bibcite_volume'] = $volume_entity->get('title')->getValue();
+    $journal_item = $volume_entity->get('field_parent_journal')->first();
     if (!empty($journal_item)) {
-      $data['journal_entity_id'] = $journal_item->get['target_id']->getValue();
+      $data['journal_entity_id'] = $journal_item->get('target_id')->getValue();
     }
     if (!empty($data['journal_entity_id'])) {
       $data['journal_entity'] = $this->entityTypeManager->getStorage('node')
@@ -74,7 +94,7 @@ class CitationTools {
    */
   public function getCitationMetadataForJournal($journal_entity) {
     $data = [];
-    $data['bibcite_secondary_title'] = $data['journal_entity']->get('title')->getValue();
+    $data['bibcite_secondary_title'] = $journal_entity->get('title')->getValue();
     return $data;
   }
 
