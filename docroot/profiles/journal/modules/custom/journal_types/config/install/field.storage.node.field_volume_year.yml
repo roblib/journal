@@ -2,19 +2,19 @@ langcode: en
 status: true
 dependencies:
   module:
-    - entity_hierarchy
+    - datetime
     - field_permissions
     - node
 third_party_settings:
   field_permissions:
-    permission_type: custom
-id: node.field_article_issue
-field_name: field_article_issue
+    permission_type: public
+id: node.field_volume_year
+field_name: field_volume_year
 entity_type: node
-type: entity_reference_hierarchy
+type: datetime
 settings:
-  target_type: node
-module: entity_hierarchy
+  datetime_type: date
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

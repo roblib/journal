@@ -2,17 +2,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_issue_volume
-    - node.type.issue
+    - field.storage.node.field_parent_journal
+    - node.type.journal
     - node.type.volume
   module:
     - entity_hierarchy
-id: node.issue.field_issue_volume
-field_name: field_issue_volume
+id: node.volume.field_parent_journal
+field_name: field_parent_journal
 entity_type: node
-bundle: issue
-label: Volume
-description: 'The volume that this issue is a part of.'
+bundle: volume
+label: Journal
+description: 'Journal that this volume is a part of.'
 required: true
 translatable: false
 default_value: {  }
@@ -21,7 +21,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      volume: volume
+      journal: journal
     sort:
       field: created
       direction: DESC

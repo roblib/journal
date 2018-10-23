@@ -1,16 +1,20 @@
-uuid: e780af99-ffdf-48f0-8869-c7e732b5763c
 langcode: en
 status: true
 dependencies:
   module:
+    - entity_hierarchy
+    - field_permissions
     - node
+third_party_settings:
+  field_permissions:
+    permission_type: custom
 id: node.field_parent_journal
 field_name: field_parent_journal
 entity_type: node
-type: entity_reference
+type: entity_reference_hierarchy
 settings:
   target_type: node
-module: core
+module: entity_hierarchy
 locked: false
 cardinality: 1
 translatable: true

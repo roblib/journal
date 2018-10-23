@@ -12,6 +12,7 @@ dependencies:
     - node.type.issue
   module:
     - content_moderation
+    - entity_hierarchy
     - field_group
     - image
     - path
@@ -80,7 +81,7 @@ third_party_settings:
         required_fields: true
       label: Identification
 _core:
-  default_config_hash: Wcu_2NsYWqUw_50595PLiWHBTZjFB02g5lI5hQ2o9s4
+  default_config_hash: 4tNo3biqtUXmGhC4lZY4z0mq5-Plnji3J4QDsZZruyQ
 id: node.issue.default
 targetEntityType: node
 bundle: issue
@@ -124,13 +125,15 @@ content:
       display_label: true
     third_party_settings: {  }
   field_issue_volume:
-    type: string_textfield
-    weight: 2
-    region: content
+    weight: 26
     settings:
+      match_operator: CONTAINS
       size: 60
       placeholder: ''
+      hide_weight: false
     third_party_settings: {  }
+    type: entity_reference_hierarchy_autocomplete
+    region: content
   field_issue_year:
     type: number
     weight: 1

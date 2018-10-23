@@ -466,7 +466,7 @@ third_party_settings:
         description: ''
       label: 'For Librarians'
 _core:
-  default_config_hash: iGEGD0SCsSLWELeJZWuvpKzp93PKZoCte1igtFh9OIs
+  default_config_hash: yUhhBTNLMcvJwxXgtyBXkER86vEH1igSeSN5Dqv7zQY
 id: node.journal.full
 targetEntityType: node
 bundle: journal

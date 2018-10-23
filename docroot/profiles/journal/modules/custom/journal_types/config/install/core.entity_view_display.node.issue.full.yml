@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.issue.field_issue_cover
     - field.field.node.issue.field_issue_number
     - field.field.node.issue.field_issue_open
-    - field.field.node.issue.field_issue_volume
     - field.field.node.issue.field_issue_year
     - node.type.issue
   module:
@@ -234,7 +233,7 @@ third_party_settings:
         description: ''
       label: Identification
 _core:
-  default_config_hash: nHDusQgkK2VeOkzGDsYf9rx4hWWoA2z47WcVA7nqYCA
+  default_config_hash: hK4ohc-aIK50ZUiBbQmfS-h-B91jQeSQ_KckX8eG55U
 id: node.issue.full
 targetEntityType: node
 bundle: issue
@@ -264,14 +263,6 @@ content:
     settings:
       thousand_separator: ''
       prefix_suffix: true
-    third_party_settings: {  }
-  field_issue_volume:
-    type: string
-    weight: 4
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
     third_party_settings: {  }
   field_issue_year:
     type: number_integer

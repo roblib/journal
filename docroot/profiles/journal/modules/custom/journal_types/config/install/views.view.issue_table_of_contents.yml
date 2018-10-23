@@ -5,8 +5,11 @@ dependencies:
     - core.entity_view_mode.node.toc_item
     - node.type.journal_article
   module:
+    - entity_hierarchy
     - node
     - user
+_core:
+  default_config_hash: eRvtgiaY4Seyry8ZwAZBW-bckYFNWG1wBPDPNwhvotc
 id: issue_table_of_contents
 label: 'Issue Table of Contents'
 module: views
@@ -155,10 +158,10 @@ display:
       empty: {  }
       relationships: {  }
       arguments:
-        field_article_issue_target_id:
-          id: field_article_issue_target_id
-          table: node__field_article_issue
-          field: field_article_issue_target_id
+        is_child:
+          id: is_child
+          table: nested_set_field_journal_article_issue_node
+          field: is_child
           relationship: none
           group_type: group
           admin_label: ''
@@ -186,9 +189,8 @@ display:
             type: none
             fail: 'not found'
           validate_options: {  }
-          break_phrase: false
-          not: false
-          plugin_id: numeric
+          depth: 0
+          plugin_id: entity_hierarchy_argument_is_child_of_entity_revision
       display_extenders: {  }
     cache_metadata:
       max-age: -1

@@ -2,23 +2,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.media_browser
-    - field.field.node.news_article.body
-    - field.field.node.news_article.field_article_highlight_image
-    - field.field.node.news_article.field_article_issue
-    - field.field.node.news_article.field_article_section
-    - node.type.news_article
+    - field.field.node.volume.body
+    - field.field.node.volume.field_parent_journal
+    - field.field.node.volume.field_volume_year
+    - node.type.volume
   module:
     - content_moderation
-    - entity_browser
+    - datetime
     - entity_hierarchy
     - path
     - text
-_core:
-  default_config_hash: qMmwpsUSr3O_KBo78yU8umrFFTCRve5PHvwLbn8p3YU
-id: node.news_article.default
+id: node.volume.default
 targetEntityType: node
-bundle: news_article
+bundle: volume
 mode: default
 content:
   body:
@@ -36,22 +32,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_article_highlight_image:
-    type: entity_browser_entity_reference
-    weight: 123
-    settings:
-      entity_browser: media_browser
-      field_widget_display: rendered_entity
-      field_widget_edit: true
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: thumbnail
-      open: true
-    region: content
-    third_party_settings: {  }
-  field_article_issue:
-    weight: 124
+  field_parent_journal:
+    weight: 122
     settings:
       match_operator: CONTAINS
       size: 60
@@ -60,14 +42,11 @@ content:
     third_party_settings: {  }
     type: entity_reference_hierarchy_autocomplete
     region: content
-  field_article_section:
-    weight: 122
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+  field_volume_year:
+    weight: 123
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: datetime_default
     region: content
   moderation_state:
     type: moderation_state_default

@@ -23,7 +23,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: Dr_2E8xMsfoQ1rC0JsB1IpT5s8FvYIO6lFBbDGfV2Wg
+  default_config_hash: tym0E9V_huI30V2g0R29YUl9ujNEQrx1h_7kXMwuuAw
 id: node.journal.teaser
 targetEntityType: node
 bundle: journal

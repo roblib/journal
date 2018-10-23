@@ -4,10 +4,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.news_article.body
+    - field.field.node.news_article.field_article_highlight_image
+    - field.field.node.news_article.field_article_section
     - node.type.news_article
   module:
     - text
     - user
+_core:
+  default_config_hash: LiZvCGm0QVHF5DxEAOkGgbK10X5CyZaTjqAuGvbzHy8
 id: node.news_article.teaser
 targetEntityType: node
 bundle: news_article
@@ -24,4 +28,6 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_article_highlight_image: true
+  field_article_section: true

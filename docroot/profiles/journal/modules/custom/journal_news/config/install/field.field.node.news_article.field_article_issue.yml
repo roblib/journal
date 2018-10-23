@@ -5,24 +5,29 @@ dependencies:
     - field.storage.node.field_article_issue
     - node.type.issue
     - node.type.news_article
+  module:
+    - entity_hierarchy
 id: node.news_article.field_article_issue
 field_name: field_article_issue
 entity_type: node
 bundle: news_article
 label: Issue
-description: 'Attach this News Article to a particular issue. This is optional.'
+description: 'Attach this news item to an issue.'
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'entity_hierarchy:node'
   handler_settings:
     target_bundles:
       issue: issue
     sort:
       field: created
       direction: DESC
-    auto_create: false
+    auto_create: 0
     auto_create_bundle: ''
-field_type: entity_reference
+  weight_min: -50
+  weight_max: 50
+  weight_label: Order
+field_type: entity_reference_hierarchy

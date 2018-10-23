@@ -8,8 +8,11 @@ dependencies:
     - field.field.node.news_article.field_article_section
     - node.type.news_article
   module:
+    - entity_hierarchy
     - text
     - user
+_core:
+  default_config_hash: ZrRs2VU7Zu3du5MeWK43LpWRedl9TLzpKvbE9PMpPCo
 id: node.news_article.default
 targetEntityType: node
 bundle: news_article
@@ -36,7 +39,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_hierarchy_label
     region: content
   field_article_section:
     weight: 102

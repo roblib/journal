@@ -5,12 +5,14 @@ dependencies:
     - field.storage.node.field_article_issue
     - node.type.issue
     - node.type.journal_article
+  module:
+    - entity_hierarchy
 id: node.journal_article.field_article_issue
 field_name: field_article_issue
 entity_type: node
 bundle: journal_article
 label: Issue
-description: 'Issue containing this article.'
+description: 'The issue that this article is part of.'
 required: false
 translatable: false
 default_value: {  }
@@ -20,6 +22,12 @@ settings:
   handler_settings:
     target_bundles:
       issue: issue
-    auto_create: true
+    sort:
+      field: created
+      direction: ASC
+    auto_create: false
     auto_create_bundle: ''
-field_type: entity_reference
+  weight_min: -50
+  weight_max: 50
+  weight_label: Order
+field_type: entity_reference_hierarchy

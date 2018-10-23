@@ -9,13 +9,14 @@ dependencies:
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_highlight_image
-    - field.field.node.journal_article.field_article_issue
     - field.field.node.journal_article.field_article_peer_reviewed
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
     - field.field.node.journal_article.field_article_submission_files
     - field.field.node.journal_article.field_article_subtitle
+    - field.field.node.journal_article.field_article_type
     - field.field.node.journal_article.field_authors_and_affiliations
+    - field.field.node.journal_article.field_editorial_comments
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
     - field.field.node.journal_article.field_publication_date_electroni
@@ -33,7 +34,7 @@ third_party_settings:
     allow: false
     default: default
 _core:
-  default_config_hash: 83gRp20-OdDh7X-iMe9rUhGdG3N9Ogg27lOJv04QgPE
+  default_config_hash: NyYwxDzPciEI3DVhuznxC0ztKUDcR54cX8PDbrJ8KxM
 id: node.journal_article.toc_item
 targetEntityType: node
 bundle: journal_article
@@ -71,12 +72,13 @@ hidden:
   field_article_dc_source: true
   field_article_disciplines: true
   field_article_editor_comments: true
-  field_article_issue: true
   field_article_peer_reviewed: true
   field_article_section: true
   field_article_subjects: true
   field_article_submission_files: true
+  field_article_type: true
   field_authors_and_affiliations: true
+  field_editorial_comments: true
   field_journal_article_keywords: true
   field_publication_date_electroni: true
   links: true

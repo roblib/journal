@@ -15,7 +15,9 @@ dependencies:
     - field.field.node.journal_article.field_article_subjects
     - field.field.node.journal_article.field_article_submission_files
     - field.field.node.journal_article.field_article_subtitle
+    - field.field.node.journal_article.field_article_type
     - field.field.node.journal_article.field_authors_and_affiliations
+    - field.field.node.journal_article.field_editorial_comments
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
     - field.field.node.journal_article.field_publication_date_electroni
@@ -24,6 +26,7 @@ dependencies:
     - content_moderation
     - datetime
     - entity_browser
+    - entity_hierarchy
     - field_group
     - file
     - paragraphs
@@ -33,7 +36,6 @@ third_party_settings:
   field_group:
     group_submission_metadata:
       children:
-        - field_article_dc_type
         - field_article_dc_source
         - field_article_dc_rights
       parent_name: group_technical_metadata
@@ -93,13 +95,13 @@ third_party_settings:
       label: 'Article Content'
     group_publication_state:
       children:
-        - field_article_issue
         - moderation_state
         - field_article_section
         - status
         - field_publication_date_electroni
         - path
         - field_article_peer_reviewed
+        - field_article_issue
       parent_name: group_article_info
       weight: 23
       format_type: tab
@@ -139,7 +141,7 @@ third_party_settings:
         required_fields: true
       label: 'Article Contributors'
 _core:
-  default_config_hash: z-YtyVjZM1VRxttInAtPT0TGf6WWiCF7o83RZ7hJ-Q4
+  default_config_hash: 2HC_AazPV_RuSBxNl1RvAtSfbWOUujDiAcyCcK6SUuc
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -202,11 +204,11 @@ content:
     region: content
     third_party_settings: {  }
   field_article_issue:
-    type: options_select
-    weight: 9
-    region: content
+    weight: 183
     settings: {  }
     third_party_settings: {  }
+    type: entity_reference_hierarchy_select
+    region: content
   field_article_peer_reviewed:
     weight: 16
     settings:
@@ -311,6 +313,8 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_article_type: true
+  field_editorial_comments: true
   promote: true
   sticky: true
   uid: true

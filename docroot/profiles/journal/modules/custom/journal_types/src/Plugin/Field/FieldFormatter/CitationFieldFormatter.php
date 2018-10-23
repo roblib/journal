@@ -14,6 +14,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\bibcite\CitationStylerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\journal_types\CitationTools;
 
 /**
  * Plugin implementation of the 'citation_field_formatter' formatter.
@@ -136,26 +137,12 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
     $field_map = \Drupal::entityManager()->getFieldMap();
     $node_field_map = $field_map['node'];
     $article_entity = $item->getEntity();
-    $issue_entity_id = $article_entity->get('field_article_issue')->first()->getValue()['target_id'];
+    $citationTools = new CitationTools($this->entityTypeManager);
+    $citation_metadata = $citationTools->getCitationMetadataForArticle($article_entity);
 
-    $issue_entity = $this->entityTypeManager->getStorage('node')->load($issue_entity_id);
+    $citation_metadata['type'] = 'journal_article';
 
-    $journal_entity_id = $issue_entity->get('field_parent_journal')->first()->getValue()['target_id'];
-
-    $journal_entity = $this->entityTypeManager->getStorage('node')->load($journal_entity_id);
-
-    $r = Reference::create([
-      'type' => 'journal_article',
-      //'author' => $article_entity->get('field_article_contributors')->getValue(),
-      'title' => $article_entity->get('title')->getValue(),
-      'bibcite_year' => $issue_entity->get('field_issue_year')->getValue(),
-      'bibcite_secondaary_title' => $journal_entity->get('title')->getValue(),
-      'bibcite_volume' => $issue_entity->get('field_issue_volume')->getValue(),
-      'bibcite_number' => $issue_entity->get('field_issue_number')->getValue(),
-      'bibcite_type_of_work' => 'Journal article',
-
-
-    ]);
+    $r = Reference::create($citation_metadata);
     $output = $r->cite($this->getSetting('style'));
     return $output;
 
