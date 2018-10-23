@@ -22,7 +22,6 @@ dependencies:
     - field.field.node.journal_article.field_publication_date_electroni
     - node.type.journal_article
   module:
-    - datetime
     - entity_hierarchy
     - entity_reference_revisions
     - field_group
@@ -72,7 +71,7 @@ third_party_settings:
         - group_article_text
         - group_article_info
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: accordion
       format_settings:
         effect: none
@@ -80,7 +79,7 @@ third_party_settings:
         id: ''
       label: Article
 _core:
-  default_config_hash: PRmAgfpoPiy1eACrex-dWBf6stGBUkWdtwws758iiA4
+  default_config_hash: Z_CvJpj9aB6jzB5XgIk0WWsKD879UIw1VZTaCuqSanM
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -124,7 +123,7 @@ content:
     region: content
   field_article_highlight_image:
     type: entity_reference_entity_view
-    weight: 10
+    weight: 9
     region: content
     label: hidden
     settings:
@@ -166,7 +165,7 @@ content:
     type: entity_reference_label
     region: content
   field_article_submission_files:
-    weight: 9
+    weight: 8
     label: above
     settings:
       use_description_as_link_text: true
@@ -182,7 +181,7 @@ content:
     region: content
   field_authors_and_affiliations:
     type: entity_reference_revisions_entity_view
-    weight: 4
+    weight: 3
     region: content
     label: above
     settings:
@@ -204,17 +203,8 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_publication_date_electroni:
-    weight: 5
-    label: inline
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   links:
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -222,3 +212,4 @@ hidden:
   field_article_editor_comments: true
   field_article_type: true
   field_editorial_comments: true
+  field_publication_date_electroni: true
