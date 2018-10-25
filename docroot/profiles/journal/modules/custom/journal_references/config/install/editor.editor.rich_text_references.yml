@@ -32,7 +32,6 @@ settings:
             - DrupalLink
             - DrupalUnlink
             - reference_footnotes
-            - footnotes
         -
           name: Lists
           items:
