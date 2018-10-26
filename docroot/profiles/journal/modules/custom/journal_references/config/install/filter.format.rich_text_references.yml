@@ -4,7 +4,7 @@ dependencies:
   module:
     - editor
     - entity_embed
-    - footnotes
+    - bibcite_footnotes
 _core:
   default_config_hash: i0SzprgUrVbLJjIxVBrOoB59baT-p-x2dtgY2z2KZiw
 name: 'Rich Text with References'
@@ -75,10 +75,12 @@ filters:
     weight: -41
     settings:
       filter_url_length: 72
-  filter_footnotes:
-    id: filter_footnotes
-    provider: footnotes
+  filter_reference_footnotes:
+    id: filter_reference_footnotes
+    provider: bibcite_footnotes
     status: true
     weight: -50
     settings:
       footnotes_collapse: '0'
+      notes_sectoin_label: 'Notes'
+      references_section_label: 'Works Cited'

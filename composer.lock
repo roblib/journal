@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b7adddb30ffe854bcd4f127a158e4de",
+    "content-hash": "9d987b472da4dd27bf22110838587322",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -1990,17 +1990,11 @@
         },
         {
             "name": "drupal/bibcite_footnotes",
-            "version": "1.0.0-beta1",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/bibcite_footnotes",
-                "reference": "8.x-1.0-beta1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bibcite_footnotes-8.x-1.0-beta1.zip",
-                "reference": "8.x-1.0-beta1",
-                "shasum": "14e0d81b236f49eae9117c4aac93894ea49e3141"
+                "reference": "8328078dd47c8cf465b13909fe9ee2a090ec3852"
             },
             "require": {
                 "drupal/bibcite": "*",
@@ -2014,8 +2008,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta1",
-                    "datestamp": "1539801481",
+                    "version": "8.x-1.0-beta1+4-dev",
+                    "datestamp": "1540547581",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -2048,7 +2042,8 @@
             "homepage": "https://www.drupal.org/project/bibcite_footnotes",
             "support": {
                 "source": "http://cgit.drupalcode.org/bibcite_footnotes"
-            }
+            },
+            "time": "2018-10-26T09:46:17+00:00"
         },
         {
             "name": "drupal/blazy",
@@ -3280,7 +3275,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.0-alpha2",
-                    "datestamp": "1528141081",
+                    "datestamp": "1512118387",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -10596,16 +10591,16 @@
         },
         {
             "name": "consolidation/config",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/config.git",
-                "reference": "c9fc25e9088a708637e18a256321addc0670e578"
+                "reference": "925231dfff32f05b787e1fddb265e789b939cf4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/config/zipball/c9fc25e9088a708637e18a256321addc0670e578",
-                "reference": "c9fc25e9088a708637e18a256321addc0670e578",
+                "url": "https://api.github.com/repos/consolidation/config/zipball/925231dfff32f05b787e1fddb265e789b939cf4c",
+                "reference": "925231dfff32f05b787e1fddb265e789b939cf4c",
                 "shasum": ""
             },
             "require": {
@@ -10646,7 +10641,7 @@
                 }
             ],
             "description": "Provide configuration services for a commandline tool.",
-            "time": "2018-08-07T22:57:00+00:00"
+            "time": "2018-10-24T17:55:35+00:00"
         },
         {
             "name": "consolidation/log",
@@ -14609,7 +14604,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/bibcite": 20,
-        "drupal/bibcite_footnotes": 15,
+        "drupal/bibcite_footnotes": 20,
         "drupal/link_css": 20,
         "drupal/views_entity_form_field": 10,
         "drupal/toc_api": 10,

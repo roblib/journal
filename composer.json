@@ -20,7 +20,7 @@
         "drupal/entity": "~1.0beta3",
         "drupal/field_permissions": "*",
         "drupal/bibcite": "^1.0@dev",
-	"drupal/bibcite_footnotes": "^1.0@alpha",
+	"drupal/bibcite_footnotes": "1.x-dev",
 
         "drupal/footnotes": "^2.1", 
         "drupal/draggableviews": "^1.0", 
