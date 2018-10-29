@@ -9,7 +9,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: eRvtgiaY4Seyry8ZwAZBW-bckYFNWG1wBPDPNwhvotc
+  default_config_hash: W7dKmgdVEq0l0M432xfpZ2b37Nb7AA88fRcIHQKxLw0
 id: issue_table_of_contents
 label: 'Issue Table of Contents'
 module: views
@@ -136,7 +136,55 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        nid:
+          id: nid
+          table: node_access
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: node_access
       sorts:
+        left_pos:
+          id: left_pos
+          table: nested_set_field_article_issue_node
+          field: left_pos
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
         created:
           id: created
           table: node_field_data
