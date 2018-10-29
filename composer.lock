@@ -1994,7 +1994,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/bibcite_footnotes",
-                "reference": "8328078dd47c8cf465b13909fe9ee2a090ec3852"
+                "reference": "605c02f991948a41a7409e11b25acca3941c26f6"
             },
             "require": {
                 "drupal/bibcite": "*",
@@ -2043,7 +2043,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/bibcite_footnotes"
             },
-            "time": "2018-10-26T09:46:17+00:00"
+            "time": "2018-10-26T16:40:55+00:00"
         },
         {
             "name": "drupal/blazy",
@@ -5580,17 +5580,17 @@
         },
         {
             "name": "drupal/paragraphs",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/paragraphs",
-                "reference": "8.x-1.3"
+                "reference": "8.x-1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/paragraphs-8.x-1.3.zip",
-                "reference": "8.x-1.3",
-                "shasum": "24c6d2153127f9d783a03c05baf3b9beb219113f"
+                "url": "https://ftp.drupal.org/files/projects/paragraphs-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "2acda7574b057d3d8e7caf4f24a63f50047a0a5a"
             },
             "require": {
                 "drupal/core": "~8",
@@ -5618,8 +5618,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.3",
-                    "datestamp": "1527502684",
+                    "version": "8.x-1.4",
+                    "datestamp": "1540628880",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9796,12 +9796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/acquia/lightning-dev",
-                "reference": "aa9c180b0eb6475eb1fb6499e6feb5c8fe29271c"
+                "reference": "88bf9f2ba5c4f504a48aa97441a75c06658e35b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acquia/lightning-dev/zipball/aa9c180b0eb6475eb1fb6499e6feb5c8fe29271c",
-                "reference": "aa9c180b0eb6475eb1fb6499e6feb5c8fe29271c",
+                "url": "https://api.github.com/repos/acquia/lightning-dev/zipball/88bf9f2ba5c4f504a48aa97441a75c06658e35b4",
+                "reference": "88bf9f2ba5c4f504a48aa97441a75c06658e35b4",
                 "shasum": ""
             },
             "require": {
@@ -9895,7 +9895,7 @@
                 "GPL-2.0+"
             ],
             "description": "Internal development tools for Acquia Lightning.",
-            "time": "2018-10-02T13:40:07+00:00"
+            "time": "2018-10-26T16:18:32+00:00"
         },
         {
             "name": "alchemy/zippy",
@@ -10831,16 +10831,16 @@
         },
         {
             "name": "consolidation/self-update",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/self-update.git",
-                "reference": "4422e52d3fabeca9129ecb1780f198f202debdce"
+                "reference": "a1c273b14ce334789825a09d06d4c87c0a02ad54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/self-update/zipball/4422e52d3fabeca9129ecb1780f198f202debdce",
-                "reference": "4422e52d3fabeca9129ecb1780f198f202debdce",
+                "url": "https://api.github.com/repos/consolidation/self-update/zipball/a1c273b14ce334789825a09d06d4c87c0a02ad54",
+                "reference": "a1c273b14ce334789825a09d06d4c87c0a02ad54",
                 "shasum": ""
             },
             "require": {
@@ -10877,20 +10877,20 @@
                 }
             ],
             "description": "Provides a self:update command for Symfony Console applications.",
-            "time": "2018-10-21T20:17:55+00:00"
+            "time": "2018-10-28T01:52:03+00:00"
         },
         {
             "name": "consolidation/site-alias",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/site-alias.git",
-                "reference": "247f3e52604b9d76a075e6c06d5d1dd73bbae892"
+                "reference": "eb062894c4c0e617cd6549e0ad4d2554e81885f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/site-alias/zipball/247f3e52604b9d76a075e6c06d5d1dd73bbae892",
-                "reference": "247f3e52604b9d76a075e6c06d5d1dd73bbae892",
+                "url": "https://api.github.com/repos/consolidation/site-alias/zipball/eb062894c4c0e617cd6549e0ad4d2554e81885f2",
+                "reference": "eb062894c4c0e617cd6549e0ad4d2554e81885f2",
                 "shasum": ""
             },
             "require": {
@@ -10933,7 +10933,7 @@
                 }
             ],
             "description": "Template project for PHP libraries.",
-            "time": "2018-09-22T04:11:38+00:00"
+            "time": "2018-10-28T00:37:34+00:00"
         },
         {
             "name": "container-interop/container-interop",

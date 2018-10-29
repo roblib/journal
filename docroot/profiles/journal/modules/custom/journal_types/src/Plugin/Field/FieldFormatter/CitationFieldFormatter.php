@@ -75,17 +75,20 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
     }, $csl_styles);
 
     return [
-      // Implement settings form.
+        // Implement settings form.
         'style' => [
-        '#type' => 'select',
-        '#title' => $this->t('Citation style'),
-        '#options' => $styles_options,
-        '#default_value' => $this->getSetting('style'),
-      ],
-        'omit_title' => [
-
+          '#type' => 'select',
+          '#title' => $this->t('Citation style'),
+          '#options' => $styles_options,
+          '#default_value' => $this->getSetting('style'),
         ],
-    ] + parent::settingsForm($form, $form_state);
+        'omit_title' => [
+          '#type' => 'checkbox',
+          '#title' => $this->t('Omit article title'),
+          '#description' => $this->t('Skip the article title when constructing the citation. Useful if this field appears along side a linked title field.'),
+          '#default_value' => $this->getSetting('omit_title'),
+        ],
+      ] + parent::settingsForm($form, $form_state);
   }
 
   /**
@@ -141,7 +144,9 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
     $citation_metadata = $citationTools->getCitationMetadataForArticle($article_entity);
 
     $citation_metadata['type'] = 'journal_article';
-
+    if ($this->getSetting('omit_title')) {
+      unset($citation_metadata['title']);
+    }
     $r = Reference::create($citation_metadata);
     $styler = \Drupal::service('bibcite.citation_styler');
 
