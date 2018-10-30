@@ -98,13 +98,15 @@ class CitationTools {
     return $data;
   }
 
+  public function getRe
+
   /**
    * CitationTools constructor.
    *
    * @TODO make this a proper dependency injection.
    * @param $entity_type_manager
    */
-  public function __construct($entity_type_manager) {
-    $this->entityTypeManager = $entity_type_manager;
+  public function __construct($entity_type_manager = FALSE) {
+    $this->entityTypeManager = $entity_type_manager ? $entity_type_manager : \Drupal::entityTypeManager();
   }
 }
