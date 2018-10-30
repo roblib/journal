@@ -2,11 +2,13 @@ langcode: en
 status: true
 dependencies:
   module:
+    - bibcite_footnotes
     - editor
     - entity_embed
-    - bibcite_footnotes
+    - footnotes
+    - toc_filter
 _core:
-  default_config_hash: i0SzprgUrVbLJjIxVBrOoB59baT-p-x2dtgY2z2KZiw
+  default_config_hash: bpDh0i8TMWgBV5TMyy2bKW5eYopulxItBBoT-ud42Uk
 name: 'Rich Text with References'
 format: rich_text_references
 weight: -11
@@ -47,7 +49,7 @@ filters:
     status: true
     weight: -49
     settings:
-      allowed_html: '<a class href hreflang id> <em> <strong> <cite> <blockquote cite> <code> <ul class id type> <ol class id start type> <li class id> <dl> <dt> <dd> <h2 class id> <h3 class id> <h4 class id> <h5 class id> <h6 class id> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <br> <h1> <pre> <drupal-entity data-* title alt> <fn id value>'
+      allowed_html: '<a class href hreflang id> <em> <strong> <cite> <blockquote cite> <code> <ul class id type> <ol class id start type> <li class id> <dl> <dt> <dd> <h2 class id> <h3 class id> <h4 class id> <h5 class id> <h6 class id> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <br> <h1> <pre> <drupal-entity data-* title alt> <fn id value> <div class id> <span class id>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
@@ -71,7 +73,7 @@ filters:
   filter_url:
     id: filter_url
     provider: filter
-    status: false
+    status: true
     weight: -41
     settings:
       filter_url_length: 72
@@ -81,6 +83,24 @@ filters:
     status: true
     weight: -50
     settings:
-      footnotes_collapse: '0'
-      notes_sectoin_label: 'Notes'
+      footnotes_collapse: '1'
+      notes_section_label: Notes
       references_section_label: 'Works Cited'
+      reference_dont_show_backlink_text: '1'
+      reference_sort_by: contributor_surname
+  filter_footnotes:
+    id: filter_footnotes
+    provider: footnotes
+    status: false
+    weight: 0
+    settings:
+      footnotes_collapse: '0'
+  toc_filter:
+    id: toc_filter
+    provider: toc_filter
+    status: false
+    weight: 0
+    settings:
+      type: default
+      auto: ''
+      block: '0'
