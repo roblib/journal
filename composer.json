@@ -40,7 +40,8 @@
         "drupal/name": "^1.0@RC", 
         "drupal/bamboo_twig": "^4.1",
         "twig/extensions": "^1.5",
-        "drupal/twig_field_value": "^1.1" 
+        "drupal/twig_field_value": "^1.1",
+        "drupal/search_api_solr": "^2.2" 
     },
     "repositories": {
         "drupal": {
