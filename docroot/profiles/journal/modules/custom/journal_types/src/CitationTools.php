@@ -97,9 +97,7 @@ class CitationTools {
     $data['bibcite_secondary_title'] = $journal_entity->get('title')->getValue();
     return $data;
   }
-
-  public function getRe
-
+  
   /**
    * CitationTools constructor.
    *
