@@ -8,7 +8,7 @@ dependencies:
     - footnotes
     - toc_filter
 _core:
-  default_config_hash: mLQ1vUVKNrduAbmbOm1C4TcFfvsVBGUwfu-4158C9io
+  default_config_hash: CLPaUnnMdbbL2rqMdkQpUqyufhHWZhl-ZuOAOBs9KEE
 name: 'Rich Text with References'
 format: rich_text_references
 weight: -11
@@ -49,7 +49,7 @@ filters:
     status: true
     weight: -49
     settings:
-      allowed_html: '<a class href hreflang id title> <em> <strong> <cite> <blockquote cite> <code> <ul class id type> <ol class id start type> <li class id> <dl> <dt> <dd> <h2 class id> <h3 class id> <h4 class id> <h5 class id> <h6 class id> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <br> <h1> <pre> <drupal-entity data-* title alt> <fn id value> <div class id> <span class id>'
+      allowed_html: '<a class href hreflang id title> <em> <strong> <cite> <blockquote cite> <code> <ul class id type> <ol class id start type> <li class id> <dl> <dt> <dd> <h2 class id> <h3 class id> <h4 class id> <h5 class id> <h6 class id> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <br> <h1> <pre> <drupal-entity data-* title alt> <fn id value page reference> <div class id> <span class id>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_autop:
