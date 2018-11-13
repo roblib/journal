@@ -6,7 +6,8 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-
+use Drupal\journal_types\CitationTools;
+use Drupal\pathauto\Entity\PathautoPattern;
 /**
  * Implements hook_help().
  */
@@ -33,3 +34,23 @@ function journal_types_theme() {
     ],
   ];
 }
+
+function journal_types_pathauto_pattern_alter(PathautoPattern &$pattern, array $context) {
+  if ($context['module'] == 'node' && ($context['op'] == 'insert' || $context['op'] == 'update')) {
+
+    /** @var \Drupal\node\Entity\Node $node */
+    $node = $context['data']['node'];
+
+    switch ($node->getType()) {
+      case ‘journal_article’:
+        if (!empty($issue)) {
+          $citationTools = new CitationTools();
+          $citation_metadata = $citationTools->getCitationMetadataForArticle($node);
+
+        }
+        break;
+    }
+
+  }
+}
+

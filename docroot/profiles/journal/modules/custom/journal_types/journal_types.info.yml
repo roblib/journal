@@ -18,4 +18,5 @@ dependencies:
   - lightning_media_image
   - journal_references
   - paragraphs
+  - pathauto
 
