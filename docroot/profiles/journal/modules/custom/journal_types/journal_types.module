@@ -40,14 +40,21 @@ function journal_types_pathauto_pattern_alter(PathautoPattern &$pattern, array $
 
     /** @var \Drupal\node\Entity\Node $node */
     $node = $context['data']['node'];
-
     switch ($node->getType()) {
-      case ‘journal_article’:
-        if (!empty($issue)) {
-          $citationTools = new CitationTools();
-          $citation_metadata = $citationTools->getCitationMetadataForArticle($node);
+      case 'journal_article':
+        $citationTools = new CitationTools();
+        $citation_metadata = $citationTools->getCitationMetadataForArticle($node);
+        $year = $citation_metadata['bibcite_year'][0]['value'];
+        $volume = $citation_metadata['bibcite_volume'][0]['value'];
+        $number = $citation_metadata['bibcite_number'][0]['value'];
+        $cleaner = \Drupal::service('pathauto.alias_cleaner');
+        $slug = 'article/' . (!empty($year) ? $cleaner->cleanString($year) . '/' : '' )
+          . (!empty($volume) ? $cleaner->cleanString($volume) . '/' : '')
+          . (!empty($number) ? $cleaner->cleanString($number) . '/' : '')
+          . $cleaner->cleanString($node->getTitle());
 
-        }
+        // Replace default [node:title] with logic-derived tokens.
+        $pattern->setPattern(preg_replace('/\[node:title(\:[^]]*)?\]/', $slug . '$1', $pattern->getPattern()));
         break;
     }
 
