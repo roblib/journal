@@ -51,7 +51,7 @@ function journal_types_pathauto_pattern_alter(PathautoPattern &$pattern, array $
         $slug = 'article/' . (!empty($year) ? $cleaner->cleanString($year) . '/' : '' )
           . (!empty($volume) ? $cleaner->cleanString($volume) . '/' : '')
           . (!empty($number) ? $cleaner->cleanString($number) . '/' : '')
-          . $cleaner->cleanString($node->getTitle());
+          . '[node:title]';
 
         // Replace default [node:title] with logic-derived tokens.
         $pattern->setPattern(preg_replace('/\[node:title(\:[^]]*)?\]/', $slug . '$1', $pattern->getPattern()));
