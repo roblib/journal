@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9e56aa5af774d504c039d1f7b90bdc8",
+    "content-hash": "ff3787f230656dce9df0a5a0438bcb35",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -1994,7 +1994,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/bibcite_footnotes",
-                "reference": "459568efc16fac33557ddbb1cbb202604fef46dc"
+                "reference": "7c967b72de86d6cf1bc78a1f781cae24110a2d60"
             },
             "require": {
                 "drupal/bibcite": "*",
@@ -2008,8 +2008,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta1+5-dev",
-                    "datestamp": "1540572180",
+                    "version": "8.x-1.0-beta1+6-dev",
+                    "datestamp": "1540924080",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -2043,7 +2043,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/bibcite_footnotes"
             },
-            "time": "2018-10-30T18:25:12+00:00"
+            "time": "2018-11-01T08:38:06+00:00"
         },
         {
             "name": "drupal/blazy",

@@ -6,7 +6,8 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-
+use Drupal\journal_types\CitationTools;
+use Drupal\pathauto\Entity\PathautoPattern;
 /**
  * Implements hook_help().
  */
@@ -33,3 +34,55 @@ function journal_types_theme() {
     ],
   ];
 }
+
+/**
+ * Implementation of hook_pathauto_pattern_alter().
+ *
+ * The URL Scheme for scholarly content is:
+ *
+ * Article: /[journal initials]/[volume]/[issue number]/[article title]
+ * Issue: /[journal initials]/[volume]/[issue number]/[issue title]
+ * Volume: /[journal initials]/[volume]
+ * Journal: /[journal initials]/[journal title]
+ *
+ * Where all fields are subject to PathAuto's URL cleaner.
+ *
+ * @param PathautoPattern $pattern
+ * @param array $context
+ */
+function journal_types_pathauto_pattern_alter(PathautoPattern &$pattern, array $context) {
+  if ($context['module'] == 'node' && ($context['op'] == 'insert' || $context['op'] == 'update')) {
+
+    /** @var \Drupal\node\Entity\Node $node */
+    $node = $context['data']['node'];
+    $citationTools = new CitationTools();
+    $citation_metadata = $citationTools->getCitationMetadata($node);
+    $cleaner = \Drupal::service('pathauto.alias_cleaner');
+    $parts = [];
+    switch ($node->getType()) {
+      // Non-breaking pass-through is intentional here.
+      case 'journal_article':
+      case 'issue':
+        $parts[] = $citation_metadata['bibcite_number'][0]['value'];
+      case 'volume':
+        // If this is the volume itself, it will get added via [node:title]
+        if ($node->getType() != 'volume') {
+          array_unshift($parts, $citation_metadata['bibcite_volume'][0]['value']);
+        }
+        array_unshift($parts, $citation_metadata['bibcite_year'][0]['value']);
+      case 'journal':
+        array_unshift($parts, $citation_metadata['journal_initials'][0]['value']);
+    }
+    if (!empty($parts)) {
+      $slug = '';
+      foreach ($parts as $part) {
+        $slug .= !empty($part) ? $cleaner->cleanString($part) . '/' : '';
+      }
+      $slug .= '[node:title]';
+
+      // Replace default [node:title] with logic-derived tokens.
+      $pattern->setPattern(preg_replace('/\[node:title(\:[^]]*)?\]/', $slug . '$1', $pattern->getPattern()));
+    }
+  }
+}
+

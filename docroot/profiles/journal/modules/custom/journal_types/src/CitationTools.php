@@ -5,6 +5,26 @@ namespace Drupal\journal_types;
 use Drupal\bibcite_entity\Entity\Contributor;
 
 class CitationTools {
+
+  public function getCitationMetadata($entity) {
+    switch ($entity->getType()) {
+      case 'journal':
+        return $this->getCitationMetadataForJournal($entity);
+        break;
+      case 'volume':
+        return $this->getCitationMetadataForVolume($entity);
+        break;
+      case 'issue':
+        return $this->getCitationMetadataForIssue($entity);
+        break;
+      case 'journal_article':
+        return $this->getCitationMetadataForArticle($entity);
+        break;
+      default:
+        return FALSE;
+    }
+  }
+
   /**
    * Get citation metadata from an Article eneity type.
    * @return array The Article metadata.
@@ -95,6 +115,8 @@ class CitationTools {
   public function getCitationMetadataForJournal($journal_entity) {
     $data = [];
     $data['bibcite_secondary_title'] = $journal_entity->get('title')->getValue();
+    $data['journal_abbrev'] = $journal_entity->get('field_journal_abbrev')->getValue();
+    $data['journal_initials'] = $journal_entity->get('field_journal_initials')->getValue();
     return $data;
   }
   
