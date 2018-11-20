@@ -33,14 +33,25 @@ class JournalExportController extends ExportController {
 
 
   /**
-   * Export.
+   * Export a Journal Article using the bibcite_export contorller by
+   * generating a Reference type entity on the fly.
+   *
+   * @param $bibcite_format
+   *   The export format to use
+   *
+   * @param $entity_type
+   *   The entity type. For thi module it will always be 'node'.
+   *   We keep this to retain compatibility with the parent class.
+   *
+   * @param $entity
+   *   The Journal Article entity.
    *
    * @return string
    *   Return Hello string.
    */
   public function export(BibciteFormatInterface $bibcite_format, $entity_type, EntityInterface $entity) {
     // TODO: Allow for citing other types of content.
-    if ($entity->getType() !== 'journal_article') {
+    if ($entity_type !== 'node' || $entity->getType() !== 'journal_article') {
       throw new NotFoundHttpException();
     }
     $citation_tools = new CitationTools($this->entityTypeManager);
