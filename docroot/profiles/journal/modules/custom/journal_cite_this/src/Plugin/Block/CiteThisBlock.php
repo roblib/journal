@@ -96,20 +96,13 @@ class CiteThisBlock extends BlockBase implements ContainerFactoryPluginInterface
       //'#wrapper_attributes' => ['class' => ['container']],
     ];
     foreach ($formats as $format) {
-      /*$item = [
-        '#id' => 'export-as-' . $format['id'],
-        '#wrapper_attributes' => [
-          'class' => ['citation-export-link'],
-        ],
-      ];*/
-      $link_text = $format['label'];
-      $url = Url::fromRoute('journal_cite_this.journal_export_controller_export', ['bibcite_format' => $format['id'], 'entity_type' => 'node', 'entity' => $nid]);
-      $link = Link::fromTextAndUrl($link_text, $url)->toRenderable();
-
-      $export_links['#links'][] = [
-        'title' => $format['label'],
-        'url' => Url::fromRoute('journal_cite_this.journal_export_controller_export', ['bibcite_format' => $format['id'], 'entity_type' => 'node', 'entity' => $nid]),
-      ];
+      // Endnote 7 export seems to be buggy.
+      if ($format['id'] !== 'endnote7') {
+        $export_links['#links'][] = [
+          'title' => $format['label'],
+          'url' => Url::fromRoute('journal_cite_this.journal_export_controller_export', ['bibcite_format' => $format['id'], 'entity_type' => 'node', 'entity' => $nid]),
+        ];
+      }
     }
 
     return $export_links;
