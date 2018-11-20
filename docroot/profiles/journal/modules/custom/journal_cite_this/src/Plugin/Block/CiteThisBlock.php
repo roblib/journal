@@ -81,6 +81,9 @@ class CiteThisBlock extends BlockBase implements ContainerFactoryPluginInterface
     $formats = $this->formatManager->getExportDefinitions();
 
     $node = $this->getContextValue('node');
+    if (empty($node) || $node->getType() !== 'journal_article') {
+      return;
+    }
     $nid_fld = $node->nid->getValue();
     $nid = $nid_fld[0]['value'];
 
