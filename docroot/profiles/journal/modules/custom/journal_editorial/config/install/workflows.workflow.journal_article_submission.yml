@@ -28,9 +28,9 @@ type_settings:
       label: 'In peer review'
       weight: -9
     published:
-      label: Published
       published: true
       default_revision: true
+      label: Published
       weight: -6
     with_submitter:
       published: false
@@ -44,6 +44,9 @@ type_settings:
       weight: -10
       from:
         - draft
+        - editorial_review
+        - peer_review
+        - published
     pass_peer_review:
       label: 'Pass Peer Review'
       from:
@@ -58,6 +61,7 @@ type_settings:
         - draft
         - editorial_review
         - peer_review
+        - published
     respond_to_feedback:
       label: 'Respond to feedback'
       from:
