@@ -2,6 +2,7 @@
 
 namespace Drupal\journal_cite_this\Plugin\Block;
 
+use Drupal\journal_types\CitationTools;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
@@ -9,6 +10,8 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\bibcite\Plugin\BibciteFormatManagerInterface;
+use Drupal\bibcite_entity\Entity\Reference;
+
 
 /**
  * Provides a 'CiteThisBlock' block.
@@ -84,13 +87,29 @@ class CiteThisBlock extends BlockBase implements ContainerFactoryPluginInterface
     if (empty($node) || $node->getType() !== 'journal_article') {
       return;
     }
+
     $nid_fld = $node->nid->getValue();
     $nid = $nid_fld[0]['value'];
+    $citation_tools = new CitationTools();
+    $citation_metadata = $citation_tools->getCitationMetadataForArticle($node);
+
+    $citation_metadata['type'] = 'journal_article';
+
+
+    $r = Reference::create($citation_metadata);
+    $serializer = \Drupal::service('serializer');
+    $data = $serializer->normalize($r, 'csl');
+
+    $text_citation = [
+      '#theme' => 'bibcite_citation',
+      '#data' => $data,
+    ];
+
 
     $export_links = [
       '#theme' => 'links',
       //'#list_type' => 'ul',
-      '#title' => $this->t('Export as'),
+      '#prefix' => '<h3>' . $this->t('Export as') . '</h3>',
       '#links' => [],
       //'#attributes' => ['class' => ['citation-export-links']],
       //'#wrapper_attributes' => ['class' => ['container']],
@@ -105,7 +124,7 @@ class CiteThisBlock extends BlockBase implements ContainerFactoryPluginInterface
       }
     }
 
-    return $export_links;
+    return [$text_citation, $export_links];
   }
 
 }
