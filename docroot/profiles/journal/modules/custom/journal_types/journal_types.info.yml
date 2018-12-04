@@ -10,6 +10,7 @@ dependencies:
   - entity_hierarchy
   - field_group
   - field_permissions
+  - inline_entity_form
   - media
   - name
   - panelizer

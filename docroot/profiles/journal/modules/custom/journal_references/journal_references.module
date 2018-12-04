@@ -1,5 +1,6 @@
 <?php
 
+
 function journal_references_modules_installed(array $modules)
 {
   // Don't do anything during config sync.
