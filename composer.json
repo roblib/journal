@@ -46,7 +46,8 @@
         "drupal/masonry": "^1.0@RC",
         "drupal/masonry_views": "^1.0@RC",
         "drupal/metatag_google_scholar": "^1.0@beta",
-        "drupal/masquerade": "^2.0@beta" 
+        "drupal/masquerade": "^2.0@beta",
+        "drupal/inline_entity_form": "^1.0@RC" 
     },
     "repositories": {
         "drupal": {

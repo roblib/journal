@@ -23,6 +23,7 @@ install:
   - bibcite_marc
   - bibcite_entity
   - journal_types
+  - journal_cite_this
   - journal_news
   - journal_editorial
   - journal_peer_review
