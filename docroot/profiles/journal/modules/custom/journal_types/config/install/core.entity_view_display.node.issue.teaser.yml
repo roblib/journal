@@ -7,7 +7,8 @@ dependencies:
     - field.field.node.issue.field_issue_cover
     - field.field.node.issue.field_issue_number
     - field.field.node.issue.field_issue_open
-    - field.field.node.issue.field_issue_year
+    - field.field.node.issue.field_issue_publication_date
+    - field.field.node.issue.field_issue_volume
     - image.style.medium
     - node.type.issue
   module:
@@ -202,24 +203,6 @@ third_party_settings:
             uuid: 33c302e4-b3df-4bae-b8e2-d475272a68f7
             context_mapping:
               entity: '@panelizer.entity_context:entity'
-          b60057d9-25fa-4935-aaa0-81196a62165d:
-            id: 'entity_field:node:field_issue_year'
-            label: Year
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: hidden
-              type: number_integer
-              settings:
-                thousand_separator: ''
-                prefix_suffix: true
-              third_party_settings: {  }
-              weight: 0
-            region: second_above
-            weight: -1
-            uuid: b60057d9-25fa-4935-aaa0-81196a62165d
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
           023b2da8-49b5-42e3-8556-c4090d0bcac1:
             id: 'entity_field:node:field_issue_volume'
             label: Volume
@@ -255,6 +238,24 @@ third_party_settings:
             uuid: 8b1f6504-d001-493a-abd1-db9f987f64b6
             context_mapping:
               entity: '@panelizer.entity_context:entity'
+          9ce3a48e-94ee-44b7-a3f3-6e3cd43738ff:
+            id: 'entity_field:node:field_issue_publication_date'
+            label: 'Publication Date'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: datetime_default
+              settings:
+                timezone_override: ''
+                format_type: html_date
+              third_party_settings: {  }
+              weight: 0
+            region: first_above
+            weight: 0
+            uuid: 9ce3a48e-94ee-44b7-a3f3-6e3cd43738ff
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
         id: panels_variant
         uuid: f2088078-2166-403a-8502-4837cd0919e4
         label: 'Issue list item'
@@ -282,7 +283,7 @@ third_party_settings:
         description: ''
       label: Identification
 _core:
-  default_config_hash: lroHblw1TgEZA_cIw_aquH3i7BJp7QZqoSSwKGIkSI4
+  default_config_hash: iRZaEmGIOt3kLD01e6z_gHb9R67TIQu0ai1Xl6myr1o
 id: node.issue.teaser
 targetEntityType: node
 bundle: issue
@@ -304,28 +305,14 @@ content:
       image_style: medium
       image_link: ''
     third_party_settings: {  }
-  field_issue_number:
-    type: number_integer
-    weight: 5
-    region: content
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-  field_issue_year:
-    type: number_integer
-    weight: 3
-    region: content
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
   links:
     weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_issue_number: true
   field_issue_open: true
+  field_issue_publication_date: true
+  field_issue_volume: true
+  langcode: true

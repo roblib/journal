@@ -6,16 +6,15 @@ dependencies:
     - field.field.node.issue.field_issue_cover
     - field.field.node.issue.field_issue_number
     - field.field.node.issue.field_issue_open
+    - field.field.node.issue.field_issue_publication_date
     - field.field.node.issue.field_issue_volume
-    - field.field.node.issue.field_issue_year
     - image.style.thumbnail
     - node.type.issue
   module:
-    - content_moderation
+    - datetime
     - entity_hierarchy
     - field_group
     - image
-    - path
     - text
 third_party_settings:
   field_group:
@@ -33,7 +32,6 @@ third_party_settings:
       label: 'Issue Info'
     group_basic_info:
       children:
-        - field_parent_journal
         - group_identification
         - body
         - field_issue_cover
@@ -50,12 +48,8 @@ third_party_settings:
     group_publication_state:
       children:
         - field_issue_open
-        - path
-        - created
-        - moderation_state
-        - promote
+        - field_issue_publication_date
         - status
-        - sticky
       parent_name: group_issue_info
       weight: 21
       format_type: tab
@@ -68,11 +62,10 @@ third_party_settings:
       label: 'Publication State'
     group_identification:
       children:
-        - field_issue_year
         - field_issue_volume
         - field_issue_number
       parent_name: group_basic_info
-      weight: 7
+      weight: 2
       format_type: fieldset
       format_settings:
         id: journal-issu-identification-form-fieldset
@@ -81,7 +74,7 @@ third_party_settings:
         required_fields: true
       label: Identification
 _core:
-  default_config_hash: 4tNo3biqtUXmGhC4lZY4z0mq5-Plnji3J4QDsZZruyQ
+  default_config_hash: Wcu_2NsYWqUw_50595PLiWHBTZjFB02g5lI5hQ2o9s4
 id: node.issue.default
 targetEntityType: node
 bundle: issue
@@ -89,22 +82,16 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 8
+    weight: 3
     region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
-  created:
-    type: datetime_timestamp
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_issue_cover:
     type: image_image
-    weight: 9
+    weight: 4
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
@@ -112,7 +99,7 @@ content:
     third_party_settings: {  }
   field_issue_number:
     type: number
-    weight: 3
+    weight: 1
     region: content
     settings:
       placeholder: ''
@@ -124,50 +111,23 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_issue_publication_date:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_issue_volume:
-    weight: 26
+    type: entity_reference_hierarchy_autocomplete
+    weight: 0
+    region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       hide_weight: false
     third_party_settings: {  }
-    type: entity_reference_hierarchy_autocomplete
-    region: content
-  field_issue_year:
-    type: number
-    weight: 1
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  moderation_state:
-    type: moderation_state_default
-    weight: 3
-    settings: {  }
-    region: content
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
-    region: content
-    third_party_settings: {  }
   status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 5
-    region: content
-    third_party_settings: {  }
-  sticky:
     type: boolean_checkbox
     settings:
       display_label: true
@@ -183,4 +143,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  created: true
+  langcode: true
+  moderation_state: true
+  path: true
+  promote: true
+  sticky: true
   uid: true

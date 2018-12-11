@@ -2,15 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.volume.body
     - field.field.node.volume.field_parent_journal
+    - field.field.node.volume.field_volume_number
     - field.field.node.volume.field_volume_year
     - node.type.volume
   module:
     - datetime
     - entity_hierarchy
     - panelizer
-    - text
     - user
 third_party_settings:
   panelizer:
@@ -23,13 +22,6 @@ targetEntityType: node
 bundle: volume
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_parent_journal:
     weight: 0
     label: above
@@ -37,6 +29,15 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_hierarchy_label
+    region: content
+  field_volume_number:
+    weight: 3
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_volume_year:
     weight: 2
@@ -48,4 +49,5 @@ content:
     type: datetime_default
     region: content
 hidden:
+  langcode: true
   links: true
