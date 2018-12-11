@@ -6,7 +6,7 @@ dependencies:
 id: issue
 label: Issue
 type: 'canonical_entities:node'
-pattern: '[node:title]'
+pattern: '[node:field_issue_number]'
 selection_criteria:
   02edb00c-6044-443d-a4e3-168ca5a9287c:
     id: node_type

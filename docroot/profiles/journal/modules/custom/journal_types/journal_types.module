@@ -62,15 +62,11 @@ function journal_types_pathauto_pattern_alter(PathautoPattern &$pattern, array $
     switch ($node->getType()) {
       // Non-breaking pass-through is intentional here.
       case 'journal_article':
-      case 'issue':
         $parts[] = $citation_metadata['bibcite_number'][0]['value'];
-      case 'volume':
+      case 'issue':
         // If this is the volume itself, it will get added via [node:title]
-        if ($node->getType() != 'volume') {
-          array_unshift($parts, $citation_metadata['bibcite_volume'][0]['value']);
-        }
-        array_unshift($parts, $citation_metadata['bibcite_year'][0]['value']);
-      case 'journal':
+        array_unshift($parts, $citation_metadata['bibcite_volume'][0]['value']);
+      case 'volume':
         array_unshift($parts, $citation_metadata['journal_initials'][0]['value']);
     }
     if (!empty($parts)) {
@@ -78,10 +74,11 @@ function journal_types_pathauto_pattern_alter(PathautoPattern &$pattern, array $
       foreach ($parts as $part) {
         $slug .= !empty($part) ? $cleaner->cleanString($part) . '/' : '';
       }
-      $slug .= '[node:title]';
+      if ($node->getType() == 'journal_article') {
+        $slug .= '[node:title]';
+      }
 
-      // Replace default [node:title] with logic-derived tokens.
-      $pattern->setPattern(preg_replace('/\[node:title(\:[^]]*)?\]/', $slug . '$1', $pattern->getPattern()));
+      $pattern->setPattern($slug . '/' . $pattern->getPattern());
     }
   }
 }

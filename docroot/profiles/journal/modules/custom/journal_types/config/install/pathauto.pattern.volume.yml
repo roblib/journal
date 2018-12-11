@@ -6,7 +6,7 @@ dependencies:
 id: volume
 label: Volume
 type: 'canonical_entities:node'
-pattern: '[node:title]'
+pattern: '[node:field_volume_number]'
 selection_criteria:
   94b4d53d-8ba8-459f-9e27-f551b71bc97c:
     id: node_type

@@ -25,9 +25,8 @@ third_party_settings:
   field_group:
     group_identification:
       children:
-        - field_issue_year
-        - field_issue_volume
         - field_issue_number
+        - field_issue_volume
       parent_name: ''
       weight: 1
       format_type: fieldset

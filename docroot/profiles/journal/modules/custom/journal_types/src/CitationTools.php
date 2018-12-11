@@ -72,7 +72,7 @@ class CitationTools {
   public function getCitationMetadataForIssue($issue_entity) {
     $data = [];
     $data['bibcite_number'] = $issue_entity->get('field_issue_number')->getValue();
-    $data['bibcite_year'] = $issue_entity->get('field_issue_year')->getValue();
+    $data['bibcite_year'] = $issue_entity->get('field_issue_publication_date')->date->format('Y');
     $volume_item = $issue_entity->get('field_issue_volume')->first();
     if (!empty($volume_item)) {
       $data['volume_entity_id'] = $volume_item->get('target_id')->getValue();
@@ -93,7 +93,8 @@ class CitationTools {
    */
   public function getCitationMetadataForVolume($volume_entity) {
     $data = [];
-    $data['bibcite_volume'] = $volume_entity->get('title')->getValue();
+    $data['bibcite_volume'] = $volume_entity->get('field_volume_number')->getValue();
+    $data['bibcite_year'] = $volume_entity->get('field_volume_year')->getValue();
     $journal_item = $volume_entity->get('field_parent_journal')->first();
     if (!empty($journal_item)) {
       $data['journal_entity_id'] = $journal_item->get('target_id')->getValue();

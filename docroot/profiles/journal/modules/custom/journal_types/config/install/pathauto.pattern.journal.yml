@@ -6,7 +6,7 @@ dependencies:
 id: journal
 label: Journal
 type: 'canonical_entities:node'
-pattern: '[node:title]'
+pattern: '[node:field_journal_initials]'
 selection_criteria:
   57396d6d-a088-40e3-ac13-590070510bd5:
     id: node_type

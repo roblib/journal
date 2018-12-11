@@ -1,3 +1,4 @@
+uuid: 406042cb-ee10-439b-978c-20e62305ef71
 langcode: en
 status: true
 dependencies:
@@ -136,25 +137,6 @@ third_party_settings:
             region: content
             weight: 4
             uuid: bdc36165-cdb9-42d8-a8a1-a99d91ef62d3
-          6fdab711-cdf5-46f8-8067-1c10fc5e1f4d:
-            id: 'entity_field:node:field_issue_year'
-            label: Year
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: number_integer
-              settings:
-                thousand_separator: ''
-                prefix_suffix: true
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            region: content
-            weight: 3
-            uuid: 6fdab711-cdf5-46f8-8067-1c10fc5e1f4d
         id: panels_variant
         label: Default
         uuid: b5d8ea4b-fe2b-425b-97c1-94c9bccacf81
@@ -273,7 +255,6 @@ third_party_settings:
       children:
         - field_issue_number
         - field_issue_volume
-        - field_issue_year
       parent_name: ''
       weight: 1
       format_type: fieldset

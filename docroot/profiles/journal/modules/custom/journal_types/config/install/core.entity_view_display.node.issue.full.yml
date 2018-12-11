@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.issue.field_issue_cover
     - field.field.node.issue.field_issue_number
     - field.field.node.issue.field_issue_open
+    - field.field.node.issue.field_issue_publication_date
     - field.field.node.issue.field_issue_volume
     - node.type.issue
   module:
@@ -36,10 +37,10 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
               region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
             region: content
             weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
             uuid: 97d29643-c01c-4b39-a270-86a67d29692e
           60012803-b656-4cbc-8e03-6e20bde3b6c1:
             id: 'entity_field:node:created'
@@ -56,10 +57,10 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
               region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
             region: content
             weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
             uuid: 60012803-b656-4cbc-8e03-6e20bde3b6c1
           bf319e4a-d1ff-47bb-9004-d58ff6693d1e:
             id: 'entity_field:node:body'
@@ -73,10 +74,10 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
               region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
             region: content
             weight: 2
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
             uuid: bf319e4a-d1ff-47bb-9004-d58ff6693d1e
           363878c9-b637-4f6d-a8e3-f852765f7dbd:
             id: 'entity_field:node:field_issue_cover'
@@ -92,10 +93,10 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
               region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
             region: content
             weight: 3
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
             uuid: 363878c9-b637-4f6d-a8e3-f852765f7dbd
           3ddf8b48-7952-4622-ba28-150f7f2bb8d9:
             id: 'entity_field:node:field_issue_number'
@@ -111,10 +112,10 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
               region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
             region: content
             weight: 5
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
             uuid: 3ddf8b48-7952-4622-ba28-150f7f2bb8d9
           6cd5ba49-3eb6-41c9-99cd-e3df4b7dacb6:
             id: 'entity_field:node:field_issue_volume'
@@ -129,48 +130,11 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
               region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
             region: content
             weight: 4
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
             uuid: 6cd5ba49-3eb6-41c9-99cd-e3df4b7dacb6
-          d3338374-69da-4dfa-bf77-3138557cb679:
-            id: 'entity_field:node:field_issue_year'
-            label: Year
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: number_integer
-              settings:
-                thousand_separator: ''
-                prefix_suffix: true
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            region: content
-            weight: 3
-            uuid: d3338374-69da-4dfa-bf77-3138557cb679
-          558ad329-cb90-4024-8185-fef11993b3e3:
-            id: 'entity_field:node:field_parent_journal'
-            label: 'Parent Journal'
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: above
-              type: entity_reference_label
-              settings:
-                link: true
-              third_party_settings: {  }
-              weight: 0
-              region: content
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
-            region: content
-            weight: 0
-            uuid: 558ad329-cb90-4024-8185-fef11993b3e3
         id: panels_variant
         label: Default
         uuid: e931344e-e30a-4257-bb04-e05e8f1b15c2
@@ -178,10 +142,11 @@ third_party_settings:
         layout: layout_onecol
         layout_settings: {  }
         page_title: '[node:title]'
-        storage_type: ''
-        storage_id: ''
+        storage_type: panelizer_default
+        storage_id: 'node:issue:full:default'
         builder: ipe
         pattern: panelizer
+        static_context: {  }
       issue_with_table_of_contents:
         blocks:
           4f78e630-efc5-4a24-9613-1a8a1e9b5b0d:
@@ -223,7 +188,6 @@ third_party_settings:
       children:
         - field_issue_number
         - field_issue_volume
-        - field_issue_year
       parent_name: ''
       weight: 1
       format_type: fieldset
@@ -263,5 +227,6 @@ content:
 hidden:
   field_issue_number: true
   field_issue_open: true
+  field_issue_publication_date: true
   field_issue_volume: true
   langcode: true
