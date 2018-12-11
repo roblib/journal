@@ -20,6 +20,6 @@ dependencies:
   - journal_references
   - paragraphs
   - pathauto
-  - require_on_publish
+
 
 
