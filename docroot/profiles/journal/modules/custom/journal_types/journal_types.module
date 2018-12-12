@@ -74,9 +74,6 @@ function journal_types_pathauto_pattern_alter(PathautoPattern &$pattern, array $
       foreach ($parts as $part) {
         $slug .= !empty($part) ? $cleaner->cleanString($part) . '/' : '';
       }
-      if ($node->getType() == 'journal_article') {
-        $slug .= '[node:title]';
-      }
 
       $pattern->setPattern($slug . '/' . $pattern->getPattern());
     }

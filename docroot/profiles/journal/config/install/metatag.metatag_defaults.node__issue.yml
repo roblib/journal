@@ -1,11 +1,13 @@
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: HAWGbhacNu42B8eiIHXmi2mIB6FzFf6cuzhS7lbE9sk
 id: node__issue
 label: 'Content: Issue'
 tags:
   description: '[node:body]'
-  image_src: '[node:field_issue_cover]'
+  image_src: '[node:field_issue_cover:entity:url]'
   abstract: '[node:body]'
   dcterms_title: '[node:title]'
   dcterms_type: Text
