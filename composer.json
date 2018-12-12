@@ -51,7 +51,8 @@
         "drupal/taxonomy_import": "^1.0",
         "drupal/linkit": "^4.3",
         "drupal/require_on_publish": "^1.1",
-        "drupal/ckeditor_bootstrap_grid": "^1.2" 
+        "drupal/ckeditor_bootstrap_grid": "^1.2",
+        "drupal/ckeditor_blockquote_attribution": "^1.0@beta" 
     },
     "repositories": {
         "drupal": {

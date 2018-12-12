@@ -15,4 +15,5 @@ dependencies:
   - bibcite_entity
   - footnotes
   - bibcite_footnotes
+  - ckeditor_blockquote_attribution
   - toc_filter

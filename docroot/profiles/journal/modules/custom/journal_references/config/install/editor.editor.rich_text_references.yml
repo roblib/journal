@@ -6,7 +6,7 @@ dependencies:
   module:
     - ckeditor
 _core:
-  default_config_hash: A0aQ3vA9k_7zIbWZSN_YOLxw-t6fN-099td92MJXPoA
+  default_config_hash: VcTIWimn2gjjIeXeNlksgzleqMPYHTBGTIzvNJ9Tu_0
 format: rich_text_references
 editor: ckeditor
 settings:
@@ -42,6 +42,7 @@ settings:
           items:
             - media_browser
             - Blockquote
+            - blockquote_attribution
         -
           name: Tools
           items:
