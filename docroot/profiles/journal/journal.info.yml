@@ -28,7 +28,11 @@ install:
   - journal_editorial
   - journal_peer_review
   - journal_references
-  - journal_site 
+  - journal_site
+  - metatag
+  - metatag_dc
+  - metatag_dc_advanced
+  - metatag_google_scholar
 base profile: lightning
 exclude:
   - lightning_roles
