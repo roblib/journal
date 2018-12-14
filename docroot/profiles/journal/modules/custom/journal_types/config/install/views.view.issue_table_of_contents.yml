@@ -9,7 +9,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: W7dKmgdVEq0l0M432xfpZ2b37Nb7AA88fRcIHQKxLw0
+  default_config_hash: RZBiNA08oae7QsZ4hLOJnL_6IRYEz2N0ACl3agSLcqg
 id: issue_table_of_contents
 label: 'Issue Table of Contents'
 module: views
@@ -208,7 +208,7 @@ display:
       arguments:
         is_child:
           id: is_child
-          table: nested_set_field_journal_article_issue_node
+          table: nested_set_field_article_issue_node
           field: is_child
           relationship: none
           group_type: group
