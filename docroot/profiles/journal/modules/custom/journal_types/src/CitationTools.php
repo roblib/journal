@@ -55,7 +55,7 @@ class CitationTools {
     if (!empty($issue_entity_item)) {
       $data['issue_entity_id'] = $issue_entity_item->get('target_id')->getValue();
     }
-
+    $data['type'] = 'journal_article';
     if (!empty($data['issue_entity_id'])) {
       $data['issue_entity'] = $this->entityTypeManager->getStorage('node')
         ->load($data['issue_entity_id']);
@@ -84,6 +84,7 @@ class CitationTools {
         ->load($data['volume_entity_id']);
       $data += $this->getCitationMetadataForVolume($data['volume_entity']);
     }
+    $data['type'] = 'journal_article'; // bibcite does not have a distinct 'issue' bundle.
     return $data;
   }
 
@@ -106,6 +107,7 @@ class CitationTools {
 
     }
 
+    $data['type'] = 'journal_article'; // bibcite does not have a distinct 'issue' bundle.
     return $data;
   }
 
@@ -118,6 +120,7 @@ class CitationTools {
     $data['bibcite_secondary_title'] = $journal_entity->get('title')->getValue();
     $data['journal_abbrev'] = $journal_entity->get('field_journal_abbrev')->getValue();
     $data['journal_initials'] = $journal_entity->get('field_journal_initials')->getValue();
+    $data['type'] = 'journal';
     return $data;
   }
   

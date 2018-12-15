@@ -23,6 +23,8 @@ use Drupal\journal_types\CitationTools;
  *   id = "citation_field_formatter",
  *   label = @Translation("Citation"),
  *   field_types = {
+ *     "string",
+ *     "string_long",
  *     "text_long"
  *   }
  * )
@@ -139,11 +141,10 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
     //$r = entity_create('bibcite_reference', ['type' => 'book']);
     $field_map = \Drupal::entityManager()->getFieldMap();
     $node_field_map = $field_map['node'];
-    $article_entity = $item->getEntity();
+    $entity = $item->getEntity();
     $citationTools = new CitationTools($this->entityTypeManager);
-    $citation_metadata = $citationTools->getCitationMetadataForArticle($article_entity);
-
-    $citation_metadata['type'] = 'journal_article';
+    $citation_metadata = $citationTools->getCitationMetadata($entity);
+    
     if ($this->getSetting('omit_title')) {
       unset($citation_metadata['title']);
     }
@@ -189,6 +190,9 @@ class CitationFieldFormatter extends FormatterBase implements ContainerFactoryPl
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
   }
 
+  /**
+   * @inheritdoc
+   */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static($plugin_id, $plugin_definition, $configuration['field_definition'], $configuration['settings'], $configuration['label'], $configuration['view_mode'], $configuration['third_party_settings'],
       $container->get('config.factory'),
