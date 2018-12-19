@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_highlight_image
-    - field.field.node.journal_article.field_article_issue
+    - field.field.node.journal_article.field_part_of
     - field.field.node.journal_article.field_article_peer_reviewed
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
@@ -143,7 +143,7 @@ hidden:
   field_article_dc_source: true
   field_article_disciplines: true
   field_article_editor_comments: true
-  field_article_issue: true
+  field_part_of: true
   field_article_peer_reviewed: true
   field_article_section: true
   field_article_subjects: true
