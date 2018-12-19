@@ -17,9 +17,13 @@ dependencies:
     - field.field.node.journal_article.field_article_subtitle
     - field.field.node.journal_article.field_article_type
     - field.field.node.journal_article.field_authors_and_affiliations
+    - field.field.node.journal_article.field_cc_license
+    - field.field.node.journal_article.field_doi
     - field.field.node.journal_article.field_editorial_comments
+    - field.field.node.journal_article.field_featured_article
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
+    - field.field.node.journal_article.field_part_of
     - field.field.node.journal_article.field_publication_date_electroni
     - field.field.node.journal_article.field_works_cited
     - node.type.journal_article
@@ -98,13 +102,13 @@ third_party_settings:
       label: 'Article Content'
     group_publication_state:
       children:
+        - field_part_of
         - moderation_state
         - field_article_section
         - status
         - field_publication_date_electroni
         - path
         - field_article_peer_reviewed
-        - field_article_issue
       parent_name: group_article_info
       weight: 23
       format_type: tab
@@ -144,7 +148,7 @@ third_party_settings:
         required_fields: true
       label: 'Article Contributors'
 _core:
-  default_config_hash: cDXg4sR26zHpolCEKs6JK5x-pu-5IMxyT7M7g2IS6zY
+  default_config_hash: vSmxCbu2Kv7RqPlDZT5VaXpVB7Zh6hjQNKNvw7ECU74
 id: node.journal_article.default
 targetEntityType: node
 bundle: journal_article
@@ -177,12 +181,9 @@ content:
     region: content
   field_article_disciplines:
     weight: 130
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_article_editor_comments:
     weight: 2
@@ -206,27 +207,18 @@ content:
       open: true
     region: content
     third_party_settings: {  }
-  field_article_issue:
-    weight: 183
-    settings: {  }
-    third_party_settings: {  }
-    type: entity_reference_hierarchy_select
-    region: content
   field_article_peer_reviewed:
-    weight: 16
+    weight: 239
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_article_section:
-    weight: 11
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    weight: 235
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_article_subjects:
     weight: 129
@@ -274,15 +266,18 @@ content:
     region: content
   field_journal_article_keywords:
     weight: 131
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
+    region: content
+  field_part_of:
+    weight: 233
+    settings: {  }
+    third_party_settings: {  }
+    type: entity_reference_hierarchy_select
     region: content
   field_publication_date_electroni:
-    weight: 13
+    weight: 237
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -305,13 +300,13 @@ content:
     region: content
   moderation_state:
     type: moderation_state_default
-    weight: 10
+    weight: 234
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 14
+    weight: 238
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -319,7 +314,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 12
+    weight: 236
     region: content
     third_party_settings: {  }
   title:
@@ -332,8 +327,12 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_article_issue: true
   field_article_type: true
+  field_cc_license: true
+  field_doi: true
   field_editorial_comments: true
+  field_featured_article: true
   promote: true
   sticky: true
   uid: true

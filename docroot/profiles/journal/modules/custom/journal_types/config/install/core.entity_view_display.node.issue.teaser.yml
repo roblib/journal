@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.issue.field_issue_open
     - field.field.node.issue.field_issue_publication_date
     - field.field.node.issue.field_issue_volume
+    - field.field.node.issue.field_part_of
     - image.style.medium
     - node.type.issue
   module:
@@ -226,7 +227,7 @@ third_party_settings:
         weight: 0
         layout: layout_twocol_bricks
         layout_settings: {  }
-        page_title: null
+        page_title: ''
         storage_type: panelizer_default
         storage_id: 'node:issue:teaser:issue_list_item'
         pattern: panelizer
@@ -246,7 +247,7 @@ third_party_settings:
         description: ''
       label: Identification
 _core:
-  default_config_hash: gGkPYBc_im0nvKqDtFz7GNNwfCEM6W1vGnYFypiSC3c
+  default_config_hash: hsH_y_oOJOIDTEWOlzop58-s3O-0rVA0j30HccYPiis
 id: node.issue.teaser
 targetEntityType: node
 bundle: issue
@@ -278,3 +279,4 @@ hidden:
   field_issue_open: true
   field_issue_publication_date: true
   field_issue_volume: true
+  field_part_of: true

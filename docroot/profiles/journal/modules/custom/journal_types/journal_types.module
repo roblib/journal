@@ -42,7 +42,6 @@ function journal_types_theme() {
  *
  * Article: /[journal initials]/[volume]/[issue number]/[article title]
  * Issue: /[journal initials]/[volume]/[issue number]/[issue title]
- * Volume: /[journal initials]/[volume]
  * Journal: /[journal initials]/[journal title]
  *
  * Where all fields are subject to PathAuto's URL cleaner.
@@ -66,7 +65,6 @@ function journal_types_pathauto_pattern_alter(PathautoPattern &$pattern, array $
       case 'issue':
         // If this is the volume itself, it will get added via [node:title]
         array_unshift($parts, $citation_metadata['bibcite_volume'][0]['value']);
-      case 'volume':
         array_unshift($parts, $citation_metadata['journal_initials'][0]['value']);
     }
     if (!empty($parts)) {

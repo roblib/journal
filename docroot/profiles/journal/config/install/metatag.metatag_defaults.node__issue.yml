@@ -11,15 +11,15 @@ tags:
   abstract: '[node:body]'
   dcterms_title: '[node:title]'
   dcterms_type: Text
-  dcterms_publisher: '[node:field_issue_volume:entity:field_parent_journal:entity:field_journal_publisher]'
+  dcterms_publisher: '[node:field_part_of:entity:field_journal_publisher]'
   dcterms_description: '[node:body]'
   dcterms_coverage: '[node:langcode]'
   dcterms_format: text/html
   dcterms_modified: '[node:changed:html_datetime]'
   dcterms_abstract: '[node:body]'
   citation_title: '[node:title]'
-  citation_journal_title: '[node:field_issue_volume:entity:field_parent_journal:entity:title]'
+  citation_journal_title: '[node:field_part_of:entity:title]'
   citation_issue: '[node:field_issue_number]'
   citation_volume: '[node:field_issue_volume:entity:field_volume_number]'
-  citation_issn: '[node:field_issue_volume:entity:field_parent_journal:entity:field_journal_eissn]'
+  citation_issn: '[node:field_part_of:entity:field_journal_eissn]'
   citation_publication_date: '[node:field_publication_date:html_datetime]'

@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - entity_hierarchy
     - field_permissions
     - node
 third_party_settings:
@@ -11,10 +10,11 @@ third_party_settings:
 id: node.field_issue_volume
 field_name: field_issue_volume
 entity_type: node
-type: entity_reference_hierarchy
+type: integer
 settings:
-  target_type: node
-module: entity_hierarchy
+  unsigned: false
+  size: normal
+module: core
 locked: false
 cardinality: 1
 translatable: true

@@ -16,16 +16,20 @@ dependencies:
     - field.field.node.journal_article.field_article_subtitle
     - field.field.node.journal_article.field_article_type
     - field.field.node.journal_article.field_authors_and_affiliations
+    - field.field.node.journal_article.field_cc_license
+    - field.field.node.journal_article.field_doi
     - field.field.node.journal_article.field_editorial_comments
+    - field.field.node.journal_article.field_featured_article
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
     - field.field.node.journal_article.field_publication_date_electroni
+    - field.field.node.journal_article.field_works_cited
     - node.type.journal_article
   module:
     - text
     - user
 _core:
-  default_config_hash: semn1jSOtWHbzYan0pwFcKvW1upNTf3p3Mh8TkxMW7c
+  default_config_hash: H9y1kfOfS5mLH3kDmge34EEvLHKjxg-c-Uq6bPMYinY
 id: node.journal_article.teaser
 targetEntityType: node
 bundle: journal_article
@@ -62,8 +66,12 @@ hidden:
   field_article_subtitle: true
   field_article_type: true
   field_authors_and_affiliations: true
+  field_cc_license: true
+  field_doi: true
   field_editorial_comments: true
+  field_featured_article: true
   field_journal_article_abstract: true
   field_journal_article_keywords: true
   field_publication_date_electroni: true
+  field_works_cited: true
   scheduled_publication: true

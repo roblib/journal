@@ -11,9 +11,6 @@ class CitationTools {
       case 'journal':
         return $this->getCitationMetadataForJournal($entity);
         break;
-      case 'volume':
-        return $this->getCitationMetadataForVolume($entity);
-        break;
       case 'issue':
         return $this->getCitationMetadataForIssue($entity);
         break;
@@ -33,7 +30,7 @@ class CitationTools {
     $data = [];
     $data['bibcite_type_of_work'] = 'Journal article';
     $data['title'] = $article_entity->get('title')->getValue();
-    $issue_entity_item = $article_entity->get('field_article_issue')->first();
+    $issue_entity_item = $article_entity->get('field_part_of')->first();
 
     $affiliations = $article_entity->get('field_authors_and_affiliations')->referencedEntities();
     $contributors = [];
@@ -73,30 +70,9 @@ class CitationTools {
     $data = [];
     $data['bibcite_number'] = $issue_entity->get('field_issue_number')->getValue();
     $data['bibcite_year'] = $issue_entity->get('field_issue_publication_date')->date->format('Y');
-    $volume_item = $issue_entity->get('field_issue_volume')->first();
-    if (!empty($volume_item)) {
-      $data['volume_entity_id'] = $volume_item->get('target_id')->getValue();
-    }
+    $data['bibcite_volume'] = $issue_entity->get('field_issue_volume')->getValue();
 
-    if (!empty($data['volume_entity_id'])) {
-
-      $data['volume_entity'] = $this->entityTypeManager->getStorage('node')
-        ->load($data['volume_entity_id']);
-      $data += $this->getCitationMetadataForVolume($data['volume_entity']);
-    }
-    $data['type'] = 'journal_article'; // bibcite does not have a distinct 'issue' bundle.
-    return $data;
-  }
-
-  /**
-   * Get citation metadata from a Volume eneity type.
-   * @return array The Volume metadata.
-   */
-  public function getCitationMetadataForVolume($volume_entity) {
-    $data = [];
-    $data['bibcite_volume'] = $volume_entity->get('field_volume_number')->getValue();
-    $data['bibcite_year'] = $volume_entity->get('field_volume_year')->getValue();
-    $journal_item = $volume_entity->get('field_parent_journal')->first();
+    $journal_item = $issue_entity->get('field_part_of')->first();
     if (!empty($journal_item)) {
       $data['journal_entity_id'] = $journal_item->get('target_id')->getValue();
     }
@@ -104,7 +80,6 @@ class CitationTools {
       $data['journal_entity'] = $this->entityTypeManager->getStorage('node')
         ->load($data['journal_entity_id']);
       $data += $this->getCitationMetadataForJournal($data['journal_entity']);
-
     }
 
     $data['type'] = 'journal_article'; // bibcite does not have a distinct 'issue' bundle.

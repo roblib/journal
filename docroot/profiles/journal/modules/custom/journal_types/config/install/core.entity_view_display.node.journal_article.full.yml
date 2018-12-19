@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.journal_article.field_article_disciplines
     - field.field.node.journal_article.field_article_editor_comments
     - field.field.node.journal_article.field_article_highlight_image
-    - field.field.node.journal_article.field_article_issue
     - field.field.node.journal_article.field_article_peer_reviewed
     - field.field.node.journal_article.field_article_section
     - field.field.node.journal_article.field_article_subjects
@@ -19,17 +18,22 @@ dependencies:
     - field.field.node.journal_article.field_authors_and_affiliations
     - field.field.node.journal_article.field_cc_license
     - field.field.node.journal_article.field_doi
+    - field.field.node.journal_article.field_editorial_comments
     - field.field.node.journal_article.field_featured_article
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
+    - field.field.node.journal_article.field_part_of
     - field.field.node.journal_article.field_publication_date_electroni
     - field.field.node.journal_article.field_works_cited
     - node.type.journal_article
   module:
     - datetime
+    - entity_hierarchy
     - entity_reference_revisions
     - field_group
     - file
+    - link
+    - options
     - panelizer
     - text
     - user
@@ -57,6 +61,7 @@ third_party_settings:
       label: 'Article Info'
     group_article_text:
       children:
+        - field_part_of
         - field_journal_article_abstract
         - field_journal_article_keywords
         - body
@@ -74,7 +79,7 @@ third_party_settings:
         - group_article_text
         - group_article_info
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: accordion
       format_settings:
         effect: none
@@ -82,7 +87,7 @@ third_party_settings:
         id: ''
       label: Article
 _core:
-  default_config_hash: xFghkdLOAvJDUoshanvFtxyV9xucaPdZjWA7nwef1iY
+  default_config_hash: cJOOMw2Z_jAS6zpKIGu8MUd6ntdmksZLFSHeGabyaPc
 id: node.journal_article.full
 targetEntityType: node
 bundle: journal_article
@@ -91,7 +96,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 22
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -129,7 +134,7 @@ content:
     region: content
   field_article_section:
     weight: 0
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
@@ -159,12 +164,11 @@ content:
     type: text_default
     region: content
   field_article_type:
-    weight: 5
+    weight: 6
     label: inline
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: list_default
     region: content
   field_authors_and_affiliations:
     type: entity_reference_revisions_entity_view
@@ -182,8 +186,20 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  field_doi:
+    type: link
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
   field_journal_article_abstract:
-    weight: 20
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -191,14 +207,22 @@ content:
     region: content
   field_journal_article_keywords:
     type: entity_reference_label
-    weight: 21
+    weight: 2
     region: content
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
+  field_part_of:
+    type: entity_reference_hierarchy_label
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_publication_date_electroni:
-    weight: 4
+    weight: 5
     label: inline
     settings:
       format_type: medium
@@ -215,8 +239,6 @@ hidden:
   field_article_dc_rights: true
   field_article_dc_source: true
   field_article_editor_comments: true
-  field_article_issue: true
-  field_doi: true
+  field_editorial_comments: true
   field_featured_article: true
   field_works_cited: true
-  langcode: true

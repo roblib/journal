@@ -5,8 +5,8 @@ dependencies:
     - entity_browser.browser.media_browser
     - field.field.node.news_article.body
     - field.field.node.news_article.field_article_highlight_image
-    - field.field.node.news_article.field_article_issue
     - field.field.node.news_article.field_article_section
+    - field.field.node.news_article.field_part_of
     - node.type.news_article
   module:
     - content_moderation
@@ -15,7 +15,7 @@ dependencies:
     - path
     - text
 _core:
-  default_config_hash: qMmwpsUSr3O_KBo78yU8umrFFTCRve5PHvwLbn8p3YU
+  default_config_hash: icalymWJVSMqbFOEmncF5vVTcmk0Qae4taSa-q64V58
 id: node.news_article.default
 targetEntityType: node
 bundle: news_article
@@ -50,16 +50,6 @@ content:
       open: true
     region: content
     third_party_settings: {  }
-  field_article_issue:
-    weight: 124
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-      hide_weight: false
-    third_party_settings: {  }
-    type: entity_reference_hierarchy_autocomplete
-    region: content
   field_article_section:
     weight: 122
     settings:
@@ -68,6 +58,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_part_of:
+    weight: 124
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      hide_weight: false
+    third_party_settings: {  }
+    type: entity_reference_hierarchy_autocomplete
     region: content
   moderation_state:
     type: moderation_state_default

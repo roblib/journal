@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.issue.field_issue_open
     - field.field.node.issue.field_issue_publication_date
     - field.field.node.issue.field_issue_volume
+    - field.field.node.issue.field_part_of
     - image.style.thumbnail
     - node.type.issue
   module:
@@ -62,8 +63,9 @@ third_party_settings:
       label: 'Publication State'
     group_identification:
       children:
-        - field_issue_volume
+        - field_part_of
         - field_issue_number
+        - field_issue_volume
       parent_name: group_basic_info
       weight: 2
       format_type: fieldset
@@ -74,7 +76,7 @@ third_party_settings:
         required_fields: true
       label: Identification
 _core:
-  default_config_hash: Wcu_2NsYWqUw_50595PLiWHBTZjFB02g5lI5hQ2o9s4
+  default_config_hash: 1TD70uMKjooPJ5b7-zbLdB3_PsTw1i37SDRp5AcUdN8
 id: node.issue.default
 targetEntityType: node
 bundle: issue
@@ -99,14 +101,14 @@ content:
     third_party_settings: {  }
   field_issue_number:
     type: number
-    weight: 1
+    weight: 4
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_issue_open:
     type: boolean_checkbox
-    weight: 0
+    weight: 4
     region: content
     settings:
       display_label: true
@@ -118,15 +120,22 @@ content:
     type: datetime_default
     region: content
   field_issue_volume:
-    type: entity_reference_hierarchy_autocomplete
-    weight: 0
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
+  field_part_of:
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
       hide_weight: false
     third_party_settings: {  }
+    type: entity_reference_hierarchy_autocomplete
+    region: content
   status:
     type: boolean_checkbox
     settings:
@@ -144,7 +153,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  langcode: true
   moderation_state: true
   path: true
   promote: true

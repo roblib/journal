@@ -2,17 +2,21 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_article_issue
+    - field.storage.node.field_part_of
     - node.type.issue
     - node.type.news_article
   module:
     - entity_hierarchy
-id: node.news_article.field_article_issue
-field_name: field_article_issue
+    - require_on_publish
+third_party_settings:
+  require_on_publish:
+    require_on_publish: false
+id: node.news_article.field_part_of
+field_name: field_part_of
 entity_type: node
 bundle: news_article
 label: Issue
-description: 'Attach this news item to an issue.'
+description: 'Optionally attach this news story to a journal issue.'
 required: false
 translatable: true
 default_value: {  }
@@ -23,11 +27,10 @@ settings:
     target_bundles:
       issue: issue
     sort:
-      field: created
-      direction: DESC
+      field: _none
     auto_create: 0
     auto_create_bundle: ''
-  weight_min: -50
-  weight_max: 50
+  weight_min: 0
+  weight_max: 1024
   weight_label: Order
 field_type: entity_reference_hierarchy

@@ -9,7 +9,7 @@ dependencies:
     - node
     - user
 _core:
-  default_config_hash: RZBiNA08oae7QsZ4hLOJnL_6IRYEz2N0ACl3agSLcqg
+  default_config_hash: Y4OxHX-c0AUGvqDC59WP06hukcfEOpQByw-QudF2dFE
 id: issue_table_of_contents
 label: 'Issue Table of Contents'
 module: views
@@ -173,18 +173,6 @@ display:
             group_items: {  }
           plugin_id: node_access
       sorts:
-        left_pos:
-          id: left_pos
-          table: nested_set_field_article_issue_node
-          field: left_pos
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
         created:
           id: created
           table: node_field_data
@@ -208,7 +196,7 @@ display:
       arguments:
         is_child:
           id: is_child
-          table: nested_set_field_article_issue_node
+          table: nested_set_field_part_of_node
           field: is_child
           relationship: none
           group_type: group

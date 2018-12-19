@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.issue.field_issue_open
     - field.field.node.issue.field_issue_publication_date
     - field.field.node.issue.field_issue_volume
+    - field.field.node.issue.field_part_of
     - node.type.issue
   module:
     - field_group
@@ -197,7 +198,7 @@ third_party_settings:
         description: ''
       label: Identification
 _core:
-  default_config_hash: nHDusQgkK2VeOkzGDsYf9rx4hWWoA2z47WcVA7nqYCA
+  default_config_hash: UdxLRFarJJjUsnmWnFMO9xlciEMWSfqBwNMaZzo95-g
 id: node.issue.full
 targetEntityType: node
 bundle: issue
@@ -229,4 +230,4 @@ hidden:
   field_issue_open: true
   field_issue_publication_date: true
   field_issue_volume: true
-  langcode: true
+  field_part_of: true
