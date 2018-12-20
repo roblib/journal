@@ -53,7 +53,8 @@
         "drupal/require_on_publish": "^1.1",
         "drupal/ckeditor_bootstrap_grid": "^1.2",
         "drupal/ckeditor_blockquote_attribution": "^1.0@beta",
-        "drupal/eva": "^2.0" 
+        "drupal/eva": "^2.0",
+        "drupal/module_filter": "^3.1" 
     },
     "repositories": {
         "drupal": {
