@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: mdm0cJ9IaSUWu0DKYWMbwWNOUF7OLFVUIP9pJe3K8kg
+  default_config_hash: gjXr0G4kdwQg80yfG9lm_TL1cop6uPD5BdPMvcj6yi4
 id: journal_article_reviewer
 label: 'Article reviewer'
 weight: 12
@@ -14,15 +14,12 @@ permissions:
   - 'create bibcite_contributor'
   - 'create bibcite_keyword'
   - 'create bibcite_reference'
-  - 'create field_part_of'
   - 'delete any journal_article content'
   - 'delete own bibcite_keyword'
   - 'delete own bibcite_reference'
-  - 'edit field_part_of'
   - 'edit own bibcite_keyword'
   - 'edit own bibcite_reference'
   - 'edit own comments'
-  - 'edit own field_part_of'
   - 'post comments'
   - 'skip comment approval'
   - 'use editorial transition archive'
@@ -33,7 +30,7 @@ permissions:
   - 'use journal_article_submission transition reviewer_feedback'
   - 'use moderation sidebar'
   - 'use text format links_only'
-  - 'use text format rich_text_references'
+  - 'use text format rich_text'
   - 'view any unpublished content'
   - 'view bibcite_contributor'
   - 'view bibcite_keyword'

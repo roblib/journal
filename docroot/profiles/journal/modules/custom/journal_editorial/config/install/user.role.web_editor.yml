@@ -7,7 +7,7 @@ third_party_settings:
   lightning_core:
     description: 'Able to create and edit non-scholarly site content.'
 _core:
-  default_config_hash: 1JdyjxutPRtXva0SXswqZcvpRirbJSSFLgMlJQXpilg
+  default_config_hash: RUVGF6qnEwwnXM0FPtbEFf9fpVX7Cl7OPtIqis9b5ug
 id: web_editor
 label: 'Web content editor'
 weight: 13
@@ -22,11 +22,18 @@ permissions:
   - 'administer panelizer node page content'
   - 'administer panelizer node page layout'
   - 'change layouts in place editing'
+  - 'create audio_file media'
   - 'create bibcite_contributor'
   - 'create bibcite_keyword'
   - 'create bibcite_reference'
+  - 'create document media'
+  - 'create image media'
+  - 'create instagram media'
   - 'create page content'
+  - 'create tweet media'
   - 'create url aliases'
+  - 'create video media'
+  - 'create video_file media'
   - 'delete any page content'
   - 'delete own bibcite_keyword'
   - 'delete own bibcite_reference'
