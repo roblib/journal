@@ -1,3 +1,4 @@
+uuid: 3973df1c-48e5-438d-99f0-aa75410c853a
 langcode: en
 status: true
 dependencies: {  }
@@ -9,16 +10,10 @@ weight: 12
 is_admin: null
 permissions:
   - 'access comments'
-  - 'access content overview'
-  - 'access toolbar'
-  - 'create bibcite_contributor'
-  - 'create bibcite_keyword'
-  - 'create bibcite_reference'
+  - 'change own username'
   - 'delete any journal_article content'
   - 'delete own bibcite_keyword'
-  - 'delete own bibcite_reference'
   - 'edit own bibcite_keyword'
-  - 'edit own bibcite_reference'
   - 'edit own comments'
   - 'post comments'
   - 'skip comment approval'
@@ -26,13 +21,10 @@ permissions:
   - 'use editorial transition publish'
   - 'use editorial transition review'
   - 'use journal_article_submission transition create_new_draft'
-  - 'use journal_article_submission transition pass_peer_review'
   - 'use journal_article_submission transition reviewer_feedback'
+  - 'use moderation dashboard'
   - 'use moderation sidebar'
   - 'use text format links_only'
   - 'use text format rich_text'
   - 'view any unpublished content'
-  - 'view bibcite_contributor'
-  - 'view bibcite_keyword'
-  - 'view bibcite_reference'
   - 'view latest version'
