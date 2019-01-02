@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: gjXr0G4kdwQg80yfG9lm_TL1cop6uPD5BdPMvcj6yi4
+  default_config_hash: fyr-r-1PNzrdqnhDX0Eds5z2dYuNkpU2q7bUXBwLnuI
 id: journal_article_reviewer
 label: 'Article reviewer'
 weight: 12
@@ -26,4 +26,5 @@ permissions:
   - 'use text format links_only'
   - 'use text format rich_text'
   - 'view any unpublished content'
+  - 'view field_article_submission_files'
   - 'view latest version'

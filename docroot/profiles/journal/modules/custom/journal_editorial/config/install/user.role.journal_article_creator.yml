@@ -7,7 +7,7 @@ third_party_settings:
   lightning_core:
     description: 'Article submitters, able to submit content for review and edit their own submitted content. They can also add contributors and references for use in their own articles.'
 _core:
-  default_config_hash: Ojo7mqTDfZivpDuRAUCoi70AveggnMSb-D59KRVkf-c
+  default_config_hash: WRLBUAx5Xohg4toMToqJ1LXleuIp8gXWVY0IQ4tOIHw
 id: journal_article_creator
 label: Author
 weight: 11
@@ -27,6 +27,7 @@ permissions:
   - 'create document media'
   - 'create field_affiliation_contributor'
   - 'create field_affiliation_string'
+  - 'create field_article_submission_files'
   - 'create field_authors_and_affiliations'
   - 'create image media'
   - 'create instagram media'
@@ -52,6 +53,7 @@ permissions:
   - 'edit own document media'
   - 'edit own field_affiliation_contributor'
   - 'edit own field_affiliation_string'
+  - 'edit own field_article_submission_files'
   - 'edit own field_authors_and_affiliations'
   - 'edit own image media'
   - 'edit own instagram media'
@@ -78,6 +80,7 @@ permissions:
   - 'view own field_affiliation_contributor'
   - 'view own field_affiliation_string'
   - 'view own field_article_section'
+  - 'view own field_article_submission_files'
   - 'view own field_authors_and_affiliations'
   - 'view own field_doi'
   - 'view own unpublished content'

@@ -7,7 +7,9 @@ dependencies:
     - node
 third_party_settings:
   field_permissions:
-    permission_type: public
+    permission_type: custom
+_core:
+  default_config_hash: zVkY8R3CI_FJ-FxLzfibIRfJPvb0y_jQ5FzmABrPIfo
 id: node.field_article_submission_files
 field_name: field_article_submission_files
 entity_type: node
