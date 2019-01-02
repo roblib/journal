@@ -22,7 +22,6 @@ dependencies:
     - field.field.node.journal_article.field_featured_article
     - field.field.node.journal_article.field_journal_article_abstract
     - field.field.node.journal_article.field_journal_article_keywords
-    - field.field.node.journal_article.field_part_of
     - field.field.node.journal_article.field_publication_date_electroni
     - field.field.node.journal_article.field_works_cited
     - node.type.journal_article
@@ -61,7 +60,6 @@ third_party_settings:
       label: 'Article Info'
     group_article_text:
       children:
-        - field_part_of
         - field_journal_article_abstract
         - field_journal_article_keywords
         - body
@@ -210,14 +208,6 @@ content:
     weight: 2
     region: content
     label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-  field_part_of:
-    type: entity_reference_hierarchy_label
-    weight: 0
-    region: content
-    label: above
     settings:
       link: true
     third_party_settings: {  }
