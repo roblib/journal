@@ -8,7 +8,7 @@ dependencies:
     - footnotes
     - toc_filter
 _core:
-  default_config_hash: WiEeCQ-0Hlim0H5aTmGf6qvCEggl0OKceCWtaVt3nnM
+  default_config_hash: iHJ16aGFwRk4HRJz7IPWJWsjxrjl0R1fUXwBSop2OaI
 name: 'Rich Text with References'
 format: rich_text_references
 weight: -11
@@ -99,9 +99,9 @@ filters:
   toc_filter:
     id: toc_filter
     provider: toc_filter
-    status: false
+    status: true
     weight: 0
     settings:
-      type: default
+      type: full
       auto: ''
       block: '0'

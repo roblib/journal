@@ -6,6 +6,12 @@ dependencies:
     - node.type.journal_article
   module:
     - file
+    - require_on_publish
+third_party_settings:
+  require_on_publish:
+    require_on_publish: false
+_core:
+  default_config_hash: mvPTDZbb_3ppaz2QhbZgmelZp70zKtwiJNUDMnawYPs
 id: node.journal_article.field_article_submission_files
 field_name: field_article_submission_files
 entity_type: node
@@ -18,7 +24,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: 'submissions/[current-user:account-name]/[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'txt jpg jpeg png gif wav mov mp3 mp4 pdf doc'
+  file_extensions: 'txt jpg jpeg png gif wav mov mp3 mp4 pdf doc xml xls docx xlsx'
   max_filesize: '100 MB'
   description_field: true
   handler: 'default:file'

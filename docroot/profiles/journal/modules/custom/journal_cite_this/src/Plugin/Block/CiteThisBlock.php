@@ -105,23 +105,23 @@ class CiteThisBlock extends BlockBase implements ContainerFactoryPluginInterface
       '#data' => $data,
     ];
 
-
-    $export_links = [
-      '#theme' => 'links',
-      //'#list_type' => 'ul',
-      '#prefix' => '<h3>' . $this->t('Export as') . '</h3>',
-      '#links' => [],
-      //'#attributes' => ['class' => ['citation-export-links']],
-      //'#wrapper_attributes' => ['class' => ['container']],
-    ];
-    foreach ($formats as $format) {
-      // Endnote 7 export seems to be buggy.
-      $export_links['#links'][] = [
-        'title' => $format['label'],
-        'url' => Url::fromRoute('journal_cite_this.journal_export_controller_export', ['bibcite_format' => $format['id'], 'entity_type' => 'node', 'entity' => $nid]),
+    if (!empty($nid)) {
+      $export_links = [
+        '#theme' => 'links',
+        //'#list_type' => 'ul',
+        '#prefix' => '<h3>' . $this->t('Export as') . '</h3>',
+        '#links' => [],
+        //'#attributes' => ['class' => ['citation-export-links']],
+        //'#wrapper_attributes' => ['class' => ['container']],
       ];
+      foreach ($formats as $format) {
+        // Endnote 7 export seems to be buggy.
+        $export_links['#links'][] = [
+          'title' => $format['label'],
+          'url' => Url::fromRoute('journal_cite_this.journal_export_controller_export', ['bibcite_format' => $format['id'], 'entity_type' => 'node', 'entity' => $nid]),
+        ];
+      }
     }
-
     return [$text_citation, $export_links];
   }
 
