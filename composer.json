@@ -50,9 +50,7 @@
         "drupal/inline_entity_form": "^1.0@RC", 
         "drupal/taxonomy_import": "^1.0",
         "drupal/linkit": "^4.3", 
-        "drupal/require_on_publish": "^1.1@dev", 
         "drupal/require_on_publish": "^1.2",
->>>>>>> bcacdec6fe3becccb26042fa5c515eb847451ef6
         "drupal/ckeditor_bootstrap_grid": "^1.2",
         "drupal/ckeditor_blockquote_attribution": "^1.0@beta",
         "drupal/eva": "^2.0",
