@@ -12,6 +12,7 @@
         "acquia/lightning_dev": "dev-8.x-1.x"
     },
     "require": {
+        "zaporylie/composer-drupal-optimizations": "^1.0",
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.6.0",
         "acquia/lightning": "~3.2.2",
@@ -54,7 +55,8 @@
         "drupal/ckeditor_bootstrap_grid": "^1.2",
         "drupal/ckeditor_blockquote_attribution": "^1.0@beta",
         "drupal/eva": "^2.0",
-        "drupal/module_filter": "^3.1" 
+        "drupal/module_filter": "^3.1",
+        "drupal/media_attribution": "^1.0@beta" 
     },
     "repositories": {
         "drupal": {
