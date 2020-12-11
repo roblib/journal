@@ -12,16 +12,16 @@
         "acquia/lightning_dev": "dev-8.x-1.x"
     },
     "require": {
-        "zaporylie/composer-drupal-optimizations": "^1.0",
+        "zaporylie/composer-drupal-optimizations": "^1.0", 
         "drupal-composer/drupal-scaffold": "*",
         "cweagans/composer-patches": "^1.6.1",
         "oomphinc/composer-installers-extender": "^1.1",	
-        "acquia/lightning": "4.1.9",
+        "acquia/lightning": "4.1.9", 
         "drupal/address": "*",
         "drupal/field_group": "*",
-        "drupal/entity": "~1.0beta3",
+        "drupal/entity": "^1.1",
         "drupal/field_permissions": "*",
-        "drupal/bibcite": "^1.0@dev",
+        "drupal/bibcite": "^1.0@alpha",
 	"drupal/bibcite_footnotes": "1.x-dev",
         "drupal/footnotes": "^2.1", 
         "drupal/draggableviews": "^1.0", 
@@ -40,7 +40,7 @@
         "drupal/name": "^1.0@RC", 
         "drupal/bamboo_twig": "^4.1",
         "twig/extensions": "^1.5",
-        "drupal/twig_field_value": "^1.1",
+        "drupal/twig_field_value": "^1.1", 
         "drupal/search_api_solr": "^4.1", 
         "drupal/pathauto": "^1.6", 
         "drupal/masonry": "^1.0@RC",
@@ -49,13 +49,13 @@
         "drupal/masquerade": "^2.0@beta", 
         "drupal/inline_entity_form": "^1.0@RC", 
         "drupal/taxonomy_import": "^1.0",
-        "drupal/linkit": "^4.3", 
+        "drupal/linkit": "^5.0@beta", 
         "drupal/require_on_publish": "^1.2",
         "drupal/ckeditor_bootstrap_grid": "^1.2",
         "drupal/ckeditor_blockquote_attribution": "^1.0@beta",
         "drupal/eva": "^2.0",
-        "drupal/module_filter": "^3.1",
-        "drupal/media_attribution": "^1.0@beta",
+        "drupal/module_filter": "^3.1", 
+        "drupal/media_attribution": "^1.0", 
         "drupal/h5p": "^1.0@RC",
         "drupal/ckeditor_font": "^1.0",
         "drupal/ckeditor_indentblock": "^1.0@beta",
@@ -68,12 +68,13 @@
         "dompdf/dompdf": "^0.8.3",
         "drupal/openapi_rest": "^2.0@RC",
         "drupal/body_node_id_class": "^1.1",
-        "wikimedia/composer-merge-plugin": "^1.4",
+        "wikimedia/composer-merge-plugin": "^1.4", 
         "drupal/libraries": "^3.0@alpha",
         "drupal/lightning_core": "^5.2",
         "solarium/solarium": "^6.0.4",
         "drupal/search_api": "*",
-        "maennchen/zipstream-php": "*"
+        "maennchen/zipstream-php": "*",
+        "drupal/upgrade_status": "^3.0"
     },
     "config": {
         "process-timeout": 0
@@ -100,14 +101,14 @@
             "php docroot/core/scripts/drupal quick-start lightning --no-interaction"
         ]
     },
-    "extra": {
+    "extra": { 
         "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
             "locations": {
                 "web-root": "docroot/"
             }
         },
-        "enable-patching": true,
+        "enable-patching": true, 
         "installer-paths": {
            "docroot/core": [
                 "type:drupal-core"
